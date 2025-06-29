@@ -91,9 +91,9 @@ type TronThemePalette struct {
 func GetTronColors() map[string]string {
 	return map[string]string{
 		// Monochrome
-		"black":  "#000000ff",
-		"white":  "#ffffffff",
-		"shadow": "#00000040",
+		"black":     "#000000ff",
+		"purewhite": "#ffffffff",
+		"shadow":    "#00000040",
 
 		// Gray scale (dark to light)
 		"gray900": "#14191fff", // Background
@@ -102,56 +102,41 @@ func GetTronColors() map[string]string {
 		"gray600": "#183c66ff", // Border, Selection
 		"gray500": "#647c9bff", // ForegroundDim
 		"gray400": "#586676ff", // Comment
-		"gray300": "#748aa6ff", // Keyword, Operator
 		"gray200": "#aec2e0ff", // Foreground
-		"gray100": "#d0dfe6ff", // Variable
 		"gray50":  "#dae3f1ff", // ForegroundBright
 
 		// Blues
-		"blue700": "#1a5278ff", // Link color
-		"blue500": "#267fb5ff", // Primary blue
-		"blue400": "#2b6db9ff", // Bright blue
-		"blue300": "#4a95b3ff", // Cyan dim
-		"blue200": "#6ee2ffff", // Primary cyan
+		"blue500":       "#267fb5ff", // Primary blue
+		"blue400":       "#2b6db9ff", // Bright blue
+		"blue300":       "#4a95b3ff", // Cyan dim
+		"blue200":       "#6ee2ffff", // Primary cyan
 		"blue200bright": "#c8d9e8ff", // Bright blue-fg (90% lightness)
-		"blue200alpha": "#6ee2ff40", // Primary cyan with 25% opacity for search
+		"blue200alpha":  "#6ee2ff40", // Primary cyan with 25% opacity for search
 
 		// Greens
 		"green700": "#144212ff", // Success bg
 		"green600": "#4d5f07ff", // Green dim
 		"green500": "#95CC5Eff", // Alt green
-		"green400": "#A6E22Eff", // Bright green alt
 		"green300": "#C7F026ff", // Primary green
-		"green300subdue": "#3d4d08ff", // Line number subdued
 
 		// Yellows/Oranges
 		"yellow500": "#FFE792ff", // Primary yellow
 		"yellow400": "#ffd12cff", // Dim yellow
 		"orange500": "#FFB20Dff", // Primary orange
 		"orange400": "#F79D1Eff", // Light orange
-		"orange600": "#cc8f0aff", // Dim orange
 
 		// Reds
 		"red700": "#660000ff", // Error bg
-		"red600": "#cc3309ff", // Dark red
 		"red500": "#F92672ff", // Error red
 		"red400": "#FF410Dff", // Primary red (string color)
 		"red300": "#FF5F52ff", // Light red
 
 		// Purples
 		"purple500": "#967EFBff", // Primary purple
-		"purple600": "#7865c9ff", // Dim purple
 		"pink500":   "#ff79c6ff", // Primary pink
 
 		// Special alpha variants
 		"blue500alpha": "#267fb580", // Selection with alpha
-
-		// Pure white (different from gray scale white)
-		"purewhite": "#ffffffff",
-
-		// Player selection colors
-		"greendim": "#4d5f07ff",
-		"orangelight": "#F79D1Eff",
 	}
 }
 
@@ -202,7 +187,7 @@ func GetTronLegacyPalette() TronThemePalette {
 		Decorator:          colors["pink500"],
 		Punctuation:        colors["gray200"],
 		PunctuationSpecial: colors["gray500"],
-		Link:               colors["blue700"],
+		Link:               colors["blue300"],
 
 		// Terminal colors
 		TerminalBlack:  colors["black"],
@@ -236,8 +221,8 @@ func GetTronLegacyPalette() TronThemePalette {
 
 		// Player selection colors
 		Player1Selection:     colors["blue500alpha"],
-		Player3Selection:     colors["greendim"],
-		Player4Selection:     colors["orangelight"],
+		Player3Selection:     colors["green600"],
+		Player4Selection:     colors["orange400"],
 	}
 }
 
@@ -742,7 +727,7 @@ func generateSyntax(p TronThemePalette) map[string]any {
 		},
 		"link_uri": map[string]any{
 			"color":       p.Link,
-			"font_style":  "underline",
+			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"link_text": map[string]any{
