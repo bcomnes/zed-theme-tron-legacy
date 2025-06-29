@@ -77,6 +77,10 @@ type TronThemePalette struct {
 	SelectorAlt          string
 	AnnotationType       string
 	EmbeddedType         string
+
+	// Search
+	SearchHighlight      string
+
 	// Player selection colors
 	Player1Selection     string
 	Player3Selection     string
@@ -109,6 +113,8 @@ func GetTronColors() map[string]string {
 		"blue400": "#2b6db9ff", // Bright blue
 		"blue300": "#4a95b3ff", // Cyan dim
 		"blue200": "#6ee2ffff", // Primary cyan
+		"blue200bright": "#c8d9e8ff", // Bright blue-fg (90% lightness)
+		"blue200alpha": "#6ee2ff40", // Primary cyan with 25% opacity for search
 
 		// Greens
 		"green700": "#144212ff", // Success bg
@@ -116,6 +122,7 @@ func GetTronColors() map[string]string {
 		"green500": "#95CC5Eff", // Alt green
 		"green400": "#A6E22Eff", // Bright green alt
 		"green300": "#C7F026ff", // Primary green
+		"green300subdue": "#3d4d08ff", // Line number subdued
 
 		// Yellows/Oranges
 		"yellow500": "#FFE792ff", // Primary yellow
@@ -128,8 +135,8 @@ func GetTronColors() map[string]string {
 		"red700": "#660000ff", // Error bg
 		"red600": "#cc3309ff", // Dark red
 		"red500": "#F92672ff", // Error red
-		"red400": "#FF410Dff", // Primary red
-		"red300": "#ff6113ff", // Light red
+		"red400": "#FF410Dff", // Primary red (string color)
+		"red300": "#FF5F52ff", // Light red
 
 		// Purples
 		"purple500": "#967EFBff", // Primary purple
@@ -148,7 +155,7 @@ func GetTronColors() map[string]string {
 	}
 }
 
-// GetTronLegacyPalette returns the dark theme palette
+// GetTronLegacyPalette returns the dark theme palette. Always map a color to these
 func GetTronLegacyPalette() TronThemePalette {
 	colors := GetTronColors()
 
@@ -182,10 +189,11 @@ func GetTronLegacyPalette() TronThemePalette {
 		Comment:  colors["gray400"],
 		String:   colors["red400"],
 		Number:   colors["green300"],
-		Keyword:  colors["gray300"],
+		Keyword:  colors["blue500"],
 		Function: colors["orange500"],
 		Type:     colors["blue500"],
-		Variable: colors["gray100"],
+		Variable: colors["blue200bright"],
+		//Property: colors["blue200bright"],
 		Property: colors["green500"],
 
 		// Syntax highlighting - accent colors
@@ -207,7 +215,7 @@ func GetTronLegacyPalette() TronThemePalette {
 		TerminalWhite:  colors["gray200"],
 
 		// Additional semantic mappings
-		LineNumber:           colors["green600"],
+		LineNumber:           colors["gray500"],
 		ElementActiveBright:  colors["blue400"],
 		ConflictBackground:   colors["orange400"],
 		TerminalBrightWhite:  colors["purewhite"],
@@ -222,6 +230,10 @@ func GetTronLegacyPalette() TronThemePalette {
 		SelectorAlt:          colors["green500"],
 		AnnotationType:       colors["yellow400"],
 		EmbeddedType:         colors["yellow400"],
+
+		// Search
+		SearchHighlight:      colors["blue200alpha"],
+
 		// Player selection colors
 		Player1Selection:     colors["blue500alpha"],
 		Player3Selection:     colors["greendim"],
@@ -230,12 +242,12 @@ func GetTronLegacyPalette() TronThemePalette {
 }
 
 // generateTheme generates the complete theme JSON structure
-func generateTheme(palette TronThemePalette) map[string]interface{} {
-	return map[string]interface{}{
+func generateTheme(palette TronThemePalette) map[string]any {
+	return map[string]any{
 		"$schema": "https://zed.dev/schema/themes/v0.2.0.json",
 		"author":  "Hypermodules LLC, Bret Comnes (ported to Zed)",
 		"name":    "Tron Legacy",
-		"themes": []interface{}{
+		"themes": []any{
 			generateThemeStyle("Tron Legacy", "dark", palette),
 		},
 	}
@@ -243,11 +255,11 @@ func generateTheme(palette TronThemePalette) map[string]interface{} {
 
 // generateThemeStyle generates the style portion of the theme
 // This function maps semantic palette values to theme properties
-func generateThemeStyle(name string, appearance string, p TronThemePalette) map[string]interface{} {
-	return map[string]interface{}{
+func generateThemeStyle(name string, appearance string, p TronThemePalette) map[string]any {
+	return map[string]any{
 		"name":       name,
 		"appearance": appearance,
-		"style": map[string]interface{}{
+		"style": map[string]any{
 			// Core colors
 			"background":       p.Background,
 			"foreground":       p.Foreground,
@@ -307,7 +319,7 @@ func generateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"editor.subheader.background":                p.Highlight,
 
 			// Search
-			"search.match_background": p.Warning,
+			"search.match_background": p.SearchHighlight,
 
 			// Panels and tabs
 			"panel.background":              p.Background,
@@ -426,8 +438,8 @@ func generateThemeStyle(name string, appearance string, p TronThemePalette) map[
 }
 
 // generatePlayers generates the multiplayer cursor colors
-func generatePlayers(p TronThemePalette) []map[string]interface{} {
-	return []map[string]interface{}{
+func generatePlayers(p TronThemePalette) []map[string]any {
+	return []map[string]any{
 		{
 			"cursor":     p.Type,
 			"background": p.Type,
@@ -472,298 +484,303 @@ func generatePlayers(p TronThemePalette) []map[string]interface{} {
 }
 
 // generateSyntax generates the syntax highlighting rules
-func generateSyntax(p TronThemePalette) map[string]interface{} {
-	syntax := map[string]interface{}{
+func generateSyntax(p TronThemePalette) map[string]any {
+	syntax := map[string]any{
 		// Comments
-		"comment": map[string]interface{}{
+		"comment": map[string]any{
 			"color":       p.Comment,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"comment.doc": map[string]interface{}{
+		"comment.doc": map[string]any{
 			"color":       p.Comment,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Literals
-		"string": map[string]interface{}{
+		"string": map[string]any{
 			"color":       p.String,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"string.escape": map[string]interface{}{
+		"string.escape": map[string]any{
 			"color":       p.StringEscape,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"string.regex": map[string]interface{}{
+		"string.regex": map[string]any{
 			"color":       p.Regex,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"string.special": map[string]interface{}{
+		"string.special": map[string]any{
 			"color":       p.Decorator,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"string.special.symbol": map[string]interface{}{
+		"string.special.symbol": map[string]any{
 			"color":       p.Function,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"number": map[string]interface{}{
+		"number": map[string]any{
 			"color":       p.Number,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"boolean": map[string]interface{}{
+		"boolean": map[string]any{
 			"color":       p.Function,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"constant": map[string]interface{}{
+		"constant": map[string]any{
 			"color":       p.Function,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
 
 		// Identifiers
-		"variable": map[string]interface{}{
+		"variable": map[string]any{
 			"color":       p.Variable,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"variable.builtin": map[string]interface{}{
-			"color":       p.PunctuationSpecial,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"variable.parameter": map[string]interface{}{
-			"color":       p.VariableParam,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"variable.special": map[string]interface{}{
+		"variable.builtin": map[string]any{
 			"color":       p.TerminalPurple,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"field": map[string]interface{}{
+		"variable.parameter": map[string]any{
+			"color":       p.VariableParam,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
+		"variable.special": map[string]any{
+			"color":       p.TerminalPurple,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
+		"field": map[string]any{
 			"color":       p.Property,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"property": map[string]interface{}{
+		"property": map[string]any{
 			"color":       p.Property,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Functions
-		"function": map[string]interface{}{
+		"function": map[string]any{
 			"color":       p.Function,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"function.builtin": map[string]interface{}{
-			"color":       p.Type,
+		"function.builtin": map[string]any{
+			"color":       p.Keyword,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"method": map[string]interface{}{
+		"method": map[string]any{
 			"color":       p.Function,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"constructor": map[string]interface{}{
+		"constructor": map[string]any{
 			"color":       p.Constructor,
 			"font_style":  "italic",
 			"font_weight": 700,
 		},
 
 		// Keywords
-		"keyword": map[string]interface{}{
+		"keyword": map[string]any{
+			"color":       p.Keyword,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
+		"keyword.control": map[string]any{
 			"color":       p.Keyword,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"operator": map[string]interface{}{
+		"operator": map[string]any{
 			"color":       p.Keyword,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Types
-		"type": map[string]interface{}{
+		"type": map[string]any{
 			"color":       p.Type,
 			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"class": map[string]interface{}{
-			"color":       p.ClassType,
-			"font_style":  nil,
 			"font_weight": 700,
 		},
-		"interface": map[string]interface{}{
+		"class": map[string]any{
+			"color":       p.ClassType,
+			"font_style":  "italic",
+			"font_weight": 700,
+		},
+		"interface": map[string]any{
 			"color":       p.Property,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"enum": map[string]interface{}{
+		"enum": map[string]any{
 			"color":       p.EnumType,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"variant": map[string]interface{}{
+		"variant": map[string]any{
 			"color":       p.EnumType,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Markup
-		"tag": map[string]interface{}{
+		"tag": map[string]any{
 			"color":       p.Type,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"attribute": map[string]interface{}{
+		"attribute": map[string]any{
 			"color":       p.AttributeType,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"selector": map[string]interface{}{
+		"selector": map[string]any{
 			"color":       p.SelectorAlt,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"selector.pseudo": map[string]interface{}{
+		"selector.pseudo": map[string]any{
 			"color":       p.Decorator,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Punctuation
-		"punctuation": map[string]interface{}{
+		"punctuation": map[string]any{
 			"color":       p.Punctuation,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"punctuation.bracket": map[string]interface{}{
+		"punctuation.bracket": map[string]any{
 			"color":       p.Punctuation,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"punctuation.delimiter": map[string]interface{}{
+		"punctuation.delimiter": map[string]any{
 			"color":       p.PunctuationSpecial,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"punctuation.special": map[string]interface{}{
+		"punctuation.special": map[string]any{
 			"color":       p.Info,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"punctuation.list_marker": map[string]interface{}{
+		"punctuation.list_marker": map[string]any{
 			"color":       p.Success,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 
 		// Misc
-		"label": map[string]interface{}{
+		"label": map[string]any{
 			"color":       p.Decorator,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"namespace": map[string]interface{}{
+		"namespace": map[string]any{
 			"color":       p.Link,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"module": map[string]interface{}{
+		"module": map[string]any{
 			"color":       p.Link,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"decorator": map[string]interface{}{
+		"decorator": map[string]any{
 			"color":       p.Decorator,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"macro": map[string]interface{}{
+		"macro": map[string]any{
 			"color":       p.Decorator,
 			"font_style":  nil,
 			"font_weight": 700,
 		},
-		"parameter": map[string]interface{}{
+		"parameter": map[string]any{
 			"color":       p.VariableParam,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"annotation": map[string]interface{}{
+		"annotation": map[string]any{
 			"color":       p.AnnotationType,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
 
 		// Special
-		"emphasis": map[string]interface{}{
+		"emphasis": map[string]any{
 			"color":       nil,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"emphasis.strong": map[string]interface{}{
+		"emphasis.strong": map[string]any{
 			"color":       nil,
 			"font_style":  nil,
 			"font_weight": 700,
 		},
-		"title": map[string]interface{}{
+		"title": map[string]any{
 			"color":       p.Variable,
 			"font_style":  nil,
 			"font_weight": 700,
 		},
-		"link_uri": map[string]interface{}{
+		"link_uri": map[string]any{
 			"color":       p.Link,
 			"font_style":  "underline",
 			"font_weight": nil,
 		},
-		"link_text": map[string]interface{}{
+		"link_text": map[string]any{
 			"color":       p.Link,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"embedded": map[string]interface{}{
+		"embedded": map[string]any{
 			"color":       p.EmbeddedType,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"primary": map[string]interface{}{
+		"primary": map[string]any{
 			"color":       p.Foreground,
 			"font_style":  nil,
 			"font_weight": 700,
 		},
-		"hint": map[string]interface{}{
+		"hint": map[string]any{
 			"color":       p.Type,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"predictive": map[string]interface{}{
+		"predictive": map[string]any{
 			"color":       p.TerminalPurple,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
-		"preproc": map[string]interface{}{
+		"preproc": map[string]any{
 			"color":       p.Info,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"regex": map[string]interface{}{
+		"regex": map[string]any{
 			"color":       p.Regex,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
-		"text.literal": map[string]interface{}{
+		"text.literal": map[string]any{
 			"color":       p.EmbeddedType,
 			"font_style":  nil,
 			"font_weight": nil,
