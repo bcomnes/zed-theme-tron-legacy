@@ -8,42 +8,45 @@ import (
 
 // TronLegacyPalette defines all colors used in the theme
 type TronLegacyPalette struct {
-	// Core colors
+	// Core background/foreground colors
 	Background       string
 	Foreground       string
 	ForegroundDim    string
 	ForegroundBright string
-	ForegroundLight  string  // Light blue-gray for variables
 
-	// Accent colors
+	// Primary accent colors
 	Cyan        string
+	CyanDim     string
 	Blue        string
 	BlueBright  string
-	BlueBrighter string  // Bright blue for brackets
+	BlueDim     string
 	Green       string
 	GreenDim    string
 	GreenAlt    string
 	GreenBright string
-	GreenParam  string  // Bright green for parameters
+
+	// Secondary accent colors
 	Yellow      string
 	YellowDim   string
-	YellowBright string  // Bright yellow for special highlights
 	Orange      string
 	OrangeLight string
-	OrangeDark  string  // Dark orange for classes
+	OrangeDim   string
 	Red         string
-	RedLight    string  // Light red for string escapes
+	RedLight    string
+	RedDim      string
 	Purple      string
+	PurpleDim   string
+	Pink        string
 
-	// UI colors
-	Border          string
-	BorderSubtle    string
-	Selection       string
-	SelectionSubtle string
-	LineHighlight   string
-	Shadow          string
+	// UI element colors
+	Border         string
+	BorderSubtle   string
+	Selection      string
+	SelectionAlpha string // Semi-transparent selection
+	LineHighlight  string
+	Shadow         string
 
-	// Semantic colors
+	// Semantic colors for diagnostics
 	Error      string
 	ErrorBg    string
 	Warning    string
@@ -51,64 +54,65 @@ type TronLegacyPalette struct {
 	SuccessBg  string
 	Info       string
 
-	// Syntax colors
-	Comment     string
-	CommentDark string  // Darker comment for better visibility
-	String      string
-	Number      string
-	Keyword     string
-	Function    string
-	Type        string
-	Variable    string
-	Constant    string
-	Operator    string
-	Punctuation string
-	Tag         string
+	// Syntax highlighting colors
+	Comment  string
+	String   string
+	Number   string
+	Keyword  string
+	Function string
+	Type     string
+	Variable string
+	Constant string
+	Operator string
+	Tag      string
 
-	// Terminal colors
-	Black      string
-	White      string
+	// Terminal base colors
+	Black string
+	White string
 }
 
 // GetTronLegacyPalette returns the complete color palette
 func GetTronLegacyPalette() TronLegacyPalette {
 	return TronLegacyPalette{
-		// Core colors
+		// Core background/foreground colors
 		Background:       "#14191fff",
 		Foreground:       "#aec2e0ff",
 		ForegroundDim:    "#647c9bff",
 		ForegroundBright: "#dae3f1ff",
-		ForegroundLight:  "#d0dfe6ff",
 
-		// Accent colors
-		Cyan:         "#6ee2ffff",
-		Blue:         "#267fb5ff",
-		BlueBright:   "#2b6db9ff",
-		BlueBrighter: "#2f9ee2ff",
-		Green:        "#C7F026ff",
-		GreenDim:     "#4d5f07ff",
-		GreenAlt:     "#95CC5Eff",
-		GreenBright:  "#A6E22Eff",
-		GreenParam:   "#95CC5Eff",
-		Yellow:       "#FFE792ff",
-		YellowDim:    "#ffd12cff",
-		YellowBright: "#ffde10ff",
-		Orange:       "#FFB20Dff",
-		OrangeLight:  "#F79D1Eff",
-		OrangeDark:   "#F79D1Eff",
-		Red:          "#FF410Dff",
-		RedLight:     "#ff6113ff",
-		Purple:       "#967EFBff",
+		// Primary accent colors
+		Cyan:        "#6ee2ffff",
+		CyanDim:     "#4a95b3ff",
+		Blue:        "#267fb5ff",
+		BlueBright:  "#2b6db9ff",
+		BlueDim:     "#1a5278ff",
+		Green:       "#C7F026ff",
+		GreenDim:    "#4d5f07ff",
+		GreenAlt:    "#95CC5Eff",
+		GreenBright: "#A6E22Eff",
 
-		// UI colors
-		Border:          "#183c66ff",
-		BorderSubtle:    "#133153ff",
-		Selection:       "#183c66ff",
-		SelectionSubtle: "#133153ff",
-		LineHighlight:   "#28323eff",
-		Shadow:          "#00000040",
+		// Secondary accent colors
+		Yellow:      "#FFE792ff",
+		YellowDim:   "#ffd12cff",
+		Orange:      "#FFB20Dff",
+		OrangeLight: "#F79D1Eff",
+		OrangeDim:   "#cc8f0aff",
+		Red:         "#FF410Dff",
+		RedLight:    "#ff6113ff",
+		RedDim:      "#cc3309ff",
+		Purple:      "#967EFBff",
+		PurpleDim:   "#7865c9ff",
+		Pink:        "#ff79c6ff",
 
-		// Semantic colors
+		// UI element colors
+		Border:         "#183c66ff",
+		BorderSubtle:   "#133153ff",
+		Selection:      "#183c66ff",
+		SelectionAlpha: "#267fb580",
+		LineHighlight:  "#28323eff",
+		Shadow:         "#00000040",
+
+		// Semantic colors for diagnostics
 		Error:     "#F92672ff",
 		ErrorBg:   "#660000ff",
 		Warning:   "#FFE792ff",
@@ -116,45 +120,41 @@ func GetTronLegacyPalette() TronLegacyPalette {
 		SuccessBg: "#144212ff",
 		Info:      "#6ee2ffff",
 
-		// Syntax colors
-		Comment:     "#6684a7ff", // Adjusted for WCAG AA contrast
-		CommentDark: "#3c4b5dff",
-		String:      "#FF410Dff",
-		Number:      "#C7F026ff",
-		Keyword:     "#748aa6ff",
-		Function:    "#FFB20Dff",
-		Type:        "#267fb5ff",
-		Variable:    "#d0dfe6ff",
-		Constant:    "#FFB20Dff",
-		Operator:    "#748aa6ff",
-		Punctuation: "#aec2e0ff",
-		Tag:         "#267fb5ff",
+		// Syntax highlighting colors
+		Comment:  "#6684a7ff", // Adjusted for WCAG AA contrast
+		String:   "#FF410Dff",
+		Number:   "#C7F026ff",
+		Keyword:  "#748aa6ff",
+		Function: "#FFB20Dff",
+		Type:     "#267fb5ff",
+		Variable: "#d0dfe6ff",
+		Constant: "#FFB20Dff",
+		Operator: "#748aa6ff",
+		Tag:      "#267fb5ff",
 
-		// Terminal colors
+		// Terminal base colors
 		Black: "#000000ff",
 		White: "#ffffffff",
 	}
 }
 
-// generateTheme creates the complete Zed theme structure
-func generateTheme() map[string]any {
-	palette := GetTronLegacyPalette()
-
+// generateTheme creates the theme structure
+func generateTheme(palette TronLegacyPalette) map[string]any {
 	return map[string]any{
 		"$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-		"name":    "Tron Legacy",
 		"author":  "Hypermodules LLC, Bret Comnes (ported to Zed)",
+		"name":    "Tron Legacy",
 		"themes": []any{
 			map[string]any{
-				"name":       "Tron Legacy",
 				"appearance": "dark",
+				"name":       "Tron Legacy",
 				"style":      generateThemeStyle(palette),
 			},
 		},
 	}
 }
 
-// generateThemeStyle creates the style object for the theme
+// generateThemeStyle creates the theme style with all UI and syntax colors
 func generateThemeStyle(p TronLegacyPalette) map[string]any {
 	return map[string]any{
 		// Background and surfaces
@@ -190,14 +190,14 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 		"element.hover":      p.Selection,
 		"element.active":     p.BlueBright,
 		"element.selected":   p.Selection,
-		"element.disabled":   p.SelectionSubtle,
+		"element.disabled":   p.BorderSubtle,
 
 		// Ghost elements
 		"ghost_element.background": p.Shadow,
 		"ghost_element.hover":      p.LineHighlight,
 		"ghost_element.active":     p.Selection,
 		"ghost_element.selected":   p.Selection,
-		"ghost_element.disabled":   p.SelectionSubtle,
+		"ghost_element.disabled":   p.BorderSubtle,
 
 		// Editor specific
 		"editor.foreground":                          p.Foreground,
@@ -214,10 +214,7 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 		"editor.active_wrap_guide":                   p.Green,
 		"editor.document_highlight.read_background":  p.Selection,
 		"editor.document_highlight.write_background": p.BlueBright,
-
-		// Text selection
-		"selection.background": p.Selection,
-		"editor.selection.background": p.Selection,
+		"editor.selection.background":                p.Selection,
 
 		// UI components
 		"status_bar.background":         p.Background,
@@ -239,89 +236,89 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 		"scrollbar.track.border":           p.Shadow,
 
 		// Search
-		"search.match_background": p.Yellow,
+		"search.match_background": p.Warning,
 		"link_text.hover":         p.ForegroundDim,
 
 		// Terminal colors
-		"terminal.background":         p.Background,
-		"terminal.foreground":         p.Foreground,
-		"terminal.bright_foreground":  p.ForegroundBright,
-		"terminal.dim_foreground":     p.ForegroundDim,
-		"terminal.ansi.black":         p.Black,
-		"terminal.ansi.bright_black":  p.ForegroundDim,
-		"terminal.ansi.dim_black":     p.Shadow,
-		"terminal.ansi.red":           p.Error,
-		"terminal.ansi.bright_red":    p.Red,
-		"terminal.ansi.dim_red":       p.ErrorBg,
-		"terminal.ansi.green":         p.GreenAlt,
-		"terminal.ansi.bright_green":  p.Green,
-		"terminal.ansi.dim_green":     p.GreenDim,
-		"terminal.ansi.yellow":        p.Yellow,
-		"terminal.ansi.bright_yellow": p.Orange,
-		"terminal.ansi.dim_yellow":    p.YellowDim,
-		"terminal.ansi.blue":          p.Blue,
-		"terminal.ansi.bright_blue":   p.Cyan,
-		"terminal.ansi.dim_blue":      p.Selection,
-		"terminal.ansi.magenta":       p.Purple,
+		"terminal.background":          p.Background,
+		"terminal.foreground":          p.Foreground,
+		"terminal.bright_foreground":   p.ForegroundBright,
+		"terminal.dim_foreground":      p.ForegroundDim,
+		"terminal.ansi.black":          p.Black,
+		"terminal.ansi.bright_black":   p.ForegroundDim,
+		"terminal.ansi.dim_black":      p.Shadow,
+		"terminal.ansi.red":            p.Error,
+		"terminal.ansi.bright_red":     p.Red,
+		"terminal.ansi.dim_red":        p.ErrorBg,
+		"terminal.ansi.green":          p.GreenAlt,
+		"terminal.ansi.bright_green":   p.Green,
+		"terminal.ansi.dim_green":      p.GreenDim,
+		"terminal.ansi.yellow":         p.Yellow,
+		"terminal.ansi.bright_yellow":  p.Orange,
+		"terminal.ansi.dim_yellow":     p.YellowDim,
+		"terminal.ansi.blue":           p.Blue,
+		"terminal.ansi.bright_blue":    p.Cyan,
+		"terminal.ansi.dim_blue":       p.Selection,
+		"terminal.ansi.magenta":        p.Purple,
 		"terminal.ansi.bright_magenta": p.Purple,
-		"terminal.ansi.dim_magenta":   p.Purple,
-		"terminal.ansi.cyan":          p.Cyan,
-		"terminal.ansi.bright_cyan":   p.Cyan,
-		"terminal.ansi.dim_cyan":      p.Blue,
-		"terminal.ansi.white":         p.Foreground,
-		"terminal.ansi.bright_white":  p.White,
-		"terminal.ansi.dim_white":     p.Keyword,
+		"terminal.ansi.dim_magenta":    p.Purple,
+		"terminal.ansi.cyan":           p.Cyan,
+		"terminal.ansi.bright_cyan":    p.Cyan,
+		"terminal.ansi.dim_cyan":       p.CyanDim,
+		"terminal.ansi.white":          p.Foreground,
+		"terminal.ansi.bright_white":   p.White,
+		"terminal.ansi.dim_white":      p.Keyword,
 
 		// Version control
-		"version_control.added":                  p.Green,
+		"version_control.added":                  p.Success,
 		"version_control.modified":               p.YellowDim,
 		"version_control.deleted":                p.Error,
-		"version_control.conflict_marker.ours":   p.Green,
+		"version_control.conflict_marker.ours":   p.Success,
 		"version_control.conflict_marker.theirs": p.Error,
 
 		// Status colors
-		"error":                p.Error,
-		"error.background":     p.ErrorBg,
-		"error.border":         p.Error,
-		"warning":              p.Warning,
-		"warning.background":   p.Background,
-		"warning.border":       p.Warning,
-		"success":              p.Success,
-		"success.background":   p.SuccessBg,
-		"success.border":       p.Success,
-		"info":                 p.Info,
-		"info.background":      p.Background,
-		"info.border":          p.Info,
-		"hint":                 p.Blue,
-		"hint.background":      p.Background,
-		"hint.border":          p.Blue,
-		"modified":             p.Yellow,
-		"modified.background":  p.Background,
-		"modified.border":      p.Yellow,
-		"created":              p.Green,
-		"created.background":   p.SuccessBg,
-		"created.border":       p.Green,
-		"deleted":              p.Error,
-		"deleted.background":   p.ErrorBg,
-		"deleted.border":       p.Error,
-		"conflict":             p.Orange,
-		"conflict.background":  p.OrangeLight,
-		"conflict.border":      p.Orange,
-		"renamed":              p.Blue,
-		"renamed.background":   p.Background,
-		"renamed.border":       p.Blue,
-		"ignored":              p.ForegroundDim,
-		"ignored.background":   p.Background,
-		"ignored.border":       p.ForegroundDim,
-		"hidden":               p.ForegroundDim,
-		"hidden.background":    p.Background,
-		"hidden.border":        p.ForegroundDim,
-		"unreachable":          p.ForegroundDim,
+		"error":                 p.Error,
+		"error.background":      p.ErrorBg,
+		"error.border":          p.Error,
+		"warning":               p.Warning,
+		"warning.background":    p.Background,
+		"warning.border":        p.Warning,
+		"success":               p.Success,
+		"success.background":    p.SuccessBg,
+		"success.border":        p.Success,
+		"info":                  p.Info,
+		"info.background":       p.Background,
+		"info.border":           p.Info,
+		"hint":                  p.Blue,
+		"hint.background":       p.Background,
+		"hint.border":           p.Blue,
+		"modified":              p.Yellow,
+		"modified.background":   p.Background,
+		"modified.border":       p.Yellow,
+		"created":               p.Success,
+		"created.background":    p.SuccessBg,
+		"created.border":        p.Success,
+		"deleted":               p.Error,
+		"deleted.background":    p.ErrorBg,
+		"deleted.border":        p.Error,
+		"conflict":              p.Orange,
+		"conflict.background":   p.OrangeLight,
+		"conflict.border":       p.Orange,
+		"renamed":               p.Blue,
+		"renamed.background":    p.Background,
+		"renamed.border":        p.Blue,
+		"ignored":               p.ForegroundDim,
+		"ignored.background":    p.Background,
+		"ignored.border":        p.ForegroundDim,
+		"hidden":                p.ForegroundDim,
+		"hidden.background":     p.Background,
+		"hidden.border":         p.ForegroundDim,
+		"unreachable":           p.ForegroundDim,
 		"unreachable.background": p.Background,
-		"unreachable.border":   p.ForegroundDim,
-		"predictive":           p.Purple,
+		"unreachable.border":    p.ForegroundDim,
+		"predictive":            p.Purple,
 		"predictive.background": p.Background,
-		"predictive.border":    p.Purple,
+		"predictive.border":     p.Purple,
 
 		// Players (collaborative editing)
 		"players": generatePlayers(p),
@@ -331,13 +328,13 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 	}
 }
 
-// generatePlayers creates collaborative editing colors
+// generatePlayers creates player colors for collaborative editing
 func generatePlayers(p TronLegacyPalette) []any {
 	return []any{
 		map[string]any{
 			"cursor":     p.Blue,
 			"background": p.Blue,
-			"selection":  "#267fb580", // Semi-transparent blue
+			"selection":  p.SelectionAlpha,
 		},
 		map[string]any{
 			"cursor":     p.Cyan,
@@ -406,7 +403,7 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"string.special": map[string]any{
-			"color":       p.Orange,
+			"color":       p.Pink,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -440,8 +437,13 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
+		"variable.builtin": map[string]any{
+			"color":       p.PurpleDim,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
 		"variable.parameter": map[string]any{
-			"color":       p.GreenParam,
+			"color":       p.GreenAlt,
 			"font_style":  "italic",
 			"font_weight": nil,
 		},
@@ -471,27 +473,27 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"constructor": map[string]any{
-			"color":       p.OrangeDark,
+			"color":       p.OrangeLight,
 			"font_style":  "italic",
 			"font_weight": 700,
 		},
 		"namespace": map[string]any{
-			"color":       p.Variable,
+			"color":       p.BlueDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"property": map[string]any{
-			"color":       p.Variable,
+			"color":       p.CyanDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"attribute": map[string]any{
-			"color":       p.OrangeDark,
+			"color":       p.OrangeLight,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"tag": map[string]any{
-			"color":       p.Tag,
+			"color":       p.Blue,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -506,7 +508,7 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"punctuation.delimiter": map[string]any{
-			"color":       p.ForegroundDim,
+			"color":       p.PurpleDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -521,18 +523,18 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"label": map[string]any{
-			"color":       p.Variable,
+			"color":       p.Pink,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"link_text": map[string]any{
-			"color":       p.ForegroundDim,
+			"color":       p.BlueDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"link_uri": map[string]any{
-			"color":       p.ForegroundDim,
-			"font_style":  nil,
+			"color":       p.BlueDim,
+			"font_style":  "underline",
 			"font_weight": nil,
 		},
 		"emphasis": map[string]any{
@@ -561,7 +563,7 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"text.literal": map[string]any{
-			"color":       p.Variable,
+			"color":       p.OrangeDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -571,7 +573,7 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"embedded": map[string]any{
-			"color":       p.Variable,
+			"color":       p.YellowDim,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -581,22 +583,72 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": 700,
 		},
 		"enum": map[string]any{
-			"color":       p.OrangeDark,
+			"color":       p.OrangeLight,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"variant": map[string]any{
-			"color":       p.OrangeDark,
+			"color":       p.OrangeLight,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
+		"regex": map[string]any{
+			"color":       p.Cyan,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
+		"module": map[string]any{
+			"color":       p.BlueDim,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
+		"class": map[string]any{
+			"color":       p.OrangeLight,
+			"font_style":  nil,
+			"font_weight": 700,
+		},
+		"interface": map[string]any{
+			"color":       p.CyanDim,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
+		"method": map[string]any{
+			"color":       p.Function,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
+		"field": map[string]any{
+			"color":       p.CyanDim,
+			"font_style":  nil,
+			"font_weight": nil,
+		},
+		"parameter": map[string]any{
+			"color":       p.GreenAlt,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
+		"macro": map[string]any{
+			"color":       p.Pink,
+			"font_style":  nil,
+			"font_weight": 700,
+		},
+		"annotation": map[string]any{
+			"color":       p.YellowDim,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
+		"decorator": map[string]any{
+			"color":       p.Pink,
+			"font_style":  "italic",
+			"font_weight": nil,
+		},
 		"selector": map[string]any{
-			"color":       p.GreenParam,
+			"color":       p.GreenAlt,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"selector.pseudo": map[string]any{
-			"color":       p.Cyan,
+			"color":       p.Pink,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -604,22 +656,22 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 }
 
 func main() {
-	// Generate the theme
-	theme := generateTheme()
+	palette := GetTronLegacyPalette()
+	theme := generateTheme(palette)
 
-	// Convert to JSON with proper formatting
+	// Marshal to JSON with indentation
 	jsonData, err := json.MarshalIndent(theme, "", "  ")
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error marshaling JSON: %v\n", err)
+		fmt.Printf("Error marshaling theme: %v\n", err)
 		os.Exit(1)
 	}
 
-	// Write to file in themes directory
+	// Write to file
 	err = os.WriteFile("../themes/tron-legacy.json", jsonData, 0644)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error writing file: %v\n", err)
+		fmt.Printf("Error writing file: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("Theme generated successfully: ../themes/tron-legacy.json")
+	fmt.Println("Theme generated successfully!")
 }
