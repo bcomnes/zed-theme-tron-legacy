@@ -244,13 +244,13 @@
             "font_weight": null
           },
           "link_text": {
-            "color": "#1a5278ff",
+            "color": "#4a95b3ff",
             "font_style": null,
             "font_weight": null
           },
           "link_uri": {
-            "color": "#1a5278ff",
-            "font_style": "underline",
+            "color": "#4a95b3ff",
+            "font_style": null,
             "font_weight": null
           },
           "macro": {
@@ -264,12 +264,12 @@
             "font_weight": null
           },
           "module": {
-            "color": "#1a5278ff",
+            "color": "#4a95b3ff",
             "font_style": null,
             "font_weight": null
           },
           "namespace": {
-            "color": "#1a5278ff",
+            "color": "#4a95b3ff",
             "font_style": null,
             "font_weight": null
           },
