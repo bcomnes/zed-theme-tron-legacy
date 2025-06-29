@@ -215,6 +215,10 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 		"editor.document_highlight.read_background":  p.Selection,
 		"editor.document_highlight.write_background": p.BlueBright,
 
+		// Text selection
+		"selection.background": p.Selection,
+		"editor.selection.background": p.Selection,
+
 		// UI components
 		"status_bar.background":         p.Background,
 		"title_bar.background":          p.Background,
@@ -331,9 +335,9 @@ func generateThemeStyle(p TronLegacyPalette) map[string]any {
 func generatePlayers(p TronLegacyPalette) []any {
 	return []any{
 		map[string]any{
-			"cursor":     p.Yellow,
-			"background": p.Yellow,
-			"selection":  p.YellowDim,
+			"cursor":     p.Blue,
+			"background": p.Blue,
+			"selection":  "#267fb580", // Semi-transparent blue
 		},
 		map[string]any{
 			"cursor":     p.Cyan,
@@ -377,7 +381,7 @@ func generatePlayers(p TronLegacyPalette) []any {
 func generateSyntax(p TronLegacyPalette) map[string]any {
 	return map[string]any{
 		"comment": map[string]any{
-			"color":       p.CommentDark,
+			"color":       p.Comment,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
@@ -492,12 +496,12 @@ func generateSyntax(p TronLegacyPalette) map[string]any {
 			"font_weight": nil,
 		},
 		"punctuation": map[string]any{
-			"color":       p.Punctuation,
+			"color":       p.Foreground,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
 		"punctuation.bracket": map[string]any{
-			"color":       p.BlueBrighter,
+			"color":       p.Foreground,
 			"font_style":  nil,
 			"font_weight": nil,
 		},
