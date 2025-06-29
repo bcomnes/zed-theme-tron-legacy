@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tron Legacy Theme - HTML Example</title>
+
+    <!-- Comments in dark gray (#3c4b5d) -->
+
+    <!-- External resources -->
+    <link rel="stylesheet" href="styles/grid-theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Inline styles to show CSS syntax highlighting -->
+    <style>
+        /* CSS within HTML */
+        body {
+            background-color: #14191f;
+            color: #aec2e0;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 2rem;
+        }
+
+        /* Pseudo-selectors in cyan (#6ee2ff) */
+        .program-card:hover {
+            border-color: #6ee2ff;
+            box-shadow: 0 0 20px #6ee2ff;
+        }
+    </style>
+
+    <!-- Inline JavaScript -->
+    <script>
+        // JavaScript within HTML
+        const GRID_VERSION = "2.0";
+
+        function initializeGrid() {
+            console.log("Initializing Grid v" + GRID_VERSION);
+            const programs = ["Tron", "CLU", "Quorra"];
+            return programs.map(p => p.toUpperCase());
+        }
+
+        // Arrow function
+        const activateProgram = (name) => {
+            console.log(`Activating ${name}...`);
+        };
+    </script>
+</head>
+<body>
+    <!-- HTML5 semantic elements -->
+    <header class="main-header" id="top">
+        <nav class="navigation" role="navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#programs" class="nav-link">Programs</a></li>
+                <li><a href="#grid" class="nav-link">The Grid</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="content-wrapper">
+        <section id="hero" class="hero-section" data-theme="tron">
+            <h1 class="hero-title">Welcome to <span class="highlight">The Grid</span></h1>
+            <p class="hero-subtitle">A digital frontier...</p>
+
+            <!-- Button with multiple attributes -->
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="enter-grid-btn"
+                data-action="enter"
+                data-level="5"
+                onclick="enterGrid()"
+                disabled>
+                Enter The Grid
+            </button>
+        </section>
+
+        <!-- Program cards section -->
+        <section id="programs" class="programs-section">
+            <h2>Active Programs</h2>
+
+            <div class="grid-container">
+                <!-- Program card with microdata -->
+                <article class="program-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <h3 itemprop="name">Tron</h3>
+                    <p itemprop="description">Security program fighting for the users</p>
+                    <dl class="program-stats">
+                        <dt>Status:</dt>
+                        <dd class="status-active">Active</dd>
+                        <dt>Power Level:</dt>
+                        <dd><meter value="95" min="0" max="100">95%</meter></dd>
+                    </dl>
+                </article>
+
+                <!-- Card with custom elements -->
+                <article class="program-card">
+                    <h3>CLU 2.0</h3>
+                    <p>System administrator <abbr title="Codified Likeness Utility">CLU</abbr></p>
+                    <time datetime="2010-12-17">Created: Dec 17, 2010</time>
+                    <p>
+                        <small>Warning: <mark>Corrupted</mark></small>
+                    </p>
+                </article>
+
+                <!-- Interactive elements -->
+                <article class="program-card interactive">
+                    <h3>Quorra</h3>
+                    <p>The last <em>ISO</em> - <strong>Isomorphic Algorithm</strong></p>
+                    <details>
+                        <summary>View Details</summary>
+                        <p>A miraculous digital life form that emerged spontaneously from the Grid.</p>
+                        <code>ISO_MARKER: 0xQU0RR4</code>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- Form section -->
+        <section id="contact" class="contact-section">
+            <h2>Grid Access Request</h2>
+
+            <form action="/grid/access" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>User Information</legend>
+
+                    <!-- Text inputs -->
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                            placeholder="Enter your handle"
+                            pattern="[a-zA-Z0-9]+"
+                            minlength="3"
+                            maxlength="20">
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            autocomplete="email">
+                    </div>
+
+                    <!-- Select dropdown -->
+                    <div class="form-group">
+                        <label for="program-type">Program Type:</label>
+                        <select id="program-type" name="type" required>
+                            <option value="">--Select Type--</option>
+                            <optgroup label="System Programs">
+                                <option value="security">Security</option>
+                                <option value="utility">Utility</option>
+                            </optgroup>
+                            <optgroup label="User Programs">
+                                <option value="game">Game</option>
+                                <option value="application">Application</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Radio buttons -->
+                    <div class="form-group">
+                        <p>Access Level:</p>
+                        <label>
+                            <input type="radio" name="access" value="basic" checked>
+                            Basic User
+                        </label>
+                        <label>
+                            <input type="radio" name="access" value="advanced">
+                            Advanced User
+                        </label>
+                        <label>
+                            <input type="radio" name="access" value="admin">
+                            Administrator
+                        </label>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            I accept the Grid terms and conditions
+                        </label>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label for="message">Access Request Message:</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            cols="50"
+                            placeholder="State your purpose..."></textarea>
+                    </div>
+
+                    <!-- File upload -->
+                    <div class="form-group">
+                        <label for="identity-disc">Upload Identity Disc:</label>
+                        <input
+                            type="file"
+                            id="identity-disc"
+                            name="disc"
+                            accept=".disc,.iso">
+                    </div>
+
+                    <!-- Range input -->
+                    <div class="form-group">
+                        <label for="power-level">Initial Power Level:</label>
+                        <input
+                            type="range"
+                            id="power-level"
+                            name="power"
+                            min="0"
+                            max="100"
+                            value="50"
+                            step="10">
+                        <output for="power-level">50</output>
+                    </div>
+                </fieldset>
+
+                <!-- Submit buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Request Access</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    <button type="button" class="btn btn-ghost" onclick="history.back()">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Media elements -->
+        <section id="media" class="media-section">
+            <h2>Grid Media</h2>
+
+            <!-- Image with multiple sources -->
+            <figure class="media-figure">
+                <picture>
+                    <source srcset="images/grid-4k.webp" type="image/webp" media="(min-width: 1200px)">
+                    <source srcset="images/grid-hd.jpg" type="image/jpeg" media="(min-width: 768px)">
+                    <img src="images/grid-mobile.jpg" alt="The Grid landscape" loading="lazy">
+                </picture>
+                <figcaption>The digital frontier of The Grid</figcaption>
+            </figure>
+
+            <!-- Video element -->
+            <video controls poster="images/video-poster.jpg" preload="metadata">
+                <source src="media/grid-intro.mp4" type="video/mp4">
+                <source src="media/grid-intro.webm" type="video/webm">
+                <track kind="subtitles" src="subtitles/en.vtt" srclang="en" label="English">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Audio element -->
+            <audio controls>
+                <source src="audio/daft-punk-theme.mp3" type="audio/mpeg">
+                <source src="audio/daft-punk-theme.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- Table -->
+        <section id="data" class="data-section">
+            <h2>Program Statistics</h2>
+
+            <table class="data-table">
+                <caption>Active Program Performance Metrics</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Program</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">CPU Usage</th>
+                        <th scope="col">Memory</th>
+                        <th scope="col">Uptime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Program">Tron</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                        <td data-label="CPU">45%</td>
+                        <td data-label="Memory">2.3 GB</td>
+                        <td data-label="Uptime">48:32:16</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Program">CLU</td>
+                        <td data-label="Status"><span class="status warning">Warning</span></td>
+                        <td data-label="CPU">89%</td>
+                        <td data-label="Memory">5.7 GB</td>
+                        <td data-label="Uptime">999:59:59</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Program">Quorra</td>
+                        <td data-label="Status"><span class="status active">Active</span></td>
+                        <td data-label="CPU">23%</td>
+                        <td data-label="Memory">1.1 GB</td>
+                        <td data-label="Uptime">12:45:33</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total</td>
+                        <td>157%</td>
+                        <td>9.1 GB</td>
+                        <td>-</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Special content -->
+        <section id="special" class="special-section">
+            <h2>Special Elements</h2>
+
+            <!-- Quotation -->
+            <blockquote cite="https://tron.fandom.com/wiki/Kevin_Flynn">
+                <p>"The Grid. A digital frontier. I tried to picture clusters of information as they moved through the computer..."</p>
+                <footer>— <cite>Kevin Flynn</cite></footer>
+            </blockquote>
+
+            <!-- Code examples -->
+            <pre><code class="language-javascript">
+// Grid initialization sequence
+function initializeGrid() {
+    const config = {
+        version: "2.0",
+        programs: ["Tron", "CLU", "Quorra"],
+        active: true
+    };
+
+    return new Grid(config);
+}
+            </code></pre>
+
+            <!-- Definition list -->
+            <dl class="glossary">
+                <dt>ISO</dt>
+                <dd>Isomorphic Algorithm - A spontaneously generated program</dd>
+
+                <dt>MCP</dt>
+                <dd>Master Control Program - The main antagonist of the original Tron</dd>
+
+                <dt>Light Cycle</dt>
+                <dd>High-speed vehicles used in gladiatorial games</dd>
+            </dl>
+
+            <!-- Address -->
+            <address>
+                Grid Access Portal<br>
+                Flynn's Arcade<br>
+                <a href="mailto:admin@grid.tron">admin@grid.tron</a>
+            </address>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2024 ENCOM International. All rights reserved.</p>
+        <p>
+            <a href="/privacy">Privacy Policy</a> |
+            <a href="/terms">Terms of Service</a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+    </footer>
+
+    <!-- Scripts at the end -->
+    <script src="scripts/grid-controller.js"></script>
+    <script>
+        // Inline script
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeGrid();
+
+            // Event delegation
+            document.querySelector('.grid-container').addEventListener('click', function(e) {
+                if (e.target.matches('.program-card')) {
+                    activateProgram(e.target.querySelector('h3').textContent);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

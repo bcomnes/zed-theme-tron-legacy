@@ -147,7 +147,7 @@
             "font_weight": null
           },
           "comment": {
-            "color": "#6684a7ff",
+            "color": "#3c4b5dff",
             "font_style": null,
             "font_weight": null
           },
@@ -162,12 +162,12 @@
             "font_weight": null
           },
           "constructor": {
-            "color": "#FFB20Dff",
+            "color": "#F79D1Eff",
             "font_style": "italic",
             "font_weight": 700
           },
           "embedded": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": null
           },
@@ -182,13 +182,18 @@
             "font_weight": 700
           },
           "enum": {
-            "color": "#FFB20Dff",
+            "color": "#F79D1Eff",
             "font_style": null,
             "font_weight": null
           },
           "function": {
             "color": "#FFB20Dff",
             "font_style": null,
+            "font_weight": null
+          },
+          "function.builtin": {
+            "color": "#267fb5ff",
+            "font_style": "italic",
             "font_weight": null
           },
           "hint": {
@@ -202,7 +207,7 @@
             "font_weight": null
           },
           "label": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": null
           },
@@ -217,7 +222,7 @@
             "font_weight": null
           },
           "namespace": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": null
           },
@@ -247,7 +252,7 @@
             "font_weight": 700
           },
           "property": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": null
           },
@@ -257,7 +262,7 @@
             "font_weight": null
           },
           "punctuation.bracket": {
-            "color": "#aec2e0ff",
+            "color": "#2f9ee2ff",
             "font_style": null,
             "font_weight": null
           },
@@ -277,12 +282,12 @@
             "font_weight": null
           },
           "selector": {
-            "color": "#dae3f1ff",
+            "color": "#95CC5Eff",
             "font_style": null,
             "font_weight": null
           },
           "selector.pseudo": {
-            "color": "#dae3f1ff",
+            "color": "#6ee2ffff",
             "font_style": null,
             "font_weight": null
           },
@@ -292,12 +297,12 @@
             "font_weight": null
           },
           "string.escape": {
-            "color": "#FFB20Dff",
+            "color": "#ff6113ff",
             "font_style": null,
             "font_weight": null
           },
           "string.regex": {
-            "color": "#FF410Dff",
+            "color": "#6ee2ffff",
             "font_style": null,
             "font_weight": null
           },
@@ -317,12 +322,12 @@
             "font_weight": null
           },
           "text.literal": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": null
           },
           "title": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
             "font_weight": 700
           },
@@ -332,8 +337,13 @@
             "font_weight": null
           },
           "variable": {
-            "color": "#dae3f1ff",
+            "color": "#d0dfe6ff",
             "font_style": null,
+            "font_weight": null
+          },
+          "variable.parameter": {
+            "color": "#95CC5Eff",
+            "font_style": "italic",
             "font_weight": null
           },
           "variable.special": {
@@ -342,7 +352,7 @@
             "font_weight": null
           },
           "variant": {
-            "color": "#FFB20Dff",
+            "color": "#F79D1Eff",
             "font_style": null,
             "font_weight": null
           }
