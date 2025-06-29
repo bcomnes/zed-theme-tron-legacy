@@ -1,0 +1,85 @@
+{
+  "color_map": {
+    "black": "#000000",
+    "black-shadow": "#00000040",
+    "blue-accent": "#6ee2ff",
+    "blue-bg": "#14191f",
+    "blue-bg-highlight": "#28323e",
+    "blue-fg": "#aec2e0",
+    "blue-fg-white": "#dae3f1",
+    "blue-highlight": "#183c66",
+    "blue-highlight-contrast": "#2b6db9",
+    "blue-hilight-subdue": "#133153",
+    "blue-pure": "#2F33AB",
+    "blue-storage": "#267fb5",
+    "gray-comment": "#324357",
+    "gray-copy": "#748aa6",
+    "gray-copy-dark": "#647c9b",
+    "green": "#95CC5E",
+    "green-light": "#C7F026",
+    "green-light-boost": "#A6E22E",
+    "green-light-boost-background": "#144212",
+    "green-light-subdue": "#4d5f07",
+    "orange-entity": "#FFB20D",
+    "orange-entity-dark": "#F79D1E",
+    "purple-accent": "#967EFB",
+    "red-error": "#F92672",
+    "red-error-background": "#660000",
+    "red-string": "#FF410D",
+    "white": "#ffffff",
+    "yellow-highlight": "#FFE792",
+    "yellow-highlight-subdue": "#ffd12c"
+  },
+  "conversions": [
+    {
+      "name": "white",
+      "original": "hsl(0, 0%, 100%)",
+      "hex": "#ffffff"
+    },
+    {
+      "name": "black-shadow",
+      "original": "color(var(black) alpha(0.25))",
+      "hex": "#00000040"
+    },
+    {
+      "name": "green-light-subdue",
+      "original": "color(var(green-light) l(20%))",
+      "hex": "#4d5f07"
+    },
+    {
+      "name": "blue-bg-highlight",
+      "original": "color(var(blue-bg) l(20%))",
+      "hex": "#28323e"
+    },
+    {
+      "name": "blue-fg-white",
+      "original": "color(var(blue-fg) l(90%))",
+      "hex": "#dae3f1"
+    },
+    {
+      "name": "blue-highlight-contrast",
+      "original": "color(var(blue-highlight) min-contrast(var(blue-highlight) 2.5))",
+      "hex": "#2b6db9"
+    },
+    {
+      "name": "blue-hilight-subdue",
+      "original": "color(var(blue-highlight) l(20%))",
+      "hex": "#133153"
+    },
+    {
+      "name": "gray-copy-dark",
+      "original": "color(var(gray-copy) l(50%))",
+      "hex": "#647c9b"
+    },
+    {
+      "name": "gray-comment",
+      "original": "color(#324357 min-contrast(var(blue-bg) 3))",
+      "hex": "#324357"
+    },
+    {
+      "name": "yellow-highlight-subdue",
+      "original": "color(var(yellow-highlight) l(- 20%))",
+      "hex": "#ffd12c"
+    }
+  ]
+}

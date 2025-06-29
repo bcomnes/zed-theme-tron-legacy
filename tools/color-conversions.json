@@ -1,0 +1,110 @@
+{
+  "conversions_needed": {
+    "hsl_to_hex": {
+      "white": {
+        "original": "hsl(0, 0%, 100%)",
+        "type": "hsl"
+      }
+    },
+    "color_functions": {
+      "black-shadow": {
+        "original": "color(var(black) alpha(0.25))",
+        "type": "alpha",
+        "base_var": "black",
+        "base_value": "#000000",
+        "alpha": 0.25
+      },
+      "green-light-subdue": {
+        "original": "color(var(green-light) l(20%))",
+        "type": "lightness",
+        "base_var": "green-light",
+        "base_value": "#C7F026",
+        "lightness": 20
+      },
+      "blue-bg-highlight": {
+        "original": "color(var(blue-bg) l(20%))",
+        "type": "lightness",
+        "base_var": "blue-bg",
+        "base_value": "#14191f",
+        "lightness": 20
+      },
+      "blue-fg-white": {
+        "original": "color(var(blue-fg) l(90%))",
+        "type": "lightness",
+        "base_var": "blue-fg",
+        "base_value": "#aec2e0",
+        "lightness": 90
+      },
+      "blue-highlight-contrast": {
+        "original": "color(var(blue-highlight) min-contrast(var(blue-highlight) 2.5))",
+        "type": "min-contrast",
+        "base_var": "blue-highlight",
+        "base_value": "#183c66",
+        "contrast_against": "#183c66",
+        "contrast_ratio": 2.5
+      },
+      "blue-hilight-subdue": {
+        "original": "color(var(blue-highlight) l(20%))",
+        "type": "lightness",
+        "base_var": "blue-highlight",
+        "base_value": "#183c66",
+        "lightness": 20
+      },
+      "gray-copy-dark": {
+        "original": "color(var(gray-copy) l(50%))",
+        "type": "lightness",
+        "base_var": "gray-copy",
+        "base_value": "#748aa6",
+        "lightness": 50
+      },
+      "gray-comment": {
+        "original": "color(#324357 min-contrast(var(blue-bg) 3))",
+        "type": "min-contrast",
+        "base_value": "#324357",
+        "contrast_against_var": "blue-bg",
+        "contrast_against_value": "#14191f",
+        "contrast_ratio": 3
+      },
+      "yellow-highlight-subdue": {
+        "original": "color(var(yellow-highlight) l(- 20%))",
+        "type": "lightness",
+        "base_var": "yellow-highlight",
+        "base_value": "#FFE792",
+        "lightness": -20
+      }
+    }
+  },
+  "direct_hex_values": {
+    "black": "#000000",
+    "red-string": "#FF410D",
+    "red-error": "#F92672",
+    "red-error-background": "#660000",
+    "green": "#95CC5E",
+    "green-light": "#C7F026",
+    "green-light-boost": "#A6E22E",
+    "green-light-boost-background": "#144212",
+    "yellow-highlight": "#FFE792",
+    "orange-entity": "#FFB20D",
+    "orange-entity-dark": "#F79D1E",
+    "blue-pure": "#2F33AB",
+    "blue-bg": "#14191f",
+    "blue-fg": "#aec2e0",
+    "blue-accent": "#6ee2ff",
+    "blue-storage": "#267fb5",
+    "blue-highlight": "#183c66",
+    "gray-copy": "#748aa6",
+    "purple-accent": "#967EFB"
+  },
+  "conversion_order": [
+    "white",
+    "black-shadow",
+    "green-light-subdue",
+    "blue-bg-highlight",
+    "blue-fg-white",
+    "blue-highlight-contrast",
+    "blue-hilight-subdue",
+    "gray-copy-dark",
+    "gray-comment",
+    "yellow-highlight-subdue"
+  ]
+}
