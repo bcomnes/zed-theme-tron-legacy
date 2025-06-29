@@ -58,12 +58,6 @@ cd tools
 
 # Generate the theme
 go run generate-theme.go
-
-# Convert specific colors
-go run convert-colors.go
-
-# Check contrast ratios
-go run check-contrast.go
 ```
 
 ### Project Structure
@@ -71,31 +65,30 @@ go run check-contrast.go
 zed-theme-tron-legacy/
 ├── README.md                    # This file
 ├── extension.toml              # Extension metadata
+├── LICENSE                     # MIT License
 ├── themes/
 │   └── tron-legacy.json        # The Zed theme file
-└── tools/                      # Theme generation and conversion tools
-    ├── generate-theme.go       # Main theme generator
-    ├── convert-colors.go       # Color conversion utilities
-    ├── check-contrast.go       # Contrast ratio checker
-    ├── conversion-plan.md      # Conversion process documentation
-    ├── color-conversions.json  # Color mapping reference
-    ├── converted-colors.json   # Final converted color values
+└── tools/                      # Theme generation tools
+    ├── generate-theme.go       # Theme generator
     └── go.mod                  # Go module file
 ```
 
-## Color Conversions
+## Color Palette
 
-The original Sublime theme used advanced color functions that aren't supported in Zed:
-- HSL colors → Hex values
-- `color()` functions with alpha → RGBA hex
-- Lightness adjustments → Pre-calculated hex values
-- Contrast calculations → WCAG-compliant adjustments
+The theme uses a carefully crafted color palette inspired by the Tron Legacy aesthetic:
 
-### Important Adjustments
+- **Background**: Deep blue-black (`#14191f`)
+- **Foreground**: Light blue-gray (`#aec2e0`)
+- **Accent**: Bright cyan (`#6ee2ff`)
+- **Strings**: Bright red-orange (`#FF410D`)
+- **Numbers**: Bright green (`#C7F026`)
+- **Functions**: Golden orange (`#FFB20D`)
+- **Keywords**: Muted blue-gray (`#748aa6`)
+- **Comments**: Light gray-blue (`#6684a7`) - Adjusted for WCAG AA contrast
+- **Types**: Medium blue (`#267fb5`)
+- **Variables**: Very light blue (`#dae3f1`)
 
-- **Comment Color**: The original comment color `#324357` had insufficient contrast (1.75:1) against the background. It was adjusted to `#6684a7` to meet WCAG AA standards (4.58:1 contrast ratio) for better readability.
-
-All conversions maintain the original design intent while ensuring compatibility with Zed's theme system and accessibility standards.
+The comment color was specifically adjusted from the original to ensure proper readability with a 4.58:1 contrast ratio against the background.
 
 ## Credits
 

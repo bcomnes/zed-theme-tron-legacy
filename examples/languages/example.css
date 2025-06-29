@@ -1,0 +1,276 @@
+/* Tron Legacy Theme Example - CSS */
+/* This file demonstrates the variety of syntax highlighting colors */
+
+/* Comments in dark gray (#3c4b5d) */
+
+/* Import statements */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import 'grid-system.css';
+
+/* Variables and custom properties */
+:root {
+    --grid-primary: #6ee2ff;
+    --grid-secondary: #267fb5;
+    --grid-accent: #FFB20D;
+    --grid-background: #14191f;
+    --grid-text: #aec2e0;
+    --grid-glow: 0 0 10px var(--grid-primary);
+}
+
+/* Element selectors (bright green #95CC5E) */
+body {
+    background-color: var(--grid-background);
+    color: var(--grid-text);
+    font-family: 'Orbitron', monospace;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--grid-primary);
+    text-shadow: var(--grid-glow);
+}
+
+/* Class selectors (bright green #95CC5E) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 2rem;
+}
+
+.program-card {
+    background: rgba(38, 127, 181, 0.1);
+    border: 2px solid var(--grid-secondary);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* ID selectors (should show differently) */
+#main-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#user-interface {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+}
+
+/* Pseudo-class selectors (cyan #6ee2ff) */
+.program-card:hover {
+    border-color: var(--grid-primary);
+    box-shadow: var(--grid-glow);
+    transform: translateY(-2px);
+}
+
+.grid-button:active {
+    transform: scale(0.98);
+}
+
+a:visited {
+    color: var(--grid-secondary);
+}
+
+input:focus {
+    outline: 2px solid var(--grid-primary);
+    outline-offset: 2px;
+}
+
+/* Pseudo-element selectors (cyan #6ee2ff) */
+.grid-title::before {
+    content: "// ";
+    color: var(--grid-accent);
+}
+
+.grid-title::after {
+    content: " //";
+    color: var(--grid-accent);
+}
+
+.program-card::first-letter {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Attribute selectors */
+input[type="text"] {
+    background: rgba(110, 226, 255, 0.05);
+    border: 1px solid var(--grid-secondary);
+    color: var(--grid-text);
+}
+
+a[href^="https://"] {
+    padding-left: 20px;
+}
+
+[data-program="tron"] {
+    border-color: var(--grid-primary);
+}
+
+/* Complex selectors */
+.grid-container > .program-card:nth-child(odd) {
+    background: rgba(110, 226, 255, 0.05);
+}
+
+.user-list li:not(.inactive) {
+    color: var(--grid-primary);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .program-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-contrast: #ffffff;
+    }
+}
+
+/* Keyframe animations */
+@keyframes grid-pulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+}
+
+@keyframes data-stream {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+/* Animation usage */
+.loading-indicator {
+    animation: grid-pulse 2s ease-in-out infinite;
+}
+
+.data-flow {
+    animation: data-stream 3s linear infinite;
+}
+
+/* Flexbox properties */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1 1 300px;
+    margin: 10px;
+}
+
+/* Grid properties */
+.advanced-grid {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+    grid-gap: 1rem;
+}
+
+/* Transforms and transitions */
+.program-icon {
+    transform: rotate(45deg);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.program-icon:hover {
+    transform: rotate(405deg) scale(1.1);
+}
+
+/* Gradients */
+.gradient-border {
+    background: linear-gradient(
+        45deg,
+        var(--grid-primary),
+        var(--grid-secondary),
+        var(--grid-accent)
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* CSS functions */
+.dynamic-spacing {
+    padding: calc(1rem + 2vw);
+    width: min(90%, 1200px);
+    height: max(300px, 50vh);
+    margin: clamp(1rem, 2vw, 3rem);
+}
+
+/* Modern CSS features */
+.container {
+    container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* CSS custom properties with fallbacks */
+.themed-element {
+    color: var(--custom-color, var(--grid-text));
+    background: var(--custom-bg, transparent);
+}
+
+/* Nested selectors (if preprocessor) */
+.navigation {
+    ul {
+        list-style: none;
+
+        li {
+            display: inline-block;
+
+            a {
+                color: var(--grid-primary);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+/* Special at-rules */
+@supports (display: grid) {
+    .grid-layout {
+        display: grid;
+    }
+}
+
+@layer utilities {
+    .text-glow {
+        text-shadow: 0 0 10px currentColor;
+    }
+}
