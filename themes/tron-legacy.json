@@ -36,6 +36,7 @@
         "editor.hover_line_number": "#C7F026ff",
         "editor.invisible": "#647c9bff",
         "editor.line_number": "#4d5f07ff",
+        "editor.selection.background": "#183c66ff",
         "editor.subheader.background": "#28323eff",
         "editor.wrap_guide": "#4d5f07ff",
         "element.active": "#2b6db9ff",
@@ -78,9 +79,9 @@
         "panel.focused_border": "#6ee2ffff",
         "players": [
           {
-            "background": "#FFE792ff",
-            "cursor": "#FFE792ff",
-            "selection": "#ffd12cff"
+            "background": "#267fb5ff",
+            "cursor": "#267fb5ff",
+            "selection": "#267fb580"
           },
           {
             "background": "#6ee2ffff",
@@ -130,6 +131,7 @@
         "scrollbar.track.background": "#00000040",
         "scrollbar.track.border": "#00000040",
         "search.match_background": "#FFE792ff",
+        "selection.background": "#183c66ff",
         "status_bar.background": "#14191fff",
         "success": "#C7F026ff",
         "success.background": "#144212ff",
@@ -147,7 +149,7 @@
             "font_weight": null
           },
           "comment": {
-            "color": "#3c4b5dff",
+            "color": "#6684a7ff",
             "font_style": null,
             "font_weight": null
           },
@@ -262,7 +264,7 @@
             "font_weight": null
           },
           "punctuation.bracket": {
-            "color": "#2f9ee2ff",
+            "color": "#aec2e0ff",
             "font_style": null,
             "font_weight": null
           },
