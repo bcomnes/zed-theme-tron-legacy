@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/bcomnes/zed-theme-tron-legacy/tools/atelier"
 	"github.com/bcomnes/zed-theme-tron-legacy/tools/dark"
 	"github.com/bcomnes/zed-theme-tron-legacy/tools/light"
 	"github.com/bcomnes/zed-theme-tron-legacy/tools/palette"
@@ -14,6 +15,7 @@ func main() {
 	// Get palettes from the respective packages
 	darkPalette := dark.GetPalette()
 	lightPalette := light.GetPalette()
+	atelierPalette := atelier.GetPalette()
 
 	// Create theme variants
 	variants := []palette.ThemeVariant{
@@ -23,9 +25,14 @@ func main() {
 			Palette:    darkPalette,
 		},
 		{
-			Name:       "Tron Legacy Light",
+			Name:       "Tron Legacy Light (WIP)",
 			Appearance: "light",
 			Palette:    lightPalette,
+		},
+		{
+			Name:       "Tron Legacy Atelier (WIP)",
+			Appearance: "light",
+			Palette:    atelierPalette,
 		},
 		// Example: Adding more variants is easy!
 		// {
