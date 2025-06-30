@@ -58,7 +58,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"elevated_surface.background": p.Highlight,
 			"element.background":          p.Highlight,
 			"element.hover":               p.ElementHover,
-			"element.active":              p.ElementActive,
+			"element.active":              p.ElementHover,
 			"element.selected":            p.Border,
 			"element.disabled":            p.BorderSubtle,
 			"drop_target.background":      p.DropTargetBackground,
@@ -66,7 +66,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			// Ghost elements
 			"ghost_element.background": p.Transparent,
 			"ghost_element.hover":      p.Highlight,
-			"ghost_element.active":     p.Border,
+			"ghost_element.active":     p.ElementHover,
 			"ghost_element.selected":   p.Border,
 			"ghost_element.disabled":   p.BorderSubtle,
 
@@ -85,7 +85,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"editor.selection.background":                p.Selection,
 			"editor.document_highlight.read_background":  p.Selection,
 			"editor.document_highlight.write_background": p.ElementActiveBright,
-			"editor.subheader.background":                p.Highlight,
+			"editor.subheader.background":                p.TabBarBackground,
 
 			// Search
 			"search.match_background": p.SearchHighlight,
@@ -105,7 +105,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			// Scrollbar
 			"scrollbar.thumb.background":       p.Border,
 			"scrollbar.thumb.hover_background": p.ElementActiveBright,
-			"scrollbar.thumb.border":           p.Border,
+			"scrollbar.thumb.border":           p.Transparent,
 			"scrollbar.track.background":       p.Transparent,
 			"scrollbar.track.border":           p.Transparent,
 
