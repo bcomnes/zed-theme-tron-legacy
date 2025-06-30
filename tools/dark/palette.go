@@ -17,10 +17,15 @@ func GetPalette() palette.TronThemePalette {
 		Border:        colors["gray600"],
 		BorderSubtle:  colors["gray700"],
 		BorderFocused: colors["blue200"],
-		Selection:     colors["gray600"],
+		Selection:     colors["gray700"],
 		Highlight:     colors["gray800"],
 		ElementActive: colors["blue400"],
+		ElementHover:  colors["gray700"],
 		Shadow:        colors["shadow"],
+		Transparent:   colors["transparent"],
+		DropTargetBackground: colors["droptarget"],
+		TabBarBackground: colors["gray800"],
+		StatusBarBackground: colors["gray750"],
 
 		// Semantic colors
 		Error:   colors["red500"],

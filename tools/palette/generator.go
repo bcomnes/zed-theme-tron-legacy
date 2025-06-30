@@ -50,21 +50,21 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"border.variant":     p.BorderSubtle,
 			"border.focused":     p.BorderFocused,
 			"border.selected":    p.BorderFocused,
-			"border.transparent": p.Shadow,
+			"border.transparent": p.Transparent,
 			"border.disabled":    p.ForegroundDim,
 
 			// UI surfaces
 			"surface.background":          p.Background,
 			"elevated_surface.background": p.Highlight,
 			"element.background":          p.Highlight,
-			"element.hover":               p.Border,
+			"element.hover":               p.ElementHover,
 			"element.active":              p.ElementActive,
 			"element.selected":            p.Border,
 			"element.disabled":            p.BorderSubtle,
-			"drop_target.background":      p.Shadow,
+			"drop_target.background":      p.DropTargetBackground,
 
 			// Ghost elements
-			"ghost_element.background": p.Shadow,
+			"ghost_element.background": p.Transparent,
 			"ghost_element.hover":      p.Highlight,
 			"ghost_element.active":     p.Border,
 			"ghost_element.selected":   p.Border,
@@ -91,23 +91,23 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"search.match_background": p.SearchHighlight,
 
 			// Panels and tabs
-			"panel.background":              p.Background,
+			"panel.background":              p.TabBarBackground,
 			"panel.focused_border":          p.BorderFocused,
 			"pane.focused_border":           p.BorderFocused,
-			"status_bar.background":         p.Background,
-			"title_bar.background":          p.Background,
-			"title_bar.inactive_background": p.Background,
+			"status_bar.background":         p.StatusBarBackground,
+			"title_bar.background":          p.StatusBarBackground,
+			"title_bar.inactive_background": p.TabBarBackground,
 			"toolbar.background":            p.Background,
-			"tab_bar.background":            p.Background,
-			"tab.inactive_background":       p.Background,
-			"tab.active_background":         p.Highlight,
+			"tab_bar.background":            p.TabBarBackground,
+			"tab.inactive_background":       p.TabBarBackground,
+			"tab.active_background":         p.Background,
 
 			// Scrollbar
 			"scrollbar.thumb.background":       p.Border,
 			"scrollbar.thumb.hover_background": p.ElementActiveBright,
 			"scrollbar.thumb.border":           p.Border,
-			"scrollbar.track.background":       p.Shadow,
-			"scrollbar.track.border":           p.Shadow,
+			"scrollbar.track.background":       p.Transparent,
+			"scrollbar.track.border":           p.Transparent,
 
 			// Terminal
 			"terminal.background":          p.Background,
