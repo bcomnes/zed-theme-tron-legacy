@@ -27,7 +27,3 @@ go.work.sum
 *.swp
 *.swo
 *~
-
-# Preview images (can be added later)
-preview.png
-screenshots/

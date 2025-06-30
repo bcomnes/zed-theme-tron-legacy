@@ -2,7 +2,8 @@
 
 A dark theme for Zed editor inspired by the visual aesthetics of Tron Legacy, originally created for Sublime Text by Hypermodules LLC and Bret Comnes.
 
-![Theme Preview](preview.png)
+![Theme Preview](./screenshots/tron-dark.webp)
+![Theme Preview](./screenshots/tron-light.webp)
 
 ## Features
 
