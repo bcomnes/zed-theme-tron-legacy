@@ -4,14 +4,16 @@ package light
 func GetColors() map[string]string {
 	return map[string]string{
 		// Monochrome
-		"black":     "#000000ff",
-		"purewhite": "#ffffffff",
-		"shadow":    "#00000020",
+		"black":       "#000000ff",
+		"purewhite":   "#ffffffff",
+		"shadow":      "#00000020",
+		"transparent": "#00000000",
 
 		// Gray scale (light to dark) - inverted from dark theme
 		"gray50":  "#f5f7faff", // Original gray background
 		"blue50":  "#c8d9e8ff", // Light blue background based on cyan
 		"gray100": "#e8ecf2ff", // LineHighlight
+		"gray150": "#dfe5edff", // Status bar
 		"gray200": "#d1dae6ff", // BorderSubtle
 		"gray300": "#b8c5d6ff", // Border, Selection
 		"gray400": "#8a9db5ff", // Line numbers, etc
@@ -52,6 +54,7 @@ func GetColors() map[string]string {
 		"pink600":   "#d1459aff", // Primary pink (darker for light bg)
 
 		// Special alpha variants
-		"blue300alpha": "#4a95b340", // Selection with alpha
+		"blue300alpha":  "#4a95b340", // Selection with alpha
+		"droptarget":    "#0099cc18", // Very low opacity cyan for drop targets
 	}
 }

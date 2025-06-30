@@ -15,7 +15,12 @@ type TronThemePalette struct {
 	Selection     string
 	Highlight     string
 	ElementActive string
+	ElementHover  string
 	Shadow        string
+	Transparent   string
+	DropTargetBackground string
+	TabBarBackground string
+	StatusBarBackground string
 
 	// Semantic colors
 	Error   string

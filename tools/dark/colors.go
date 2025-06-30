@@ -4,13 +4,15 @@ package dark
 func GetColors() map[string]string {
 	return map[string]string{
 		// Monochrome
-		"black":     "#000000ff",
-		"purewhite": "#ffffffff",
-		"shadow":    "#00000040",
+		"black":       "#000000ff",
+		"purewhite":   "#ffffffff",
+		"shadow":      "#00000040",
+		"transparent": "#00000000",
 
 		// Gray scale (dark to light)
 		"gray900": "#14191fff", // Background
 		"gray800": "#28323eff", // LineHighlight
+		"gray750": "#1d3f5cff", // Status bar
 		"gray700": "#133153ff", // BorderSubtle
 		"gray600": "#183c66ff", // Border, Selection
 		"gray500": "#647c9bff", // ForegroundDim
@@ -50,5 +52,6 @@ func GetColors() map[string]string {
 
 		// Special alpha variants
 		"blue500alpha": "#267fb580", // Selection with alpha
+		"droptarget":   "#6ee2ff18", // Very low opacity cyan for drop targets
 	}
 }
