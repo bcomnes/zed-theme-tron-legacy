@@ -193,7 +193,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"unreachable":            p.ForegroundDim,
 			"unreachable.background": p.Background,
 			"unreachable.border":     p.ForegroundDim,
-			"predictive":             p.TerminalPurple,
+			"predictive":             p.Comment,
 			"predictive.background":  p.Background,
 			"predictive.border":      p.TerminalPurple,
 
