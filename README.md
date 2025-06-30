@@ -1,6 +1,6 @@
 # Tron Legacy Theme for Zed
 
-A dark theme for Zed editor inspired by the visual aesthetics of Tron Legacy, originally created for Sublime Text by Hypermodules LLC and Bret Comnes.
+A port of the old Textmate theme "Tron Legacy" to Zed, with a new light mode.
 
 ![Theme Preview](./screenshots/tron-dark.webp)
 ![Theme Preview](./screenshots/tron-light.webp)
@@ -11,6 +11,11 @@ A dark theme for Zed editor inspired by the visual aesthetics of Tron Legacy, or
 - High contrast syntax highlighting optimized for readability
 - Carefully selected colors that maintain WCAG contrast ratios
 - Support for all Zed UI elements and syntax tokens
+
+## See also
+
+- [tron-legacy-vscode](https://github.com/bcomnes/tron-legacy-vscode)
+- [sublime-tron-color-scheme](https://github.com/bcomnes/sublime-tron-color-scheme)
 
 ## License
 
