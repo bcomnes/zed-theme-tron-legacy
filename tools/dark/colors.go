@@ -11,14 +11,18 @@ func GetColors() map[string]string {
 
 		// Gray scale (dark to light)
 		"gray900": "#14191fff", // Background
-		"gray800": "#28323eff", // LineHighlight
-		"gray750": "#1d3f5cff", // Status bar
-		"gray700": "#133153ff", // BorderSubtle
-		"gray600": "#183c66ff", // Border, Selection
+		"gray800": "#1c2128ff", // LineHighlight (more neutral)
+		"gray750": "#23282fff", // Status bar (neutral dark gray)
+		"gray700": "#2a3039ff", // BorderSubtle (neutral)
+		"gray600": "#323842ff", // Border, Selection (neutral)
 		"gray500": "#647c9bff", // ForegroundDim
 		"gray400": "#586676ff", // Comment
 		"gray200": "#aec2e0ff", // Foreground
 		"gray50":  "#dae3f1ff", // ForegroundBright
+
+		// Neutral UI grays (for non-blue UI elements)
+		"neutral800": "#1a1d23ff", // Neutral highlight
+		"neutral600": "#2d3139ff", // Neutral border
 
 		// Blues
 		"blue500":       "#267fb5ff", // Primary blue

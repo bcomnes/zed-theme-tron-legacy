@@ -14,11 +14,11 @@ func GetPalette() palette.TronThemePalette {
 		ForegroundBright: colors["gray50"],
 
 		// UI elements
-		Border:        colors["gray600"],
+		Border:        colors["neutral600"],
 		BorderSubtle:  colors["gray700"],
 		BorderFocused: colors["blue200"],
 		Selection:     colors["gray700"],
-		Highlight:     colors["gray800"],
+		Highlight:     colors["neutral800"],
 		ElementActive: colors["blue400"],
 		ElementHover:  colors["gray700"],
 		Shadow:        colors["shadow"],
