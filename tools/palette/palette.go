@@ -84,4 +84,21 @@ type TronThemePalette struct {
 	Player1Selection string
 	Player3Selection string
 	Player4Selection string
+
+	// Scrollbar alpha variants
+	ScrollbarThumb      string
+	ScrollbarThumbHover string
+	ScrollbarTrackBorder string
+
+	// Editor transparency variants
+	ActiveLineBackground string
+	WrapGuide string
+	ActiveWrapGuide string
+	DocumentHighlightRead string
+	DocumentHighlightWrite string
+
+	// Standardized player selection alphas
+	Player1Alpha string
+	Player3Alpha string
+	Player4Alpha string
 }

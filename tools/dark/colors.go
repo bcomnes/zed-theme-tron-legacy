@@ -57,5 +57,20 @@ func GetColors() map[string]string {
 		// Special alpha variants
 		"blue500alpha": "#267fb580", // Selection with alpha
 		"droptarget":   "#6ee2ff18", // Very low opacity cyan for drop targets
+		"neutral600alpha": "#647c9b4d", // Gray500 with 30% opacity for better contrast on scrollbar
+		"blue200alpha50": "#6ee2ffb3", // Primary cyan with 70% opacity for scrollbar hover
+		"oneTrackBorder": "#2e333cff", // One theme's scrollbar track border color
+
+		// Additional alpha variants for better transparency
+		"gray800alpha75": "#1c2128bf", // Active line background with 75% opacity
+		"gray500alpha30": "#647c9b40", // Wrap guide with 25% opacity using lighter gray
+		"gray400alpha50": "#58667659", // Active wrap guide with 35% opacity using comment color
+		"blue200alpha10": "#6ee2ff1a", // Document highlight read with 10% opacity
+		"blue200alpha40": "#6ee2ff66", // Document highlight write with 40% opacity
+
+		// Standardized player selection opacity (24% like other themes)
+		"player1alpha": "#267fb53d", // Blue with 24% opacity
+		"player3alpha": "#4d5f073d", // Green with 24% opacity
+		"player4alpha": "#F79D1E3d", // Orange with 24% opacity
 	}
 }
