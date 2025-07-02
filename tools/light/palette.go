@@ -4,107 +4,161 @@ import "github.com/bcomnes/zed-theme-tron-legacy/tools/palette"
 
 // GetPalette returns the light theme palette
 func GetPalette() palette.TronThemePalette {
-	colors := GetColors()
-
 	return palette.TronThemePalette{
 		// Core colors
-		Background:       colors["gray50"],
-		Foreground:       colors["gray700"],
-		ForegroundDim:    colors["gray600"],
-		ForegroundBright: colors["gray900"],
+		Background:       gray50,
+		Foreground:       gray700,
+		ForegroundDim:    gray600,
+		ForegroundBright: gray900,
 
 		// UI elements
-		Border:        colors["gray300"],
-		BorderSubtle:  colors["gray200"],
-		BorderFocused: colors["blue200"],
-		Selection:     colors["gray200"],
-		Highlight:     colors["gray100"],
-		ElementActive: colors["blue500"],
-		ElementHover:  colors["gray200"],
-		Shadow:        colors["shadow"],
-		Transparent:   colors["transparent"],
-		DropTargetBackground: colors["droptarget"],
-		TabBarBackground: colors["gray100"],
-		StatusBarBackground: colors["gray800"],
+		Border:               gray300,
+		BorderSubtle:         gray200,
+		BorderFocused:        blue200,
+		Selection:            gray200,
+		Highlight:            gray100,
+		ElementActive:        blue500,
+		ElementHover:         gray200,
+		Shadow:               shadow,
+		Transparent:          transparent,
+		DropTargetBackground: dropTarget,
+		TabBarBackground:     gray100,
+		StatusBarBackground:  gray150,
+		EditorBackground:     gray50,
+		EditorSubheaderBackground: gray100,
+		TitleBarInactiveBackground: gray100,
 
 		// Semantic colors
-		Error:   colors["red600"],
-		Warning: colors["yellow600"],
-		Success: colors["green400"],
-		Info:    colors["blue200"],
+		Error:   red600,
+		Warning: yellow600,
+		Success: green400,
+		Info:    blue200,
 
 		// Background variants
-		ErrorBg:   colors["red100"],
-		SuccessBg: colors["green100"],
+		ErrorBg:   red100,
+		SuccessBg: green100,
 
 		// Syntax highlighting - base colors
-		Comment:  colors["gray500"],
-		String:   colors["red500"],
-		Number:   colors["green400"],
-		Keyword:  colors["blue600"],
-		Function: colors["orange600"],
-		Type:     colors["blue600"],
-		Variable: colors["blue500"],
-		Property: colors["green500"],
+		Comment:  gray500,
+		String:   red500,
+		Number:   green400,
+		Keyword:  blue600,
+		Function: orange600,
+		Type:     blue600,
+		Variable: blue500,
+		Property: green500,
 
 		// Syntax highlighting - accent colors
-		StringEscape:       colors["red400"],
-		Regex:              colors["blue200"],
-		Decorator:          colors["pink600"],
-		Punctuation:        colors["gray700"],
-		PunctuationSpecial: colors["gray400"],
-		Link:               colors["blue400"],
+		StringEscape:       red400,
+		Regex:              blue200,
+		Decorator:          pink600,
+		Punctuation:        gray700,
+		PunctuationSpecial: gray400,
+		Link:               blue400,
 
 		// Terminal colors
-		TerminalBlack:  colors["black"],
-		TerminalRed:    colors["red600"],
-		TerminalGreen:  colors["green500"],
-		TerminalYellow: colors["yellow600"],
-		TerminalBlue:   colors["blue600"],
-		TerminalPurple: colors["purple600"],
-		TerminalCyan:   colors["blue200"],
-		TerminalWhite:  colors["gray700"],
+		TerminalBlack:  black,
+		TerminalRed:    red600,
+		TerminalGreen:  green500,
+		TerminalYellow: yellow600,
+		TerminalBlue:   blue600,
+		TerminalPurple: purple600,
+		TerminalCyan:   blue200,
+		TerminalWhite:  gray700,
 
 		// Additional semantic mappings
-		LineNumber:             colors["gray400"],
-		ElementActiveBright:    colors["blue500"],
-		ConflictBackground:     colors["orange500"],
-		TerminalBrightWhite:    colors["gray900"],
-		TerminalDimGreen:       colors["green600"],
-		TerminalDimYellow:      colors["yellow500"],
-		VersionControlModified: colors["orange500"],
-		VariableParam:          colors["green500"],
-		Constructor:            colors["orange500"],
-		ClassType:              colors["orange500"],
-		EnumType:               colors["orange500"],
-		AttributeType:          colors["orange500"],
-		SelectorAlt:            colors["green500"],
-		AnnotationType:         colors["yellow500"],
-		EmbeddedType:           colors["yellow500"],
+		LineNumber:             gray400,
+		ElementActiveBright:    blue500,
+		ConflictBackground:     orange500,
+		TerminalBrightWhite:    gray900,
+		TerminalDimGreen:       green600,
+		TerminalDimYellow:      yellow500,
+		VersionControlModified: orange700,
+		VariableParam:          green500,
+		Constructor:            orange500,
+		ClassType:              orange500,
+		EnumType:               orange500,
+		AttributeType:          orange500,
+		SelectorAlt:            green500,
+		AnnotationType:         yellow500,
+		EmbeddedType:           yellow500,
 
 		// Search
-		SearchHighlight: colors["blue200alpha"],
+		SearchHighlight: blue200Alpha,
 
 		// Player selection colors
-		Player1Selection: colors["blue300alpha"],
-		Player3Selection: colors["green600"],
-		Player4Selection: colors["orange500"],
+		Player1Selection: blue300Alpha,
+		Player3Selection: green600,
+		Player4Selection: orange500,
 
 		// Scrollbar alpha variants
-		ScrollbarThumb:      colors["gray300alpha"],
-		ScrollbarThumbHover: colors["blue400alpha"],
-		ScrollbarTrackBorder: colors["oneTrackBorder"],
+		ScrollbarThumb:       gray300Alpha,
+		ScrollbarThumbHover:  blue400Alpha,
+		ScrollbarTrackBorder: gray200,
 
 		// Editor transparency variants
-		ActiveLineBackground: colors["gray100alpha75"],
-		WrapGuide: colors["gray500alpha30"],
-		ActiveWrapGuide: colors["gray600alpha50"],
-		DocumentHighlightRead: colors["blue200alpha10"],
-		DocumentHighlightWrite: colors["blue200alpha40"],
+		ActiveLineBackground:   gray100Alpha75,
+		WrapGuide:              gray500Alpha30,
+		ActiveWrapGuide:        gray600Alpha50,
+		DocumentHighlightRead:  blue200Alpha10,
+		DocumentHighlightWrite: blue200Alpha40,
 
 		// Standardized player selection alphas
-		Player1Alpha: colors["player1alpha"],
-		Player3Alpha: colors["player3alpha"],
-		Player4Alpha: colors["player4alpha"],
+		Player1Alpha: player1Alpha,
+		Player3Alpha: player3Alpha,
+		Player4Alpha: player4Alpha,
 	}
+}
+
+// GetFrostedPalette returns the light frosted glass theme palette
+func GetFrostedPalette() palette.TronThemePalette {
+	// Start with the regular palette
+	p := GetPalette()
+
+	// Override for frosted glass effect
+	p.BackgroundAppearance = "blurred"
+	p.Background = gray50Frosted // 67% opacity like Glazier
+	p.BackgroundFrosted = gray50Frosted
+
+	// Make UI elements transparent
+	p.TabBarBackground = transparent
+	p.StatusBarBackground = statusBarFrosted
+	p.Border = borderFrosted
+	p.BorderSubtle = transparent
+	p.Selection = selectionFrosted
+
+	// Adjust text for better contrast on blurred background
+	p.Foreground = gray700Frosted // Slightly higher opacity
+	p.ForegroundDim = gray600Frosted
+	p.TextFrosted = gray700Frosted
+
+	// Keep elevated surfaces opaque for readability
+	p.Highlight = elevatedFrosted
+
+	// Set editor background with slight transparency
+	p.EditorBackground = editorFrosted
+	p.EditorSubheaderBackground = gray100
+	p.TitleBarInactiveBackground = titleBarInactiveFrosted
+
+	// Use darker orange for better contrast on modified files
+	p.VersionControlModified = orange700
+
+	// Use transparent track border for frosted to avoid visual clutter
+	// p.ScrollbarTrackBorder = transparent
+
+	// Make drop target more visible on frosted background
+	p.DropTargetBackground = dropTargetFrosted
+
+	// Adjust other UI elements for frosted effect
+	p.ElementHover = gray200
+
+	// Editor specific adjustments
+	p.ActiveLineBackground = activeLineFrosted
+	p.DocumentHighlightRead = docHighlightReadFrosted
+	p.DocumentHighlightWrite = docHighlightWriteFrosted
+
+	// Use darker scrollbar thumb for better visibility on frosted
+	p.ScrollbarThumb = gray300AlphaDark
+
+	return p
 }
