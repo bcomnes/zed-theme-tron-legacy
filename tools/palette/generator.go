@@ -80,7 +80,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"editor.active_line_number":                  p.Success,
 			"editor.hover_line_number":                   p.Success,
 			"editor.invisible":                           p.ForegroundDim,
-			"editor.wrap_guide":                          p.LineNumber,
+			"editor.wrap_guide":                          p.BorderSubtle,
 			"editor.active_wrap_guide":                   p.Success,
 			"editor.selection.background":                p.Selection,
 			"editor.document_highlight.read_background":  p.Selection,
