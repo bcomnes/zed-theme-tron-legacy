@@ -89,5 +89,22 @@ func GetPalette() palette.TronThemePalette {
 		Player1Selection: colors["blue500alpha"],
 		Player3Selection: colors["green600"],
 		Player4Selection: colors["orange400"],
+
+		// Scrollbar alpha variants
+		ScrollbarThumb:      colors["neutral600alpha"],
+		ScrollbarThumbHover: colors["blue200alpha50"],
+		ScrollbarTrackBorder: colors["oneTrackBorder"],
+
+		// Editor transparency variants
+		ActiveLineBackground: colors["gray800alpha75"],
+		WrapGuide: colors["gray500alpha30"],
+		ActiveWrapGuide: colors["gray400alpha50"],
+		DocumentHighlightRead: colors["blue200alpha10"],
+		DocumentHighlightWrite: colors["blue200alpha40"],
+
+		// Standardized player selection alphas
+		Player1Alpha: colors["player1alpha"],
+		Player3Alpha: colors["player3alpha"],
+		Player4Alpha: colors["player4alpha"],
 	}
 }

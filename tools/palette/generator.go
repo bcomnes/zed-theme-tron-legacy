@@ -74,17 +74,17 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"editor.background":                          p.Background,
 			"editor.foreground":                          p.Foreground,
 			"editor.gutter.background":                   p.Background,
-			"editor.active_line.background":              p.Highlight,
+			"editor.active_line.background":              p.ActiveLineBackground,
 			"editor.highlighted_line.background":         p.Highlight,
 			"editor.line_number":                         p.LineNumber,
 			"editor.active_line_number":                  p.Success,
 			"editor.hover_line_number":                   p.Success,
 			"editor.invisible":                           p.ForegroundDim,
-			"editor.wrap_guide":                          p.BorderSubtle,
-			"editor.active_wrap_guide":                   p.Success,
+			"editor.wrap_guide":                          p.WrapGuide,
+			"editor.active_wrap_guide":                   p.ActiveWrapGuide,
 			"editor.selection.background":                p.Selection,
-			"editor.document_highlight.read_background":  p.Selection,
-			"editor.document_highlight.write_background": p.ElementActiveBright,
+			"editor.document_highlight.read_background":  p.DocumentHighlightRead,
+			"editor.document_highlight.write_background": p.DocumentHighlightWrite,
 			"editor.subheader.background":                p.TabBarBackground,
 
 			// Search
@@ -103,8 +103,8 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"tab.active_background":         p.Background,
 
 			// Scrollbar
-			"scrollbar.thumb.background":       p.Border,
-			"scrollbar.thumb.hover_background": p.ElementActiveBright,
+			"scrollbar.thumb.background":       p.ScrollbarThumb,
+			"scrollbar.thumb.hover_background": p.ScrollbarThumbHover,
 			"scrollbar.thumb.border":           p.Transparent,
 			"scrollbar.track.background":       p.Transparent,
 			"scrollbar.track.border":           p.Transparent,
@@ -212,7 +212,7 @@ func generatePlayers(p TronThemePalette) []map[string]any {
 		{
 			"cursor":     p.Type,
 			"background": p.Type,
-			"selection":  p.Player1Selection,
+			"selection":  p.Player1Alpha,
 		},
 		{
 			"cursor":     p.Info,
@@ -222,12 +222,12 @@ func generatePlayers(p TronThemePalette) []map[string]any {
 		{
 			"cursor":     p.Success,
 			"background": p.Success,
-			"selection":  p.Player3Selection,
+			"selection":  p.Player3Alpha,
 		},
 		{
 			"cursor":     p.Function,
 			"background": p.Function,
-			"selection":  p.Player4Selection,
+			"selection":  p.Player4Alpha,
 		},
 		{
 			"cursor":     p.TerminalPurple,
