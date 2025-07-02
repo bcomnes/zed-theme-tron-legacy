@@ -14,6 +14,8 @@ func main() {
 	// Get palettes from the respective packages
 	darkPalette := dark.GetPalette()
 	lightPalette := light.GetPalette()
+	darkFrostedPalette := dark.GetFrostedPalette()
+	lightFrostedPalette := light.GetFrostedPalette()
 
 	// Create theme variants
 	variants := []palette.ThemeVariant{
@@ -23,21 +25,20 @@ func main() {
 			Palette:    darkPalette,
 		},
 		{
+			Name:       "Tron Legacy Frosted",
+			Appearance: "dark",
+			Palette:    darkFrostedPalette,
+		},
+		{
 			Name:       "Tron Legacy Light",
 			Appearance: "light",
 			Palette:    lightPalette,
 		},
-		// Example: Adding more variants is easy!
-		// {
-		//     Name:       "Tron Legacy High Contrast",
-		//     Appearance: "dark",
-		//     Palette:    highContrastPalette,
-		// },
-		// {
-		//     Name:       "Tron Legacy Soft",
-		//     Appearance: "light",
-		//     Palette:    softPalette,
-		// },
+		{
+			Name:       "Tron Legacy Light Frosted",
+			Appearance: "light",
+			Palette:    lightFrostedPalette,
+		},
 	}
 
 	// Generate the complete theme using the palette package

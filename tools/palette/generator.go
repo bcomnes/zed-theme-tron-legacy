@@ -25,7 +25,7 @@ func GenerateTheme(name string, author string, variants ...ThemeVariant) map[str
 // GenerateThemeStyle generates the style portion of the theme
 // This function maps semantic palette values to theme properties
 func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[string]any {
-	return map[string]any{
+	style := map[string]any{
 		"name":       name,
 		"appearance": appearance,
 		"style": map[string]any{
@@ -71,21 +71,21 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"ghost_element.disabled":   p.BorderSubtle,
 
 			// Editor specific
-			"editor.background":                          p.Background,
+			"editor.background":                          p.EditorBackground,
 			"editor.foreground":                          p.Foreground,
-			"editor.gutter.background":                   p.Background,
+			"editor.gutter.background":                   p.EditorBackground,
 			"editor.active_line.background":              p.ActiveLineBackground,
 			"editor.highlighted_line.background":         p.Highlight,
 			"editor.line_number":                         p.LineNumber,
 			"editor.active_line_number":                  p.Success,
 			"editor.hover_line_number":                   p.Success,
-			"editor.invisible":                           p.ForegroundDim,
+			"editor.invisible":                           p.LineNumber,
 			"editor.wrap_guide":                          p.WrapGuide,
 			"editor.active_wrap_guide":                   p.ActiveWrapGuide,
 			"editor.selection.background":                p.Selection,
 			"editor.document_highlight.read_background":  p.DocumentHighlightRead,
 			"editor.document_highlight.write_background": p.DocumentHighlightWrite,
-			"editor.subheader.background":                p.TabBarBackground,
+			"editor.subheader.background":                p.EditorSubheaderBackground,
 
 			// Search
 			"search.match_background": p.SearchHighlight,
@@ -96,7 +96,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"pane.focused_border":           p.BorderFocused,
 			"status_bar.background":         p.StatusBarBackground,
 			"title_bar.background":          p.StatusBarBackground,
-			"title_bar.inactive_background": p.TabBarBackground,
+			"title_bar.inactive_background": p.TitleBarInactiveBackground,
 			"toolbar.background":            p.Background,
 			"tab_bar.background":            p.TabBarBackground,
 			"tab.inactive_background":       p.TabBarBackground,
@@ -105,9 +105,9 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			// Scrollbar
 			"scrollbar.thumb.background":       p.ScrollbarThumb,
 			"scrollbar.thumb.hover_background": p.ScrollbarThumbHover,
-			"scrollbar.thumb.border":           p.Transparent,
+			"scrollbar.thumb.border":           p.Border,
 			"scrollbar.track.background":       p.Transparent,
-			"scrollbar.track.border":           p.Transparent,
+			"scrollbar.track.border":           p.ScrollbarTrackBorder,
 
 			// Terminal
 			"terminal.background":          p.Background,
@@ -204,6 +204,13 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"syntax": generateSyntax(p),
 		},
 	}
+
+	// Add background appearance if specified
+	if p.BackgroundAppearance != "" && p.BackgroundAppearance != "opaque" {
+		style["style"].(map[string]any)["background.appearance"] = p.BackgroundAppearance
+	}
+
+	return style
 }
 
 // generatePlayers generates the multiplayer cursor colors

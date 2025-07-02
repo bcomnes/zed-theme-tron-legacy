@@ -21,6 +21,9 @@ type TronThemePalette struct {
 	DropTargetBackground string
 	TabBarBackground string
 	StatusBarBackground string
+	EditorBackground string
+	EditorSubheaderBackground string
+	TitleBarInactiveBackground string
 
 	// Semantic colors
 	Error   string
@@ -101,4 +104,9 @@ type TronThemePalette struct {
 	Player1Alpha string
 	Player3Alpha string
 	Player4Alpha string
+
+	// Frosted glass properties
+	BackgroundAppearance string // "opaque" or "blurred"
+	BackgroundFrosted string // Semi-transparent background for frosted effect
+	TextFrosted string // Higher opacity text for frosted backgrounds
 }
