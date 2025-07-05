@@ -2,8 +2,10 @@
 
 A port of the old Textmate theme "Tron Legacy" to Zed, with a new light mode and frosted variants.
 
-![Theme Preview](./screenshots/tron-dark.webp)
-![Theme Preview](./screenshots/tron-light.webp)
+![Tron Legacy Preview](./screenshots/tron-legacy-zed.png)
+![Tron Legacy Frosted Preview](./screenshots/tron-legacy-frosted-zed.png)
+![Tron Legacy Light Preview](./screenshots/tron-legacy-light-zed.png)
+![Tron Legacy Light Frosted Preview](./screenshots/tron-legacy-light-frosted-zed.png)
 
 ## Features
 
