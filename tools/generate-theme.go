@@ -44,7 +44,7 @@ func main() {
 	// Generate the complete theme using the palette package
 	theme := palette.GenerateTheme(
 		"Tron Legacy",
-		"Hypermodules LLC, Bret Comnes (ported to Zed)",
+		"Bret Comnes",
 		variants...,
 	)
 

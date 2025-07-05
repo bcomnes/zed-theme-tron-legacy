@@ -1,0 +1,28 @@
+name: tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        go: ['^1.24.1']
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v5
+      with:
+        go-version: ${{ matrix.go }}
+        check-latest: true
+    - run: make all
+    - name: Check for uncommitted changes
+      run: |
+        if ! git diff --quiet themes/tron-legacy.json; then
+          echo "Error: themes/tron-legacy.json has uncommitted changes after running tests"
+          echo "Please run 'make generate' and commit the changes"
+          git diff themes/tron-legacy.json
+          exit 1
+        fi
