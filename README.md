@@ -30,7 +30,7 @@ The colors are defined in colors.css files as css variables so that zed can disp
 ![css-previews](./screenshots/css-preview.png)
 
 The colors are loaded into [`palette.go`](./tools/dark/palette.go) and assigned to a semantic [`TronThemePalette`](./tools/palette/palette.go) mapping.
-These semantic mappings are then fed into [`generator.go`](./tools/generator.go) and the final output ends up in [`themes/tron-legacy.json`](./themes/tron-legacy.json).
+These semantic mappings are then fed into [`generator.go`](./tools/palette/generator.go) and the final output ends up in [`themes/tron-legacy.json`](./themes/tron-legacy.json).
 
 ## See also
 
