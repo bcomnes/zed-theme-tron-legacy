@@ -1,6 +1,6 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-  "author": "Hypermodules LLC, Bret Comnes (ported to Zed)",
+  "author": "Bret Comnes",
   "name": "Tron Legacy",
   "themes": [
     {
