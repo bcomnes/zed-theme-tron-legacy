@@ -57,9 +57,9 @@
         "hidden": "#586676ff",
         "hidden.background": "#14191fff",
         "hidden.border": "#586676ff",
-        "hint": "#267fb5ff",
+        "hint": "#647c9bff",
         "hint.background": "#14191fff",
-        "hint.border": "#267fb5ff",
+        "hint.border": "#647c9bff",
         "icon": "#aec2e0ff",
         "icon.accent": "#6ee2ffff",
         "icon.disabled": "#647c9bff",
@@ -219,7 +219,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#267fb5ff",
+            "color": "#647c9bff",
             "font_style": "italic",
             "font_weight": null
           },
@@ -526,9 +526,9 @@
         "hidden": "#586676ff",
         "hidden.background": "#14191fcc",
         "hidden.border": "#586676ff",
-        "hint": "#267fb5ff",
+        "hint": "#647c9bff",
         "hint.background": "#14191fcc",
-        "hint.border": "#267fb5ff",
+        "hint.border": "#647c9bff",
         "icon": "#aec2e0ee",
         "icon.accent": "#6ee2ffff",
         "icon.disabled": "#647c9bf2",
@@ -688,7 +688,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#267fb5ff",
+            "color": "#647c9bff",
             "font_style": "italic",
             "font_weight": null
           },
@@ -994,9 +994,9 @@
         "hidden": "#6b7e96ff",
         "hidden.background": "#f5f7faff",
         "hidden.border": "#6b7e96ff",
-        "hint": "#1a5f8aff",
+        "hint": "#8a9db5ff",
         "hint.background": "#f5f7faff",
-        "hint.border": "#1a5f8aff",
+        "hint.border": "#8a9db5ff",
         "icon": "#2d3e4fff",
         "icon.accent": "#0099ccff",
         "icon.disabled": "#526073ff",
@@ -1156,7 +1156,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#1a5f8aff",
+            "color": "#8a9db5ff",
             "font_style": "italic",
             "font_weight": null
           },
@@ -1463,9 +1463,9 @@
         "hidden": "#6b7e96ff",
         "hidden.background": "#f5f7fad9",
         "hidden.border": "#6b7e96ff",
-        "hint": "#1a5f8aff",
+        "hint": "#8a9db5ff",
         "hint.background": "#f5f7fad9",
-        "hint.border": "#1a5f8aff",
+        "hint.border": "#8a9db5ff",
         "icon": "#2d3e4fee",
         "icon.accent": "#0099ccff",
         "icon.disabled": "#526073dd",
@@ -1625,7 +1625,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#1a5f8aff",
+            "color": "#8a9db5ff",
             "font_style": "italic",
             "font_weight": null
           },

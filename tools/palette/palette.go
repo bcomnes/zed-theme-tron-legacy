@@ -30,6 +30,7 @@ type TronThemePalette struct {
 	Warning string
 	Success string
 	Info    string
+	Hint    string
 
 	// Background variants for semantic colors
 	ErrorBg   string

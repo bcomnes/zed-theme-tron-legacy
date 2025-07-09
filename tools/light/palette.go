@@ -48,6 +48,7 @@ func GetPalette() palette.TronThemePalette {
 		Warning: colors.MustGet("yellow600"),
 		Success: colors.MustGet("green400"),
 		Info:    colors.MustGet("blue200"),
+		Hint:    colors.MustGet("gray400"),
 
 		// Background variants
 		ErrorBg:   colors.MustGet("red100"),
