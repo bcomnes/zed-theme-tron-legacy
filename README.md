@@ -12,7 +12,7 @@ A port of the old Textmate theme "Tron Legacy" to Zed, with a new light mode and
 - High contrast syntax highlighting optimized for readability
 - Carefully selected colors that maintain WCAG contrast ratios
 - Support for all Zed UI elements and syntax tokens
-- Light and Dark variants
+- 🌝 Light and Dark variants 🌚
 - 🥶 Frosted transparent variants ❄️
 
 ## Developing
