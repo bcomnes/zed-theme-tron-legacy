@@ -42,7 +42,7 @@ func GetPalette() palette.TronThemePalette {
 		EditorBackground:     colors.MustGet("gray900"),
 		EditorSubheaderBackground: colors.MustGet("gray800"),
 		TitleBarInactiveBackground: colors.MustGet("gray800"),
-		PanelStickyEntryBackground: colors.MustGet("stickyEntryBackground"),
+		PanelOverlayBackground: colors.MustGet("stickyEntryBackground"),
 
 		// Semantic colors
 		Error:   colors.MustGet("red500"),
@@ -177,8 +177,8 @@ func GetFrostedPalette() palette.TronThemePalette {
 	p.DocumentHighlightRead = colors.MustGet("docHighlightReadFrosted")
 	p.DocumentHighlightWrite = colors.MustGet("docHighlightWriteFrosted")
 
-	// Sticky entry background with transparency
-	p.PanelStickyEntryBackground = colors.MustGet("stickyEntryBackgroundFrosted")
+	// Overlay background with transparency
+	p.PanelOverlayBackground = colors.MustGet("stickyEntryBackgroundFrosted")
 
 	return p
 }

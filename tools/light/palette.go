@@ -42,7 +42,7 @@ func GetPalette() palette.TronThemePalette {
 		EditorBackground:     colors.MustGet("gray50"),
 		EditorSubheaderBackground: colors.MustGet("gray100"),
 		TitleBarInactiveBackground: colors.MustGet("gray100"),
-		PanelStickyEntryBackground: colors.MustGet("stickyEntryBackground"),
+		PanelOverlayBackground: colors.MustGet("stickyEntryBackground"),
 
 		// Semantic colors
 		Error:   colors.MustGet("red600"),
@@ -183,8 +183,8 @@ func GetFrostedPalette() palette.TronThemePalette {
 	// Use darker scrollbar thumb for better visibility on frosted
 	p.ScrollbarThumb = colors.MustGet("gray300AlphaDark")
 
-	// Sticky entry background with transparency
-	p.PanelStickyEntryBackground = colors.MustGet("stickyEntryBackgroundFrosted")
+	// Overlay background with transparency
+	p.PanelOverlayBackground = colors.MustGet("stickyEntryBackgroundFrosted")
 
 	return p
 }
