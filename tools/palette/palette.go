@@ -24,6 +24,7 @@ type TronThemePalette struct {
 	EditorBackground string
 	EditorSubheaderBackground string
 	TitleBarInactiveBackground string
+	PanelStickyEntryBackground string
 
 	// Semantic colors
 	Error   string

@@ -89,4 +89,8 @@
   --docHighlightReadFrosted: #0099cc22; /* Slightly more visible read highlight */
   --docHighlightWriteFrosted: #0099cc44; /* Slightly more visible write highlight */
   --titleBarInactiveFrosted: #e8ecf2cc; /* Inactive title bar with 80% opacity */
+
+  /* Sticky entry backgrounds */
+  --stickyEntryBackground: #dce3edff; /* Slightly darker than panel background */
+  --stickyEntryBackgroundFrosted: #e8ecf2cc; /* Semi-transparent for frosted glass effect */
 }
