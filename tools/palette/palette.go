@@ -25,10 +25,7 @@ type TronThemePalette struct {
 	BorderFocused        string
 	Selection            string
 	Highlight            string
-	ElementActive        string
-	ElementActiveBright  string
 	ElementHover         string
-	Shadow               string
 	Transparent          string
 	DropTargetBackground string
 
@@ -58,21 +55,22 @@ type TronThemePalette struct {
 	Keyword     string
 	Function    string
 	Variable    string
-	VariableParam string
-	Property    string
-	Link        string
+	Property  string
+	Namespace string
 
 	// Syntax - advanced types
-	Type           string
-	Constructor    string
-	ClassType      string
-	EnumType       string
-	AttributeType  string
-	AnnotationType string
-	EmbeddedType   string
-	Decorator      string
-	Regex          string
-	SelectorAlt    string
+	Type          string
+	Constructor   string
+	EnumType      string
+	AttributeType string
+	EmbeddedType  string
+	// SpecialSyntax is used for multiple syntax elements:
+	// - label (decorators/annotations)
+	// - selector.pseudo (CSS pseudo-selectors)
+	// - string.special (special string literals)
+	SpecialSyntax string
+	Regex         string
+	Selector      string
 
 	// Syntax - punctuation
 	Punctuation        string
@@ -90,6 +88,7 @@ type TronThemePalette struct {
 	TerminalBrightWhite string
 	TerminalDimGreen    string
 	TerminalDimYellow   string
+	TerminalDimBlack    string // Used for terminal.ansi.dim_black
 
 	// Version control
 	VersionControlModified string
@@ -101,15 +100,15 @@ type TronThemePalette struct {
 	ScrollbarTrackBorder string
 
 	// Player/collaboration colors
-	Player1Selection string
-	Player1Alpha     string
-	Player3Selection string
-	Player3Alpha     string
-	Player4Selection string
-	Player4Alpha     string
+	Player1Alpha string
+	Player2Alpha string
+	Player3Alpha string
+	Player4Alpha string
 
 	// Frosted glass properties
 	BackgroundAppearance string // "opaque" or "blurred"
-	BackgroundFrosted    string // Semi-transparent background for frosted effect
-	TextFrosted          string // Higher opacity text for frosted backgrounds
+
+	// Accent colors (from Gruvbox theme)
+	// These are optional accent colors that can be selected by users for UI highlights
+	Accents []string
 }

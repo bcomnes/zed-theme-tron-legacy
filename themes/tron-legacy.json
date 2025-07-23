@@ -6,6 +6,15 @@
     {
       "name": "Tron Legacy",
       "appearance": "dark",
+      "accents": [
+        "#6ee2ffff",
+        "#FFB20Dff",
+        "#C7F026ff",
+        "#F92672ff",
+        "#967EFBff",
+        "#FFE792ff",
+        "#267fb5ff"
+      ],
       "style": {
         "border": "#2d3139ff",
         "border.variant": "#2a3039ff",
@@ -149,52 +158,47 @@
         "warning.border": "#FFE792ff",
         "players": [
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#267fb53d"
           },
           {
-            "background": "#6ee2ffff",
             "cursor": "#6ee2ffff",
-            "selection": "#2d3139ff"
+            "background": "#6ee2ffff",
+            "selection": "#2a3039ff"
           },
           {
-            "background": "#C7F026ff",
             "cursor": "#C7F026ff",
+            "background": "#C7F026ff",
             "selection": "#4d5f073d"
           },
           {
-            "background": "#FFB20Dff",
             "cursor": "#FFB20Dff",
+            "background": "#FFB20Dff",
             "selection": "#F79D1E3d"
           },
           {
-            "background": "#967EFBff",
             "cursor": "#967EFBff",
+            "background": "#967EFBff",
             "selection": "#967EFBff"
           },
           {
-            "background": "#F92672ff",
             "cursor": "#F92672ff",
+            "background": "#F92672ff",
             "selection": "#660000ff"
           },
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#2d3139ff"
           },
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#647c9bff"
           }
         ],
         "syntax": {
-          "annotation": {
-            "color": "#ffd12cff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "attribute": {
             "color": "#F79D1Eff",
             "font_style": null,
@@ -204,11 +208,6 @@
             "color": "#FFB20Dff",
             "font_style": "italic",
             "font_weight": null
-          },
-          "class": {
-            "color": "#F79D1Eff",
-            "font_style": "italic",
-            "font_weight": 700
           },
           "comment": {
             "color": "#586676ff",
@@ -230,33 +229,23 @@
             "font_style": "italic",
             "font_weight": 700
           },
-          "decorator": {
-            "color": "#ff79c6ff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "embedded": {
             "color": "#ffd12cff",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": null,
+            "color": "#6ee2ffff",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": null,
+            "color": "#FFB20Dff",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
             "color": "#F79D1Eff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "field": {
-            "color": "#95CC5Eff",
             "font_style": null,
             "font_weight": null
           },
@@ -275,19 +264,9 @@
             "font_style": "italic",
             "font_weight": null
           },
-          "interface": {
-            "color": "#95CC5Eff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "keyword": {
             "color": "#267fb5ff",
             "font_style": "italic",
-            "font_weight": null
-          },
-          "keyword.control": {
-            "color": "#267fb5ff",
-            "font_style": null,
             "font_weight": null
           },
           "label": {
@@ -305,21 +284,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "macro": {
-            "color": "#ff79c6ff",
-            "font_style": null,
-            "font_weight": 700
-          },
-          "method": {
-            "color": "#FFB20Dff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "module": {
-            "color": "#4a95b3ff",
-            "font_style": null,
-            "font_weight": null
-          },
           "namespace": {
             "color": "#4a95b3ff",
             "font_style": null,
@@ -333,11 +297,6 @@
           "operator": {
             "color": "#267fb5ff",
             "font_style": null,
-            "font_weight": null
-          },
-          "parameter": {
-            "color": "#95CC5Eff",
-            "font_style": "italic",
             "font_weight": null
           },
           "predictive": {
@@ -381,11 +340,6 @@
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#6ee2ffff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "regex": {
             "color": "#6ee2ffff",
             "font_style": null,
             "font_weight": null
@@ -450,16 +404,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "variable.builtin": {
-            "color": "#967EFBff",
-            "font_style": "italic",
-            "font_weight": null
-          },
-          "variable.parameter": {
-            "color": "#95CC5Eff",
-            "font_style": null,
-            "font_weight": null
-          },
           "variable.special": {
             "color": "#967EFBff",
             "font_style": "italic",
@@ -476,6 +420,15 @@
     {
       "name": "Tron Legacy Frosted",
       "appearance": "dark",
+      "accents": [
+        "#6ee2ffff",
+        "#FFB20Dff",
+        "#C7F026ff",
+        "#F92672ff",
+        "#967EFBff",
+        "#FFE792ff",
+        "#267fb5ff"
+      ],
       "style": {
         "border": "#323842aa",
         "border.variant": "#32384266",
@@ -620,52 +573,47 @@
         "warning.border": "#FFE792ff",
         "players": [
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#267fb53d"
           },
           {
-            "background": "#6ee2ffff",
             "cursor": "#6ee2ffff",
-            "selection": "#323842aa"
+            "background": "#6ee2ffff",
+            "selection": "#2a3039ff"
           },
           {
-            "background": "#C7F026ff",
             "cursor": "#C7F026ff",
+            "background": "#C7F026ff",
             "selection": "#4d5f073d"
           },
           {
-            "background": "#FFB20Dff",
             "cursor": "#FFB20Dff",
+            "background": "#FFB20Dff",
             "selection": "#F79D1E3d"
           },
           {
-            "background": "#967EFBff",
             "cursor": "#967EFBff",
+            "background": "#967EFBff",
             "selection": "#967EFBff"
           },
           {
-            "background": "#F92672ff",
             "cursor": "#F92672ff",
+            "background": "#F92672ff",
             "selection": "#660000ff"
           },
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#323842aa"
           },
           {
-            "background": "#267fb5ff",
             "cursor": "#267fb5ff",
+            "background": "#267fb5ff",
             "selection": "#647c9bf2"
           }
         ],
         "syntax": {
-          "annotation": {
-            "color": "#ffd12cff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "attribute": {
             "color": "#F79D1Eff",
             "font_style": null,
@@ -675,11 +623,6 @@
             "color": "#FFB20Dff",
             "font_style": "italic",
             "font_weight": null
-          },
-          "class": {
-            "color": "#F79D1Eff",
-            "font_style": "italic",
-            "font_weight": 700
           },
           "comment": {
             "color": "#586676ff",
@@ -701,33 +644,23 @@
             "font_style": "italic",
             "font_weight": 700
           },
-          "decorator": {
-            "color": "#ff79c6ff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "embedded": {
             "color": "#ffd12cff",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": null,
+            "color": "#6ee2ffff",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": null,
+            "color": "#FFB20Dff",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
             "color": "#F79D1Eff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "field": {
-            "color": "#95CC5Eff",
             "font_style": null,
             "font_weight": null
           },
@@ -746,19 +679,9 @@
             "font_style": "italic",
             "font_weight": null
           },
-          "interface": {
-            "color": "#95CC5Eff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "keyword": {
             "color": "#267fb5ff",
             "font_style": "italic",
-            "font_weight": null
-          },
-          "keyword.control": {
-            "color": "#267fb5ff",
-            "font_style": null,
             "font_weight": null
           },
           "label": {
@@ -776,21 +699,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "macro": {
-            "color": "#ff79c6ff",
-            "font_style": null,
-            "font_weight": 700
-          },
-          "method": {
-            "color": "#FFB20Dff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "module": {
-            "color": "#4a95b3ff",
-            "font_style": null,
-            "font_weight": null
-          },
           "namespace": {
             "color": "#4a95b3ff",
             "font_style": null,
@@ -804,11 +712,6 @@
           "operator": {
             "color": "#267fb5ff",
             "font_style": null,
-            "font_weight": null
-          },
-          "parameter": {
-            "color": "#95CC5Eff",
-            "font_style": "italic",
             "font_weight": null
           },
           "predictive": {
@@ -852,11 +755,6 @@
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#6ee2ffff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "regex": {
             "color": "#6ee2ffff",
             "font_style": null,
             "font_weight": null
@@ -921,16 +819,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "variable.builtin": {
-            "color": "#967EFBff",
-            "font_style": "italic",
-            "font_weight": null
-          },
-          "variable.parameter": {
-            "color": "#95CC5Eff",
-            "font_style": null,
-            "font_weight": null
-          },
           "variable.special": {
             "color": "#967EFBff",
             "font_style": "italic",
@@ -947,6 +835,15 @@
     {
       "name": "Tron Legacy Light",
       "appearance": "light",
+      "accents": [
+        "#4a95b3ff",
+        "#e68a00ff",
+        "#3a5f00ff",
+        "#d91e18ff",
+        "#6a56ccff",
+        "#dbb200ff",
+        "#267fb5ff"
+      ],
       "style": {
         "border": "#b8c5d6ff",
         "border.variant": "#d1dae6ff",
@@ -1090,52 +987,47 @@
         "warning.border": "#c9a000ff",
         "players": [
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#4a95b33d"
           },
           {
-            "background": "#0099ccff",
             "cursor": "#0099ccff",
-            "selection": "#b8c5d6ff"
+            "background": "#0099ccff",
+            "selection": "#2d3e4fff"
           },
           {
-            "background": "#7aad3aff",
             "cursor": "#7aad3aff",
+            "background": "#7aad3aff",
             "selection": "#3a5f003d"
           },
           {
-            "background": "#cc7700ff",
             "cursor": "#cc7700ff",
+            "background": "#cc7700ff",
             "selection": "#e68a003d"
           },
           {
-            "background": "#6a56ccff",
             "cursor": "#6a56ccff",
+            "background": "#6a56ccff",
             "selection": "#6a56ccff"
           },
           {
-            "background": "#cc0033ff",
             "cursor": "#cc0033ff",
+            "background": "#cc0033ff",
             "selection": "#ffe6e6ff"
           },
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#b8c5d6ff"
           },
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#526073ff"
           }
         ],
         "syntax": {
-          "annotation": {
-            "color": "#dbb200ff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "attribute": {
             "color": "#e68a00ff",
             "font_style": null,
@@ -1145,11 +1037,6 @@
             "color": "#cc7700ff",
             "font_style": "italic",
             "font_weight": null
-          },
-          "class": {
-            "color": "#e68a00ff",
-            "font_style": "italic",
-            "font_weight": 700
           },
           "comment": {
             "color": "#6b7e96ff",
@@ -1171,33 +1058,23 @@
             "font_style": "italic",
             "font_weight": 700
           },
-          "decorator": {
-            "color": "#d1459aff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "embedded": {
             "color": "#dbb200ff",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": null,
+            "color": "#0099ccff",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": null,
+            "color": "#cc7700ff",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
             "color": "#e68a00ff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "field": {
-            "color": "#5a8b2cff",
             "font_style": null,
             "font_weight": null
           },
@@ -1216,19 +1093,9 @@
             "font_style": "italic",
             "font_weight": null
           },
-          "interface": {
-            "color": "#5a8b2cff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "keyword": {
             "color": "#1a5f8aff",
             "font_style": "italic",
-            "font_weight": null
-          },
-          "keyword.control": {
-            "color": "#1a5f8aff",
-            "font_style": null,
             "font_weight": null
           },
           "label": {
@@ -1246,21 +1113,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "macro": {
-            "color": "#d1459aff",
-            "font_style": null,
-            "font_weight": 700
-          },
-          "method": {
-            "color": "#cc7700ff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "module": {
-            "color": "#3988c0ff",
-            "font_style": null,
-            "font_weight": null
-          },
           "namespace": {
             "color": "#3988c0ff",
             "font_style": null,
@@ -1274,11 +1126,6 @@
           "operator": {
             "color": "#1a5f8aff",
             "font_style": null,
-            "font_weight": null
-          },
-          "parameter": {
-            "color": "#5a8b2cff",
-            "font_style": "italic",
             "font_weight": null
           },
           "predictive": {
@@ -1322,11 +1169,6 @@
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#0099ccff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "regex": {
             "color": "#0099ccff",
             "font_style": null,
             "font_weight": null
@@ -1391,16 +1233,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "variable.builtin": {
-            "color": "#6a56ccff",
-            "font_style": "italic",
-            "font_weight": null
-          },
-          "variable.parameter": {
-            "color": "#5a8b2cff",
-            "font_style": null,
-            "font_weight": null
-          },
           "variable.special": {
             "color": "#6a56ccff",
             "font_style": "italic",
@@ -1417,6 +1249,15 @@
     {
       "name": "Tron Legacy Light Frosted",
       "appearance": "light",
+      "accents": [
+        "#4a95b3ff",
+        "#e68a00ff",
+        "#3a5f00ff",
+        "#d91e18ff",
+        "#6a56ccff",
+        "#dbb200ff",
+        "#267fb5ff"
+      ],
       "style": {
         "border": "#b8c5d666",
         "border.variant": "#00000000",
@@ -1561,52 +1402,47 @@
         "warning.border": "#c9a000ff",
         "players": [
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#4a95b33d"
           },
           {
-            "background": "#0099ccff",
             "cursor": "#0099ccff",
-            "selection": "#b8c5d666"
+            "background": "#0099ccff",
+            "selection": "#2d3e4fff"
           },
           {
-            "background": "#7aad3aff",
             "cursor": "#7aad3aff",
+            "background": "#7aad3aff",
             "selection": "#3a5f003d"
           },
           {
-            "background": "#cc7700ff",
             "cursor": "#cc7700ff",
+            "background": "#cc7700ff",
             "selection": "#e68a003d"
           },
           {
-            "background": "#6a56ccff",
             "cursor": "#6a56ccff",
+            "background": "#6a56ccff",
             "selection": "#6a56ccff"
           },
           {
-            "background": "#cc0033ff",
             "cursor": "#cc0033ff",
+            "background": "#cc0033ff",
             "selection": "#ffe6e6ff"
           },
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#b8c5d666"
           },
           {
-            "background": "#1a5f8aff",
             "cursor": "#1a5f8aff",
+            "background": "#1a5f8aff",
             "selection": "#526073dd"
           }
         ],
         "syntax": {
-          "annotation": {
-            "color": "#dbb200ff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "attribute": {
             "color": "#e68a00ff",
             "font_style": null,
@@ -1616,11 +1452,6 @@
             "color": "#cc7700ff",
             "font_style": "italic",
             "font_weight": null
-          },
-          "class": {
-            "color": "#e68a00ff",
-            "font_style": "italic",
-            "font_weight": 700
           },
           "comment": {
             "color": "#6b7e96ff",
@@ -1642,33 +1473,23 @@
             "font_style": "italic",
             "font_weight": 700
           },
-          "decorator": {
-            "color": "#d1459aff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "embedded": {
             "color": "#dbb200ff",
             "font_style": null,
             "font_weight": null
           },
           "emphasis": {
-            "color": null,
+            "color": "#0099ccff",
             "font_style": "italic",
             "font_weight": null
           },
           "emphasis.strong": {
-            "color": null,
+            "color": "#cc7700ff",
             "font_style": null,
             "font_weight": 700
           },
           "enum": {
             "color": "#e68a00ff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "field": {
-            "color": "#5a8b2cff",
             "font_style": null,
             "font_weight": null
           },
@@ -1687,19 +1508,9 @@
             "font_style": "italic",
             "font_weight": null
           },
-          "interface": {
-            "color": "#5a8b2cff",
-            "font_style": "italic",
-            "font_weight": null
-          },
           "keyword": {
             "color": "#1a5f8aff",
             "font_style": "italic",
-            "font_weight": null
-          },
-          "keyword.control": {
-            "color": "#1a5f8aff",
-            "font_style": null,
             "font_weight": null
           },
           "label": {
@@ -1717,21 +1528,6 @@
             "font_style": null,
             "font_weight": null
           },
-          "macro": {
-            "color": "#d1459aff",
-            "font_style": null,
-            "font_weight": 700
-          },
-          "method": {
-            "color": "#cc7700ff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "module": {
-            "color": "#3988c0ff",
-            "font_style": null,
-            "font_weight": null
-          },
           "namespace": {
             "color": "#3988c0ff",
             "font_style": null,
@@ -1745,11 +1541,6 @@
           "operator": {
             "color": "#1a5f8aff",
             "font_style": null,
-            "font_weight": null
-          },
-          "parameter": {
-            "color": "#5a8b2cff",
-            "font_style": "italic",
             "font_weight": null
           },
           "predictive": {
@@ -1793,11 +1584,6 @@
             "font_weight": null
           },
           "punctuation.special": {
-            "color": "#0099ccff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "regex": {
             "color": "#0099ccff",
             "font_style": null,
             "font_weight": null
@@ -1859,16 +1645,6 @@
           },
           "variable": {
             "color": "#267fb5ff",
-            "font_style": null,
-            "font_weight": null
-          },
-          "variable.builtin": {
-            "color": "#6a56ccff",
-            "font_style": "italic",
-            "font_weight": null
-          },
-          "variable.parameter": {
-            "color": "#5a8b2cff",
             "font_style": null,
             "font_weight": null
           },

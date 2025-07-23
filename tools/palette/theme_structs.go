@@ -12,6 +12,7 @@ type Theme struct {
 type Style struct {
 	Name       string      `json:"name"`
 	Appearance string      `json:"appearance"`
+	Accents    []string    `json:"accents,omitempty"`
 	Style      *ThemeStyle `json:"style"`
 }
 
@@ -202,7 +203,68 @@ type ThemeStyle struct {
 	WarningBackground string `json:"warning.background"`
 	WarningBorder     string `json:"warning.border"`
 
-	// Players and Syntax (these remain as maps since they're complex nested structures)
-	Players []map[string]any `json:"players"`
-	Syntax  map[string]any   `json:"syntax"`
+	// Players and Syntax
+	Players []Player     `json:"players"`
+	Syntax  SyntaxStyles `json:"syntax"`
+}
+
+// Player represents a multiplayer cursor color scheme
+type Player struct {
+	Cursor     string `json:"cursor"`
+	Background string `json:"background"`
+	Selection  string `json:"selection"`
+}
+
+// SyntaxStyle represents a single syntax highlighting style
+type SyntaxStyle struct {
+	Color      string  `json:"color"`
+	FontStyle  *string `json:"font_style"`
+	FontWeight *int    `json:"font_weight"`
+}
+
+// SyntaxStyles represents all syntax highlighting styles
+type SyntaxStyles struct {
+	Attribute           SyntaxStyle `json:"attribute"`
+	Boolean             SyntaxStyle `json:"boolean"`
+	Comment             SyntaxStyle `json:"comment"`
+	CommentDoc          SyntaxStyle `json:"comment.doc"`
+	Constant            SyntaxStyle `json:"constant"`
+	Constructor         SyntaxStyle `json:"constructor"`
+	Embedded            SyntaxStyle `json:"embedded"`
+	Emphasis            SyntaxStyle `json:"emphasis"`
+	EmphasisStrong      SyntaxStyle `json:"emphasis.strong"`
+	Enum                  SyntaxStyle `json:"enum"`
+	Function              SyntaxStyle `json:"function"`
+	FunctionBuiltin       SyntaxStyle `json:"function.builtin"` // From Gruvbox theme
+	Hint                  SyntaxStyle `json:"hint"`
+	Keyword             SyntaxStyle `json:"keyword"`
+	Label               SyntaxStyle `json:"label"`
+	LinkText            SyntaxStyle `json:"link_text"`
+	LinkURI             SyntaxStyle `json:"link_uri"`
+	Namespace           SyntaxStyle `json:"namespace"`
+	Number              SyntaxStyle `json:"number"`
+	Operator            SyntaxStyle `json:"operator"`
+	Predictive          SyntaxStyle `json:"predictive"`
+	Preproc             SyntaxStyle `json:"preproc"`
+	Primary             SyntaxStyle `json:"primary"`
+	Property            SyntaxStyle `json:"property"`
+	Punctuation         SyntaxStyle `json:"punctuation"`
+	PunctuationBracket  SyntaxStyle `json:"punctuation.bracket"`
+	PunctuationDelimiter SyntaxStyle `json:"punctuation.delimiter"`
+	PunctuationListMarker SyntaxStyle `json:"punctuation.list_marker"`
+	PunctuationSpecial  SyntaxStyle `json:"punctuation.special"`
+	Selector            SyntaxStyle `json:"selector"`
+	SelectorPseudo      SyntaxStyle `json:"selector.pseudo"`
+	String              SyntaxStyle `json:"string"`
+	StringEscape        SyntaxStyle `json:"string.escape"`
+	StringRegex         SyntaxStyle `json:"string.regex"`
+	StringSpecial       SyntaxStyle `json:"string.special"`
+	StringSpecialSymbol SyntaxStyle `json:"string.special.symbol"`
+	Tag                 SyntaxStyle `json:"tag"`
+	TextLiteral         SyntaxStyle `json:"text.literal"`
+	Title               SyntaxStyle `json:"title"`
+	Type                SyntaxStyle `json:"type"`
+	Variable            SyntaxStyle `json:"variable"`
+	VariableSpecial     SyntaxStyle `json:"variable.special"`
+	Variant             SyntaxStyle `json:"variant"`
 }

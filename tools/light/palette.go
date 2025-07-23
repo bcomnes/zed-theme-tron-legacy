@@ -43,10 +43,7 @@ func GetPalette() palette.TronThemePalette {
 		BorderFocused:        colors.MustGet("blue200"),
 		Selection:            colors.MustGet("gray200"),
 		Highlight:            colors.MustGet("gray100"),
-		ElementActive:        colors.MustGet("blue500"),
-		ElementActiveBright:  colors.MustGet("blue500"),
 		ElementHover:         colors.MustGet("gray200"),
-		Shadow:               colors.MustGet("shadow"),
 		Transparent:          colors.MustGet("transparent"),
 		DropTargetBackground: colors.MustGet("blue200Alpha18"),
 
@@ -76,21 +73,18 @@ func GetPalette() palette.TronThemePalette {
 		Keyword:       colors.MustGet("blue600"),
 		Function:      colors.MustGet("orange600"),
 		Variable:      colors.MustGet("blue500"),
-		VariableParam: colors.MustGet("green500"),
 		Property:      colors.MustGet("green500"),
-		Link:          colors.MustGet("blue400"),
+		Namespace:     colors.MustGet("blue400"),
 
 		// Syntax - advanced types
-		Type:           colors.MustGet("blue600"),
-		Constructor:    colors.MustGet("orange500"),
-		ClassType:      colors.MustGet("orange500"),
-		EnumType:       colors.MustGet("orange500"),
-		AttributeType:  colors.MustGet("orange500"),
-		AnnotationType: colors.MustGet("yellow500"),
-		EmbeddedType:   colors.MustGet("yellow500"),
-		Decorator:      colors.MustGet("pink600"),
-		Regex:          colors.MustGet("blue200"),
-		SelectorAlt:    colors.MustGet("green500"),
+		Type:          colors.MustGet("blue600"),
+		Constructor:   colors.MustGet("orange500"),
+		EnumType:      colors.MustGet("orange500"),
+		AttributeType: colors.MustGet("orange500"),
+		EmbeddedType:  colors.MustGet("yellow500"),
+		SpecialSyntax: colors.MustGet("pink600"),
+		Regex:         colors.MustGet("blue200"),
+		Selector:      colors.MustGet("green500"),
 
 		// Syntax - punctuation
 		Punctuation:        colors.MustGet("gray700"),
@@ -108,6 +102,7 @@ func GetPalette() palette.TronThemePalette {
 		TerminalBrightWhite: colors.MustGet("gray900"),
 		TerminalDimGreen:    colors.MustGet("green600"),
 		TerminalDimYellow:   colors.MustGet("yellow500"),
+		TerminalDimBlack:    colors.MustGet("shadow"),
 
 		// Version control
 		VersionControlModified: colors.MustGet("orange700"),
@@ -119,12 +114,21 @@ func GetPalette() palette.TronThemePalette {
 		ScrollbarTrackBorder: colors.MustGet("gray200"),
 
 		// Player/collaboration colors
-		Player1Selection: colors.MustGet("blue300Alpha"),
-		Player1Alpha:     colors.MustGet("blue300Alpha24"),
-		Player3Selection: colors.MustGet("green600"),
-		Player3Alpha:     colors.MustGet("green600Alpha24"),
-		Player4Selection: colors.MustGet("orange500"),
-		Player4Alpha:     colors.MustGet("orange500Alpha24"),
+		Player1Alpha: colors.MustGet("blue300Alpha24"),
+		Player2Alpha: colors.MustGet("gray700"),
+		Player3Alpha: colors.MustGet("green600Alpha24"),
+		Player4Alpha: colors.MustGet("orange500Alpha24"),
+
+		// Accent colors (from Gruvbox theme) - Tron-themed selection for light theme
+		Accents: []string{
+			colors.MustGet("blue300"),    // Tron blue (primary)
+			colors.MustGet("orange500"),  // Tron orange
+			colors.MustGet("green600"),   // Tron green
+			colors.MustGet("red500"),     // Red accent
+			colors.MustGet("purple600"),  // Purple accent
+			colors.MustGet("yellow500"),  // Yellow accent
+			colors.MustGet("blue500"),    // Darker blue variant
+		},
 	}
 }
 
@@ -142,7 +146,6 @@ func GetFrostedPalette() palette.TronThemePalette {
 	// Override for frosted glass effect
 	p.BackgroundAppearance = "blurred"
 	p.Background = colors.MustGet("gray50Frosted") // 67% opacity like Glazier
-	p.BackgroundFrosted = colors.MustGet("gray50Frosted")
 
 	// Make UI elements transparent
 	p.TabBarBackground = colors.MustGet("transparent")
@@ -154,7 +157,6 @@ func GetFrostedPalette() palette.TronThemePalette {
 	// Adjust text for better contrast on blurred background
 	p.Foreground = colors.MustGet("gray700Frosted") // Slightly higher opacity
 	p.ForegroundDim = colors.MustGet("gray600Frosted")
-	p.TextFrosted = colors.MustGet("gray700Frosted")
 
 	// Keep elevated surfaces opaque for readability
 	p.Highlight = colors.MustGet("gray100")
@@ -187,6 +189,9 @@ func GetFrostedPalette() palette.TronThemePalette {
 	// Overlay backgrounds with transparency
 	p.PanelOverlayBackground = colors.MustGet("gray100Alpha80")
 	p.PanelOverlayHover = colors.MustGet("gray150Alpha80")
+
+	// Keep the same accent colors for frosted variant
+	// (Accents are already set from base palette)
 
 	return p
 }

@@ -115,7 +115,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		TerminalDimForeground:     p.ForegroundDim,
 		TerminalAnsiBlack:         p.TerminalBlack,
 		TerminalAnsiBrightBlack:   p.ForegroundDim,
-		TerminalAnsiDimBlack:      p.Shadow,
+		TerminalAnsiDimBlack:      p.TerminalDimBlack,
 		TerminalAnsiRed:           p.TerminalRed,
 		TerminalAnsiBrightRed:     p.String,
 		TerminalAnsiDimRed:        p.ErrorBg,
@@ -232,359 +232,107 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	return Style{
 		Name:       name,
 		Appearance: appearance,
+		Accents:    p.Accents, // From Gruvbox theme - optional accent colors for UI highlights
 		Style:      style,
 	}
 }
 
 // generatePlayers generates the multiplayer cursor colors
-func generatePlayers(p TronThemePalette) []map[string]any {
-	return []map[string]any{
+func generatePlayers(p TronThemePalette) []Player {
+	return []Player{
 		{
-			"cursor":     p.Type,
-			"background": p.Type,
-			"selection":  p.Player1Alpha,
+			Cursor:     p.Type,
+			Background: p.Type,
+			Selection:  p.Player1Alpha,
 		},
 		{
-			"cursor":     p.Info,
-			"background": p.Info,
-			"selection":  p.Border,
+			Cursor:     p.Info,
+			Background: p.Info,
+			Selection:  p.Player2Alpha,
 		},
 		{
-			"cursor":     p.Success,
-			"background": p.Success,
-			"selection":  p.Player3Alpha,
+			Cursor:     p.Success,
+			Background: p.Success,
+			Selection:  p.Player3Alpha,
 		},
 		{
-			"cursor":     p.Function,
-			"background": p.Function,
-			"selection":  p.Player4Alpha,
+			Cursor:     p.Function,
+			Background: p.Function,
+			Selection:  p.Player4Alpha,
 		},
 		{
-			"cursor":     p.TerminalPurple,
-			"background": p.TerminalPurple,
-			"selection":  p.TerminalPurple,
+			Cursor:     p.TerminalPurple,
+			Background: p.TerminalPurple,
+			Selection:  p.TerminalPurple,
 		},
 		{
-			"cursor":     p.Error,
-			"background": p.Error,
-			"selection":  p.ErrorBg,
+			Cursor:     p.Error,
+			Background: p.Error,
+			Selection:  p.ErrorBg,
 		},
 		{
-			"cursor":     p.Type,
-			"background": p.Type,
-			"selection":  p.Border,
+			Cursor:     p.Type,
+			Background: p.Type,
+			Selection:  p.Border,
 		},
 		{
-			"cursor":     p.Keyword,
-			"background": p.Keyword,
-			"selection":  p.ForegroundDim,
+			Cursor:     p.Keyword,
+			Background: p.Keyword,
+			Selection:  p.ForegroundDim,
 		},
 	}
 }
 
 // generateSyntax generates the syntax highlighting rules
-func generateSyntax(p TronThemePalette) map[string]any {
-	syntax := map[string]any{
-		// Comments
-		"comment": map[string]any{
-			"color":       p.Comment,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"comment.doc": map[string]any{
-			"color":       p.Comment,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
+func generateSyntax(p TronThemePalette) SyntaxStyles {
+	// Helper function to create string pointers
+	str := func(s string) *string { return &s }
+	num := func(n int) *int { return &n }
 
-		// Literals
-		"string": map[string]any{
-			"color":       p.String,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"string.escape": map[string]any{
-			"color":       p.StringEscape,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"string.regex": map[string]any{
-			"color":       p.Regex,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"string.special": map[string]any{
-			"color":       p.Decorator,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"string.special.symbol": map[string]any{
-			"color":       p.Function,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"number": map[string]any{
-			"color":       p.Number,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"boolean": map[string]any{
-			"color":       p.Function,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"constant": map[string]any{
-			"color":       p.Function,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-
-		// Identifiers
-		"variable": map[string]any{
-			"color":       p.Variable,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"variable.builtin": map[string]any{
-			"color":       p.TerminalPurple,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"variable.parameter": map[string]any{
-			"color":       p.VariableParam,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"variable.special": map[string]any{
-			"color":       p.TerminalPurple,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"field": map[string]any{
-			"color":       p.Property,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"property": map[string]any{
-			"color":       p.Property,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-
-		// Functions
-		"function": map[string]any{
-			"color":       p.Function,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"function.builtin": map[string]any{
-			"color":       p.Keyword,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"method": map[string]any{
-			"color":       p.Function,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"constructor": map[string]any{
-			"color":       p.Constructor,
-			"font_style":  "italic",
-			"font_weight": 700,
-		},
-
-		// Keywords
-		"keyword": map[string]any{
-			"color":       p.Keyword,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"keyword.control": map[string]any{
-			"color":       p.Keyword,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"operator": map[string]any{
-			"color":       p.Keyword,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-
-		// Types
-		"type": map[string]any{
-			"color":       p.Type,
-			"font_style":  "italic",
-			"font_weight": 700,
-		},
-		"class": map[string]any{
-			"color":       p.ClassType,
-			"font_style":  "italic",
-			"font_weight": 700,
-		},
-		"interface": map[string]any{
-			"color":       p.Property,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"enum": map[string]any{
-			"color":       p.EnumType,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"variant": map[string]any{
-			"color":       p.EnumType,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-
-		// Markup
-		"tag": map[string]any{
-			"color":       p.Type,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"attribute": map[string]any{
-			"color":       p.AttributeType,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"selector": map[string]any{
-			"color":       p.SelectorAlt,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"selector.pseudo": map[string]any{
-			"color":       p.Decorator,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-
-		// Punctuation
-		"punctuation": map[string]any{
-			"color":       p.Punctuation,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"punctuation.bracket": map[string]any{
-			"color":       p.Punctuation,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"punctuation.delimiter": map[string]any{
-			"color":       p.PunctuationSpecial,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"punctuation.special": map[string]any{
-			"color":       p.Info,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"punctuation.list_marker": map[string]any{
-			"color":       p.Success,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-
-		// Misc
-		"label": map[string]any{
-			"color":       p.Decorator,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"namespace": map[string]any{
-			"color":       p.Link,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"module": map[string]any{
-			"color":       p.Link,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"decorator": map[string]any{
-			"color":       p.Decorator,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"macro": map[string]any{
-			"color":       p.Decorator,
-			"font_style":  nil,
-			"font_weight": 700,
-		},
-		"parameter": map[string]any{
-			"color":       p.VariableParam,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"annotation": map[string]any{
-			"color":       p.AnnotationType,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-
-		// Special
-		"emphasis": map[string]any{
-			"color":       nil,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"emphasis.strong": map[string]any{
-			"color":       nil,
-			"font_style":  nil,
-			"font_weight": 700,
-		},
-		"title": map[string]any{
-			"color":       p.Variable,
-			"font_style":  nil,
-			"font_weight": 700,
-		},
-		"link_uri": map[string]any{
-			"color":       p.Link,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"link_text": map[string]any{
-			"color":       p.Link,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"embedded": map[string]any{
-			"color":       p.EmbeddedType,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"primary": map[string]any{
-			"color":       p.Foreground,
-			"font_style":  nil,
-			"font_weight": 700,
-		},
-		"hint": map[string]any{
-			"color":       p.Hint,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"predictive": map[string]any{
-			"color":       p.TerminalPurple,
-			"font_style":  "italic",
-			"font_weight": nil,
-		},
-		"preproc": map[string]any{
-			"color":       p.Info,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"regex": map[string]any{
-			"color":       p.Regex,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
-		"text.literal": map[string]any{
-			"color":       p.EmbeddedType,
-			"font_style":  nil,
-			"font_weight": nil,
-		},
+	return SyntaxStyles{
+		// Official theme field order
+		Attribute:             SyntaxStyle{Color: p.AttributeType, FontStyle: nil, FontWeight: nil},
+		Boolean:               SyntaxStyle{Color: p.Function, FontStyle: str("italic"), FontWeight: nil},
+		Comment:               SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
+		CommentDoc:            SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
+		Constant:              SyntaxStyle{Color: p.Function, FontStyle: str("italic"), FontWeight: nil},
+		Constructor:           SyntaxStyle{Color: p.Constructor, FontStyle: str("italic"), FontWeight: num(700)},
+		Embedded:              SyntaxStyle{Color: p.EmbeddedType, FontStyle: nil, FontWeight: nil},
+		Emphasis:              SyntaxStyle{Color: p.Info, FontStyle: str("italic"), FontWeight: nil},
+		EmphasisStrong:        SyntaxStyle{Color: p.Function, FontStyle: nil, FontWeight: num(700)},
+		Enum:                  SyntaxStyle{Color: p.EnumType, FontStyle: nil, FontWeight: nil},
+		Function:              SyntaxStyle{Color: p.Function, FontStyle: nil, FontWeight: nil},
+		FunctionBuiltin:       SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: nil}, // From Gruvbox theme
+		Hint:                  SyntaxStyle{Color: p.Hint, FontStyle: str("italic"), FontWeight: nil},
+		Keyword:               SyntaxStyle{Color: p.Keyword, FontStyle: str("italic"), FontWeight: nil},
+		Label:                 SyntaxStyle{Color: p.SpecialSyntax, FontStyle: nil, FontWeight: nil},
+		LinkText:              SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
+		LinkURI:               SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
+		Namespace:             SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
+		Number:                SyntaxStyle{Color: p.Number, FontStyle: nil, FontWeight: nil},
+		Operator:              SyntaxStyle{Color: p.Keyword, FontStyle: nil, FontWeight: nil},
+		Predictive:            SyntaxStyle{Color: p.TerminalPurple, FontStyle: str("italic"), FontWeight: nil},
+		Preproc:               SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
+		Primary:               SyntaxStyle{Color: p.Foreground, FontStyle: nil, FontWeight: num(700)},
+		Property:              SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
+		Punctuation:           SyntaxStyle{Color: p.Punctuation, FontStyle: nil, FontWeight: nil},
+		PunctuationBracket:    SyntaxStyle{Color: p.Punctuation, FontStyle: nil, FontWeight: nil},
+		PunctuationDelimiter:  SyntaxStyle{Color: p.PunctuationSpecial, FontStyle: nil, FontWeight: nil},
+		PunctuationListMarker: SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil},
+		PunctuationSpecial:    SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
+		Selector:              SyntaxStyle{Color: p.Selector, FontStyle: nil, FontWeight: nil},
+		SelectorPseudo:        SyntaxStyle{Color: p.SpecialSyntax, FontStyle: nil, FontWeight: nil},
+		String:                SyntaxStyle{Color: p.String, FontStyle: nil, FontWeight: nil},
+		StringEscape:          SyntaxStyle{Color: p.StringEscape, FontStyle: nil, FontWeight: nil},
+		StringRegex:           SyntaxStyle{Color: p.Regex, FontStyle: nil, FontWeight: nil},
+		StringSpecial:         SyntaxStyle{Color: p.SpecialSyntax, FontStyle: nil, FontWeight: nil},
+		StringSpecialSymbol:   SyntaxStyle{Color: p.Function, FontStyle: nil, FontWeight: nil},
+		Tag:                   SyntaxStyle{Color: p.Type, FontStyle: nil, FontWeight: nil},
+		TextLiteral:           SyntaxStyle{Color: p.EmbeddedType, FontStyle: nil, FontWeight: nil},
+		Title:                 SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: num(700)},
+		Type:                  SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: num(700)},
+		Variable:              SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: nil},
+		VariableSpecial:       SyntaxStyle{Color: p.TerminalPurple, FontStyle: str("italic"), FontWeight: nil},
+		Variant:               SyntaxStyle{Color: p.EnumType, FontStyle: nil, FontWeight: nil},
 	}
-
-	return syntax
 }

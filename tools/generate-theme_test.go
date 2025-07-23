@@ -74,30 +74,21 @@ func TestThemeGeneration(t *testing.T) {
 	)
 
 	// Test that theme has expected structure
-	if theme["$schema"] == nil {
+	if theme.Schema == "" {
 		t.Error("Theme should have $schema field")
 	}
 
-	if theme["author"] == nil {
+	if theme.Author == "" {
 		t.Error("Theme should have author field")
 	}
 
-	if theme["name"] == nil {
+	if theme.Name == "" {
 		t.Error("Theme should have name field")
 	}
 
-	if theme["themes"] == nil {
-		t.Error("Theme should have themes field")
-	}
-
 	// Test that themes array has expected length
-	themes, ok := theme["themes"].([]any)
-	if !ok {
-		t.Error("Themes field should be an array")
-	}
-
-	if len(themes) != 4 {
-		t.Errorf("Expected 4 theme variants, got %d", len(themes))
+	if len(theme.Themes) != 4 {
+		t.Errorf("Expected 4 theme variants, got %d", len(theme.Themes))
 	}
 }
 
@@ -135,7 +126,7 @@ func TestJSONMarshalling(t *testing.T) {
 	// Generate the complete theme
 	theme := palette.GenerateTheme(
 		"Tron Legacy",
-		"Hypermodules LLC, Bret Comnes (ported to Zed)",
+		"Bret Comnes",
 		variants...,
 	)
 
@@ -151,10 +142,15 @@ func TestJSONMarshalling(t *testing.T) {
 	}
 
 	// Test that JSON can be unmarshalled back
-	var unmarshalled map[string]any
+	var unmarshalled palette.Theme
 	err = json.Unmarshal(jsonData, &unmarshalled)
 	if err != nil {
-		t.Errorf("Error unmarshaling JSON: %v", err)
+		t.Errorf("Error unmarshalling JSON: %v", err)
+	}
+
+	// Verify unmarshalled data
+	if unmarshalled.Name != "Tron Legacy" {
+		t.Errorf("Expected theme name 'Tron Legacy', got '%s'", unmarshalled.Name)
 	}
 }
 
@@ -192,7 +188,7 @@ func TestOutputFileCanBeWritten(t *testing.T) {
 	// Generate the complete theme
 	theme := palette.GenerateTheme(
 		"Tron Legacy",
-		"Hypermodules LLC, Bret Comnes (ported to Zed)",
+		"Bret Comnes",
 		variants...,
 	)
 
