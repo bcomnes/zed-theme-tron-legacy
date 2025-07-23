@@ -8,89 +8,82 @@
   --shadow: #00000020;
   --transparent: #00000000;
 
-  /* Gray scale (light to dark) - inverted from dark theme */
+  /* Gray scale - opaque (light to dark) */
   --gray50: #f5f7faff; /* Original gray background */
   --gray100: #e8ecf2ff; /* LineHighlight */
+  --gray125: #dce3edff; /* Slightly darker than gray100 */
   --gray150: #dfe5edff; /* Status bar */
   --gray200: #d1dae6ff; /* BorderSubtle */
   --gray300: #b8c5d6ff; /* Border, Selection */
   --gray400: #8a9db5ff; /* Line numbers, etc */
   --gray500: #6b7e96ff; /* Comment */
   --gray600: #526073ff; /* ForegroundDim (sidebar text) */
+  --gray650: #2e333cff; /* Scrollbar track border color (from dark theme) */
   --gray700: #2d3e4fff; /* Foreground */
   --gray900: #14191fff; /* ForegroundBright */
 
-  /* Blues - adjusted for light mode */
+  /* Gray scale - alpha variants */
+  --gray50Alpha95: #f5f7faf2; /* Editor background (frosted) - 95% opacity */
+  --gray50Frosted: #f5f7fad9; /* Frosted background - 85% opacity */
+  --gray100Alpha33: #e8ecf255; /* Active line (frosted) - more transparent */
+  --gray100Alpha75: #e8ecf2bf; /* Active line background with 75% opacity */
+  --gray100Alpha80: #e8ecf2cc; /* Gray100 with 80% opacity */
+  --gray100Alpha87: #e8ecf2dd; /* Status bar (frosted) - 87% opacity */
+  --gray150Alpha80: #dfe5edcc; /* Gray150 with 80% opacity */
+  --gray200Alpha40: #d1dae666; /* Selection (frosted) - semi-transparent */
+  --gray300Alpha: #6b7e964d; /* Gray500 with 30% opacity for better contrast on scrollbar */
+  --gray300Alpha40: #b8c5d666; /* Border (frosted) - semi-transparent */
+  --gray300AlphaDark: #6b7e9666; /* Gray500 with 40% opacity for better balance on frosted */
+  --gray500Alpha30: #6b7e9640; /* Wrap guide with 25% opacity using darker gray */
+  --gray600Alpha50: #52607359; /* Active wrap guide with 35% opacity using even darker gray */
+  --gray600Frosted: #526073dd; /* Higher opacity dim text */
+  --gray700Frosted: #2d3e4fee; /* Higher opacity text for frosted */
+
+  /* Blues - opaque */
   --blue600: #1a5f8aff; /* Primary blue (darker for light bg) */
   --blue500: #267fb5ff; /* Standard blue */
   --blue400: #3988c0ff; /* Medium blue */
   --blue300: #4a95b3ff; /* Light blue */
   --blue200: #0099ccff; /* Primary cyan (darker for light bg) */
-  --blue200Alpha: #0099cc30; /* Primary cyan with alpha for search */
 
-  /* Greens - adjusted for light mode */
+  /* Blues - alpha variants */
+  --blue300Alpha: #4a95b340; /* Selection with alpha */
+  --blue300Alpha24: #4a95b33d; /* Player 1 selection - blue with 24% opacity */
+  --blue400Alpha: #0099ccb3; /* Primary cyan with 70% opacity for scrollbar hover */
+  --blue200Alpha: #0099cc30; /* Primary cyan with alpha for search */
+  --blue200Alpha10: #0099cc1a; /* Document highlight read with 10% opacity */
+  --blue200Alpha13: #0099cc22; /* Document highlight read (frosted) with 13% opacity */
+  --blue200Alpha18: #0099cc18; /* Drop target with very low opacity */
+  --blue200Alpha20: #0099cc33; /* Drop target (frosted) with 20% opacity */
+  --blue200Alpha27: #0099cc44; /* Document highlight write (frosted) with 27% opacity */
+  --blue200Alpha40: #0099cc66; /* Document highlight write with 40% opacity */
+
+  /* Greens - opaque */
   --green100: #e6f7e3ff; /* Success bg */
   --green600: #3a5f00ff; /* Dark green */
   --green500: #5a8b2cff; /* Alt green */
   --green400: #7aad3aff; /* Primary green (darker for light bg) */
 
-  /* Yellows/Oranges - adjusted for light mode */
+  /* Greens - alpha variants */
+  --green600Alpha24: #3a5f003d; /* Player 3 selection - green with 24% opacity */
+
+  /* Yellows/Oranges - opaque */
   --yellow600: #c9a000ff; /* Primary yellow (darker for light bg) */
   --yellow500: #dbb200ff; /* Medium yellow */
+  --orange700: #b35900ff; /* Even darker orange for better contrast on modified */
   --orange600: #cc7700ff; /* Primary orange (darker for light bg) */
   --orange500: #e68a00ff; /* Light orange */
-  --orange700: #b35900ff; /* Even darker orange for better contrast on modified */
 
-  /* Reds - adjusted for light mode */
+  /* Yellows/Oranges - alpha variants */
+  --orange500Alpha24: #e68a003d; /* Player 4 selection - orange with 24% opacity */
+
+  /* Reds - opaque */
   --red100: #ffe6e6ff; /* Error bg */
   --red600: #cc0033ff; /* Error red (darker for light bg) */
   --red500: #d91e18ff; /* Primary red (string color) */
   --red400: #e74c3cff; /* Light red */
 
-  /* Purples - adjusted for light mode */
+  /* Purples - opaque */
   --purple600: #6a56ccff; /* Primary purple (darker for light bg) */
   --pink600: #d1459aff; /* Primary pink (darker for light bg) */
-
-  /* Special alpha variants */
-  --blue300Alpha: #4a95b340; /* Selection with alpha */
-  --dropTarget: #0099cc18; /* Very low opacity cyan for drop targets */
-  --gray300Alpha: #6b7e964d; /* Gray500 with 30% opacity for better contrast on scrollbar */
-  --blue400Alpha: #0099ccb3; /* Primary cyan with 70% opacity for scrollbar hover */
-  --oneTrackBorder: #2e333cff; /* One theme's scrollbar track border color */
-  --gray300AlphaDark: #6b7e9666; /* Gray500 with 40% opacity for better balance on frosted */
-
-  /* Additional alpha variants for better transparency */
-  --gray100Alpha75: #e8ecf2bf; /* Active line background with 75% opacity */
-  --gray500Alpha30: #6b7e9640; /* Wrap guide with 25% opacity using darker gray */
-  --gray600Alpha50: #52607359; /* Active wrap guide with 35% opacity using even darker gray */
-  --blue200Alpha10: #0099cc1a; /* Document highlight read with 10% opacity */
-  --blue200Alpha40: #0099cc66; /* Document highlight write with 40% opacity */
-
-  /* Standardized player selection opacity (24% like other themes) */
-  --player1Alpha: #4a95b33d; /* Blue with 24% opacity */
-  --player3Alpha: #3a5f003d; /* Green with 24% opacity */
-  --player4Alpha: #e68a003d; /* Orange with 24% opacity */
-
-  /* Frosted glass variants (85% opacity for subtle transparency) */
-  --gray50Frosted: #f5f7fad9; /* Frosted background - 85% opacity */
-  --gray700Frosted: #2d3e4fee; /* Higher opacity text for frosted */
-  --gray600Frosted: #526073dd; /* Higher opacity dim text */
-
-  /* UI element transparency for frosted */
-  --elevatedFrosted: #e8ecf2ff; /* Keep elevated surfaces opaque */
-  --borderFrosted: #b8c5d666; /* Semi-transparent border */
-  --selectionFrosted: #d1dae666; /* Semi-transparent selection */
-  --statusBarFrosted: #e8ecf2dd; /* 87% opacity for status bar */
-  --editorFrosted: #f5f7faf2; /* 95% opacity for editor background */
-
-  /* Additional frosted UI adjustments */
-  --dropTargetFrosted: #0099cc33; /* Slightly more opaque drop target */
-  --activeLineFrosted: #e8ecf255; /* More transparent active line */
-  --docHighlightReadFrosted: #0099cc22; /* Slightly more visible read highlight */
-  --docHighlightWriteFrosted: #0099cc44; /* Slightly more visible write highlight */
-  --titleBarInactiveFrosted: #e8ecf2cc; /* Inactive title bar with 80% opacity */
-
-  /* Sticky entry backgrounds */
-  --stickyEntryBackground: #dce3edff; /* Slightly darker than panel background */
-  --stickyEntryBackgroundFrosted: #e8ecf2cc; /* Semi-transparent for frosted glass effect */
 }

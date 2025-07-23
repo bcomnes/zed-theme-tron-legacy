@@ -79,6 +79,7 @@
         "panel.background": "#1c2128ff",
         "panel.focused_border": "#C7F026ff",
         "panel.overlay_background": "#242a33ff",
+        "panel.overlay_hover": "#2a3039ff",
         "players": [
           {
             "background": "#267fb5ff",
@@ -549,6 +550,7 @@
         "panel.background": "#00000000",
         "panel.focused_border": "#C7F026ff",
         "panel.overlay_background": "#1c2128cc",
+        "panel.overlay_hover": "#23282fcc",
         "players": [
           {
             "background": "#267fb5ff",
@@ -1018,6 +1020,7 @@
         "panel.background": "#e8ecf2ff",
         "panel.focused_border": "#7aad3aff",
         "panel.overlay_background": "#dce3edff",
+        "panel.overlay_hover": "#d1dae6ff",
         "players": [
           {
             "background": "#1a5f8aff",
@@ -1488,6 +1491,7 @@
         "panel.background": "#00000000",
         "panel.focused_border": "#7aad3aff",
         "panel.overlay_background": "#e8ecf2cc",
+        "panel.overlay_hover": "#dfe5edcc",
         "players": [
           {
             "background": "#1a5f8aff",

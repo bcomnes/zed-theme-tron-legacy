@@ -94,6 +94,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[
 			"panel.background":              p.TabBarBackground,
 			"panel.focused_border":          p.Success,
 			"panel.overlay_background": p.PanelOverlayBackground,
+			"panel.overlay_hover": p.PanelOverlayHover,
 			"pane.focused_border":           p.BorderFocused,
 			"status_bar.background":         p.StatusBarBackground,
 			"title_bar.background":          p.StatusBarBackground,
