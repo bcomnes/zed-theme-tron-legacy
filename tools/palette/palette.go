@@ -97,6 +97,7 @@ type TronThemePalette struct {
 	// Scrollbar
 	ScrollbarThumb       string
 	ScrollbarThumbHover  string
+	ScrollbarThumbActive string
 	ScrollbarTrackBorder string
 
 	// Player/collaboration colors

@@ -31,8 +31,8 @@
   --gray100Alpha87: #e8ecf2dd; /* Status bar (frosted) - 87% opacity */
   --gray150Alpha80: #dfe5edcc; /* Gray150 with 80% opacity */
   --gray200Alpha40: #d1dae666; /* Selection (frosted) - semi-transparent */
-  --gray300Alpha: #6b7e964d; /* Gray500 with 30% opacity for better contrast on scrollbar */
-  --gray300Alpha40: #b8c5d666; /* Border (frosted) - semi-transparent */
+  --gray300Alpha: #6b7e9633; /* Gray500 with 20% opacity for more transparency on scrollbar */
+  --gray300Alpha60: #b8c5d699; /* Border (frosted) - 60% opacity for better contrast */
   --gray300AlphaDark: #6b7e9666; /* Gray500 with 40% opacity for better balance on frosted */
   --gray500Alpha30: #6b7e9640; /* Wrap guide with 25% opacity using darker gray */
   --gray600Alpha50: #52607359; /* Active wrap guide with 35% opacity using even darker gray */
@@ -49,7 +49,8 @@
   /* Blues - alpha variants */
   --blue300Alpha: #4a95b340; /* Selection with alpha */
   --blue300Alpha24: #4a95b33d; /* Player 1 selection - blue with 24% opacity */
-  --blue400Alpha: #0099ccb3; /* Primary cyan with 70% opacity for scrollbar hover */
+  --blue400Alpha: #0099cc80; /* Primary cyan with 50% opacity for scrollbar hover */
+  --blue400Alpha80: #0099cc99; /* Primary cyan with 60% opacity for scrollbar/minimap active */
   --blue200Alpha: #0099cc30; /* Primary cyan with alpha for search */
   --blue200Alpha10: #0099cc1a; /* Document highlight read with 10% opacity */
   --blue200Alpha13: #0099cc22; /* Document highlight read (frosted) with 13% opacity */

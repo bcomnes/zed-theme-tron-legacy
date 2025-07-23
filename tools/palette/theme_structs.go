@@ -206,6 +206,49 @@ type ThemeStyle struct {
 	// Players and Syntax
 	Players []Player     `json:"players"`
 	Syntax  SyntaxStyles `json:"syntax"`
+
+	// ========== NEWLY ADDED FIELDS (2024) ==========
+	// These fields were added to match the latest Zed theme schema
+	// They are optional and will be omitted if empty
+	// Move them to their correct position if they are found in official themes one day
+
+	// Selection Background
+	ElementSelectionBackground string `json:"element.selection_background,omitempty"`
+
+	// Indent Guides
+	PanelIndentGuide       string `json:"panel.indent_guide,omitempty"`
+	PanelIndentGuideHover  string `json:"panel.indent_guide_hover,omitempty"`
+	PanelIndentGuideActive string `json:"panel.indent_guide_active,omitempty"`
+	EditorIndentGuide      string `json:"editor.indent_guide,omitempty"`
+	EditorIndentGuideActive string `json:"editor.indent_guide_active,omitempty"`
+
+	// Editor Debugger
+	EditorDebuggerActiveLineBackground string `json:"editor.debugger_active_line.background,omitempty"`
+	EditorDocumentHighlightBracketBackground string `json:"editor.document_highlight.bracket_background,omitempty"`
+
+	// Scrollbar Active State
+	ScrollbarThumbActiveBackground string `json:"scrollbar.thumb.active_background,omitempty"`
+
+	// Minimap
+	MinimapThumbBackground       string `json:"minimap.thumb.background,omitempty"`
+	MinimapThumbHoverBackground  string `json:"minimap.thumb.hover_background,omitempty"`
+	MinimapThumbActiveBackground string `json:"minimap.thumb.active_background,omitempty"`
+	MinimapThumbBorder           string `json:"minimap.thumb.border,omitempty"`
+
+	// Terminal ANSI Background
+	TerminalAnsiBackground string `json:"terminal.ansi.background,omitempty"`
+
+	// Additional Version Control
+	VersionControlRenamed string `json:"version_control.renamed,omitempty"`
+	VersionControlConflict string `json:"version_control.conflict,omitempty"`
+	VersionControlIgnored string `json:"version_control.ignored,omitempty"`
+
+	// Pane Group
+	PaneGroupBorder string `json:"pane_group.border,omitempty"`
+
+	// Debugger Accent
+	DebuggerAccent string `json:"debugger.accent,omitempty"`
+	// ========== END NEWLY ADDED FIELDS ==========
 }
 
 // Player represents a multiplayer cursor color scheme

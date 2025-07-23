@@ -88,6 +88,27 @@ func TestValidateThemeStructsAgainstOfficial(t *testing.T) {
 		"foreground":                 true, // Global foreground color (not always specified)
 		"editor.selection.background": true, // Optional selection background override
 
+		// Newly added fields (2024) - These are optional fields not present in most themes
+		"element.selection_background":               true, // Selection background for UI elements
+		"panel.indent_guide":                         true, // Panel indent guide lines
+		"panel.indent_guide_hover":                   true, // Panel indent guide hover state
+		"panel.indent_guide_active":                  true, // Panel indent guide active state
+		"editor.indent_guide":                        true, // Editor indent guide lines
+		"editor.indent_guide_active":                 true, // Editor indent guide active state
+		"editor.debugger_active_line.background":     true, // Debugger active line highlighting
+		"editor.document_highlight.bracket_background": true, // Bracket matching highlight
+		"scrollbar.thumb.active_background":          true, // Scrollbar thumb when dragging
+		"minimap.thumb.background":                   true, // Minimap thumb color
+		"minimap.thumb.hover_background":             true, // Minimap thumb hover state
+		"minimap.thumb.active_background":            true, // Minimap thumb active state
+		"minimap.thumb.border":                       true, // Minimap thumb border
+		"terminal.ansi.background":                   true, // Terminal ANSI background
+		"version_control.renamed":                    true, // Version control renamed files
+		"version_control.conflict":                   true, // Version control conflicts
+		"version_control.ignored":                    true, // Version control ignored files
+		"pane_group.border":                          true, // Border between pane groups
+		"debugger.accent":                            true, // Debugger accent color
+
 		// Version control markers (not in all themes)
 		"version_control.conflict_marker.ours":   true, // Git conflict marker for "ours" section
 		"version_control.conflict_marker.theirs": true, // Git conflict marker for "theirs" section

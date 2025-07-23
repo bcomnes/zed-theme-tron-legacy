@@ -111,6 +111,7 @@ func GetPalette() palette.TronThemePalette {
 		// Scrollbar
 		ScrollbarThumb:       colors.MustGet("neutral600Alpha"),
 		ScrollbarThumbHover:  colors.MustGet("blue200Alpha50"),
+		ScrollbarThumbActive: colors.MustGet("blue200Alpha80"),
 		ScrollbarTrackBorder: colors.MustGet("gray650"),
 
 		// Player/collaboration colors

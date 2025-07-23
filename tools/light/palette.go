@@ -111,6 +111,7 @@ func GetPalette() palette.TronThemePalette {
 		// Scrollbar
 		ScrollbarThumb:       colors.MustGet("gray300Alpha"),
 		ScrollbarThumbHover:  colors.MustGet("blue400Alpha"),
+		ScrollbarThumbActive: colors.MustGet("blue400Alpha80"),
 		ScrollbarTrackBorder: colors.MustGet("gray200"),
 
 		// Player/collaboration colors
@@ -150,7 +151,7 @@ func GetFrostedPalette() palette.TronThemePalette {
 	// Make UI elements transparent
 	p.TabBarBackground = colors.MustGet("transparent")
 	p.StatusBarBackground = colors.MustGet("gray100Alpha87")
-	p.Border = colors.MustGet("gray300Alpha40")
+	p.Border = colors.MustGet("gray300Alpha60")
 	p.BorderSubtle = colors.MustGet("transparent")
 	p.Selection = colors.MustGet("gray200Alpha40")
 

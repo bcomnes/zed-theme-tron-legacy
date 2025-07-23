@@ -39,7 +39,7 @@
   /* Neutral UI grays (for non-blue UI elements) */
   --neutral800: #1a1d23ff; /* Neutral highlight */
   --neutral600: #2d3139ff; /* Neutral border */
-  --neutral600Alpha: #647c9b4d; /* Gray500 with 30% opacity for better contrast on scrollbar */
+  --neutral600Alpha: #647c9b33; /* Gray500 with 20% opacity for more transparency on scrollbar */
 
   /* Blues - opaque */
   --blue500: #267fb5ff; /* Primary blue */
@@ -58,7 +58,8 @@
   --blue200Alpha20: #6ee2ff33; /* Drop target (frosted) with 20% opacity */
   --blue200Alpha27: #6ee2ff44; /* Document highlight write (frosted) with 27% opacity */
   --blue200Alpha40: #6ee2ff66; /* Document highlight write with 40% opacity */
-  --blue200Alpha50: #6ee2ffb3; /* Primary cyan with 70% opacity for scrollbar hover */
+  --blue200Alpha50: #6ee2ff80; /* Primary cyan with 50% opacity for scrollbar hover */
+  --blue200Alpha80: #6ee2ff99; /* Primary cyan with 60% opacity for scrollbar/minimap active */
 
   /* Greens - opaque */
   --green700: #144212ff; /* Success bg */

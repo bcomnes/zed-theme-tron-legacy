@@ -49,7 +49,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 
 		// Ghost elements
 		GhostElementBackground: p.Transparent,
-		GhostElementHover:      p.Highlight,
+		GhostElementHover:      p.ElementHover,
 		GhostElementActive:     p.ElementHover,
 		GhostElementSelected:   p.Border,
 		GhostElementDisabled:   p.BorderSubtle,
@@ -180,7 +180,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		InfoBorder:     p.Info,
 
 		Modified:           p.Warning,
-		ModifiedBackground: p.Background,
+		ModifiedBackground: p.Highlight,
 		ModifiedBorder:     p.Warning,
 
 		Predictive:           p.Comment,
@@ -228,6 +228,51 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 
 	style.VersionControlConflictMarkerOurs = p.Success
 	style.VersionControlConflictMarkerTheirs = p.Error
+
+	// ========== NEWLY ADDED FIELDS (2024) ==========
+	// Map values for newly added fields (2024)
+	// These fields are optional in Zed themes and use fallback values when not specified
+
+	// Selection background - semi-transparent blue by default
+	if p.Selection != "" {
+		style.ElementSelectionBackground = p.Selection
+	}
+
+	// Indent guides - use subtle borders/muted colors
+	style.PanelIndentGuide = p.Border  // Better contrast than BorderSubtle
+	style.PanelIndentGuideHover = p.BorderFocused
+	style.PanelIndentGuideActive = p.Success  // Use poppy green instead of blue
+	style.EditorIndentGuide = p.Border  // Better contrast than WrapGuide
+	style.EditorIndentGuideActive = p.Success  // Use poppy green instead of blue
+
+	// Editor debugger - use error/warning colors
+	style.EditorDebuggerActiveLineBackground = p.ErrorBg
+	style.EditorDocumentHighlightBracketBackground = p.DocumentHighlightRead
+
+	// Scrollbar active state - use accent color with transparency
+	style.ScrollbarThumbActiveBackground = p.ScrollbarThumbActive  // Darker than hover with transparency
+
+	// Minimap - similar to scrollbar but more transparent
+	style.MinimapThumbBackground = p.ScrollbarThumb  // Already has good transparency
+	style.MinimapThumbHoverBackground = p.ScrollbarThumbHover  // Use consistent hover state
+	style.MinimapThumbActiveBackground = p.ScrollbarThumbActive  // Use darker active color
+	style.MinimapThumbBorder = p.Transparent
+
+	// Terminal ANSI background - same as terminal background
+	style.TerminalAnsiBackground = p.Background
+
+	// Additional version control colors
+	style.VersionControlRenamed = p.VersionControlModified
+	style.VersionControlConflict = p.Function // orange-like color
+	style.VersionControlIgnored = p.Comment
+
+	// Pane group border
+	style.PaneGroupBorder = p.Border
+
+	// Debugger accent - use error color for breakpoints
+	style.DebuggerAccent = p.Error
+	// ========== END NEWLY ADDED FIELDS ==========
+
 
 	return Style{
 		Name:       name,
