@@ -1,0 +1,208 @@
+package palette
+
+// Theme represents the complete theme structure
+type Theme struct {
+	Schema string  `json:"$schema"`
+	Author string  `json:"author"`
+	Name   string  `json:"name"`
+	Themes []Style `json:"themes"`
+}
+
+// Style represents a single theme style variant
+type Style struct {
+	Name       string      `json:"name"`
+	Appearance string      `json:"appearance"`
+	Style      *ThemeStyle `json:"style"`
+}
+
+// ThemeStyle represents the style properties in the exact order of official themes
+type ThemeStyle struct {
+	// Borders (exact order from official themes)
+	Border            string `json:"border"`
+	BorderVariant     string `json:"border.variant"`
+	BorderFocused     string `json:"border.focused"`
+	BorderSelected    string `json:"border.selected"`
+	BorderTransparent string `json:"border.transparent"`
+	BorderDisabled    string `json:"border.disabled"`
+
+	// Surfaces
+	ElevatedSurfaceBackground string `json:"elevated_surface.background"`
+	SurfaceBackground         string `json:"surface.background"`
+	Background                string `json:"background"`
+	BackgroundAppearance      string `json:"background.appearance,omitempty"`
+
+	// Elements
+	ElementBackground     string `json:"element.background"`
+	ElementHover          string `json:"element.hover"`
+	ElementActive         string `json:"element.active"`
+	ElementSelected       string `json:"element.selected"`
+	ElementDisabled       string `json:"element.disabled"`
+	DropTargetBackground  string `json:"drop_target.background"`
+
+	// Ghost elements
+	GhostElementBackground string `json:"ghost_element.background"`
+	GhostElementHover      string `json:"ghost_element.hover"`
+	GhostElementActive     string `json:"ghost_element.active"`
+	GhostElementSelected   string `json:"ghost_element.selected"`
+	GhostElementDisabled   string `json:"ghost_element.disabled"`
+
+	// Text
+	Text            string `json:"text"`
+	TextMuted       string `json:"text.muted"`
+	TextPlaceholder string `json:"text.placeholder"`
+	TextDisabled    string `json:"text.disabled"`
+	TextAccent      string `json:"text.accent"`
+
+	// Icons
+	Icon            string `json:"icon"`
+	IconMuted       string `json:"icon.muted"`
+	IconDisabled    string `json:"icon.disabled"`
+	IconPlaceholder string `json:"icon.placeholder"`
+	IconAccent      string `json:"icon.accent"`
+
+	// Bars
+	StatusBarBackground         string `json:"status_bar.background"`
+	TitleBarBackground          string `json:"title_bar.background"`
+	TitleBarInactiveBackground  string `json:"title_bar.inactive_background"`
+	ToolbarBackground           string `json:"toolbar.background"`
+	TabBarBackground            string `json:"tab_bar.background"`
+	TabInactiveBackground       string `json:"tab.inactive_background"`
+	TabActiveBackground         string `json:"tab.active_background"`
+
+	// Search
+	SearchMatchBackground string `json:"search.match_background"`
+
+	// Panels
+	PanelBackground      string `json:"panel.background"`
+	PanelFocusedBorder   string `json:"panel.focused_border"`
+	PanelOverlayBackground string `json:"panel.overlay_background,omitempty"`
+	PanelOverlayHover      string `json:"panel.overlay_hover,omitempty"`
+	PaneFocusedBorder    string `json:"pane.focused_border"`
+
+	// Scrollbar
+	ScrollbarThumbBackground      string `json:"scrollbar.thumb.background"`
+	ScrollbarThumbHoverBackground string `json:"scrollbar.thumb.hover_background"`
+	ScrollbarThumbBorder          string `json:"scrollbar.thumb.border"`
+	ScrollbarTrackBackground      string `json:"scrollbar.track.background"`
+	ScrollbarTrackBorder          string `json:"scrollbar.track.border"`
+
+	// Editor
+	EditorForeground                        string `json:"editor.foreground"`
+	EditorBackground                        string `json:"editor.background"`
+	EditorGutterBackground                  string `json:"editor.gutter.background"`
+	EditorSubheaderBackground               string `json:"editor.subheader.background"`
+	EditorActiveLineBackground              string `json:"editor.active_line.background"`
+	EditorHighlightedLineBackground         string `json:"editor.highlighted_line.background"`
+	EditorLineNumber                        string `json:"editor.line_number"`
+	EditorActiveLineNumber                  string `json:"editor.active_line_number"`
+	EditorHoverLineNumber                   string `json:"editor.hover_line_number"`
+	EditorSelectionBackground               string `json:"editor.selection.background,omitempty"`
+	EditorInvisible                         string `json:"editor.invisible"`
+	EditorWrapGuide                         string `json:"editor.wrap_guide"`
+	EditorActiveWrapGuide                   string `json:"editor.active_wrap_guide"`
+	EditorDocumentHighlightReadBackground   string `json:"editor.document_highlight.read_background"`
+	EditorDocumentHighlightWriteBackground  string `json:"editor.document_highlight.write_background"`
+
+	// Terminal
+	TerminalBackground        string `json:"terminal.background"`
+	TerminalForeground        string `json:"terminal.foreground"`
+	TerminalBrightForeground  string `json:"terminal.bright_foreground"`
+	TerminalDimForeground     string `json:"terminal.dim_foreground"`
+	TerminalAnsiBlack         string `json:"terminal.ansi.black"`
+	TerminalAnsiBrightBlack   string `json:"terminal.ansi.bright_black"`
+	TerminalAnsiDimBlack      string `json:"terminal.ansi.dim_black"`
+	TerminalAnsiRed           string `json:"terminal.ansi.red"`
+	TerminalAnsiBrightRed     string `json:"terminal.ansi.bright_red"`
+	TerminalAnsiDimRed        string `json:"terminal.ansi.dim_red"`
+	TerminalAnsiGreen         string `json:"terminal.ansi.green"`
+	TerminalAnsiBrightGreen   string `json:"terminal.ansi.bright_green"`
+	TerminalAnsiDimGreen      string `json:"terminal.ansi.dim_green"`
+	TerminalAnsiYellow        string `json:"terminal.ansi.yellow"`
+	TerminalAnsiBrightYellow  string `json:"terminal.ansi.bright_yellow"`
+	TerminalAnsiDimYellow     string `json:"terminal.ansi.dim_yellow"`
+	TerminalAnsiBlue          string `json:"terminal.ansi.blue"`
+	TerminalAnsiBrightBlue    string `json:"terminal.ansi.bright_blue"`
+	TerminalAnsiDimBlue       string `json:"terminal.ansi.dim_blue"`
+	TerminalAnsiMagenta       string `json:"terminal.ansi.magenta"`
+	TerminalAnsiBrightMagenta string `json:"terminal.ansi.bright_magenta"`
+	TerminalAnsiDimMagenta    string `json:"terminal.ansi.dim_magenta"`
+	TerminalAnsiCyan          string `json:"terminal.ansi.cyan"`
+	TerminalAnsiBrightCyan    string `json:"terminal.ansi.bright_cyan"`
+	TerminalAnsiDimCyan       string `json:"terminal.ansi.dim_cyan"`
+	TerminalAnsiWhite         string `json:"terminal.ansi.white"`
+	TerminalAnsiBrightWhite   string `json:"terminal.ansi.bright_white"`
+	TerminalAnsiDimWhite      string `json:"terminal.ansi.dim_white"`
+
+	// Links
+	LinkTextHover string `json:"link_text.hover"`
+
+	// Version control
+	VersionControlAdded              string `json:"version_control.added"`
+	VersionControlModified           string `json:"version_control.modified"`
+	VersionControlDeleted            string `json:"version_control.deleted"`
+	VersionControlConflictMarkerOurs string `json:"version_control.conflict_marker.ours,omitempty"`
+	VersionControlConflictMarkerTheirs string `json:"version_control.conflict_marker.theirs,omitempty"`
+
+	// Status colors (in exact order)
+	Conflict           string `json:"conflict"`
+	ConflictBackground string `json:"conflict.background"`
+	ConflictBorder     string `json:"conflict.border"`
+
+	Created           string `json:"created"`
+	CreatedBackground string `json:"created.background"`
+	CreatedBorder     string `json:"created.border"`
+
+	Deleted           string `json:"deleted"`
+	DeletedBackground string `json:"deleted.background"`
+	DeletedBorder     string `json:"deleted.border"`
+
+	Error           string `json:"error"`
+	ErrorBackground string `json:"error.background"`
+	ErrorBorder     string `json:"error.border"`
+
+	Foreground string `json:"foreground,omitempty"`
+
+	Hidden           string `json:"hidden"`
+	HiddenBackground string `json:"hidden.background"`
+	HiddenBorder     string `json:"hidden.border"`
+
+	Hint           string `json:"hint"`
+	HintBackground string `json:"hint.background"`
+	HintBorder     string `json:"hint.border"`
+
+	Ignored           string `json:"ignored"`
+	IgnoredBackground string `json:"ignored.background"`
+	IgnoredBorder     string `json:"ignored.border"`
+
+	Info           string `json:"info"`
+	InfoBackground string `json:"info.background"`
+	InfoBorder     string `json:"info.border"`
+
+	Modified           string `json:"modified"`
+	ModifiedBackground string `json:"modified.background"`
+	ModifiedBorder     string `json:"modified.border"`
+
+	Predictive           string `json:"predictive"`
+	PredictiveBackground string `json:"predictive.background"`
+	PredictiveBorder     string `json:"predictive.border"`
+
+	Renamed           string `json:"renamed"`
+	RenamedBackground string `json:"renamed.background"`
+	RenamedBorder     string `json:"renamed.border"`
+
+	Success           string `json:"success"`
+	SuccessBackground string `json:"success.background"`
+	SuccessBorder     string `json:"success.border"`
+
+	Unreachable           string `json:"unreachable"`
+	UnreachableBackground string `json:"unreachable.background"`
+	UnreachableBorder     string `json:"unreachable.border"`
+
+	Warning           string `json:"warning"`
+	WarningBackground string `json:"warning.background"`
+	WarningBorder     string `json:"warning.border"`
+
+	// Players and Syntax (these remain as maps since they're complex nested structures)
+	Players []map[string]any `json:"players"`
+	Syntax  map[string]any   `json:"syntax"`
+}

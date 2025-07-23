@@ -8,211 +8,232 @@ type ThemeVariant struct {
 }
 
 // GenerateTheme generates the complete theme JSON structure with any number of variants
-func GenerateTheme(name string, author string, variants ...ThemeVariant) map[string]any {
-	themes := make([]any, 0, len(variants))
+func GenerateTheme(name string, author string, variants ...ThemeVariant) Theme {
+	themes := make([]Style, 0, len(variants))
 	for _, variant := range variants {
 		themes = append(themes, GenerateThemeStyle(variant.Name, variant.Appearance, variant.Palette))
 	}
 
-	return map[string]any{
-		"$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-		"author":  author,
-		"name":    name,
-		"themes":  themes,
+	return Theme{
+		Schema: "https://zed.dev/schema/themes/v0.2.0.json",
+		Author: author,
+		Name:   name,
+		Themes: themes,
 	}
 }
 
 // GenerateThemeStyle generates the style portion of the theme
 // This function maps semantic palette values to theme properties
-func GenerateThemeStyle(name string, appearance string, p TronThemePalette) map[string]any {
-	style := map[string]any{
-		"name":       name,
-		"appearance": appearance,
-		"style": map[string]any{
-			// Core colors
-			"background":       p.Background,
-			"foreground":       p.Foreground,
-			"text":             p.Foreground,
-			"text.muted":       p.ForegroundDim,
-			"text.placeholder": p.ForegroundDim,
-			"text.disabled":    p.ForegroundDim,
-			"text.accent":      p.BorderFocused,
+func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Style {
+	style := &ThemeStyle{
+		// Borders
+		Border:            p.Border,
+		BorderVariant:     p.BorderSubtle,
+		BorderFocused:     p.BorderFocused,
+		BorderSelected:    p.BorderFocused,
+		BorderTransparent: p.Transparent,
+		BorderDisabled:    p.ForegroundDim,
 
-			// Icon colors
-			"icon":             p.Foreground,
-			"icon.muted":       p.ForegroundDim,
-			"icon.disabled":    p.ForegroundDim,
-			"icon.placeholder": p.ForegroundDim,
-			"icon.accent":      p.BorderFocused,
+		// Surfaces
+		ElevatedSurfaceBackground: p.Highlight,
+		SurfaceBackground:         p.Background,
+		Background:                p.Background,
 
-			// Borders
-			"border":             p.Border,
-			"border.variant":     p.BorderSubtle,
-			"border.focused":     p.BorderFocused,
-			"border.selected":    p.BorderFocused,
-			"border.transparent": p.Transparent,
-			"border.disabled":    p.ForegroundDim,
+		// Elements
+		ElementBackground:    p.Highlight,
+		ElementHover:         p.ElementHover,
+		ElementActive:        p.ElementHover,
+		ElementSelected:      p.Border,
+		ElementDisabled:      p.BorderSubtle,
+		DropTargetBackground: p.DropTargetBackground,
 
-			// UI surfaces
-			"surface.background":          p.Background,
-			"elevated_surface.background": p.Highlight,
-			"element.background":          p.Highlight,
-			"element.hover":               p.ElementHover,
-			"element.active":              p.ElementHover,
-			"element.selected":            p.Border,
-			"element.disabled":            p.BorderSubtle,
-			"drop_target.background":      p.DropTargetBackground,
+		// Ghost elements
+		GhostElementBackground: p.Transparent,
+		GhostElementHover:      p.Highlight,
+		GhostElementActive:     p.ElementHover,
+		GhostElementSelected:   p.Border,
+		GhostElementDisabled:   p.BorderSubtle,
 
-			// Ghost elements
-			"ghost_element.background": p.Transparent,
-			"ghost_element.hover":      p.Highlight,
-			"ghost_element.active":     p.ElementHover,
-			"ghost_element.selected":   p.Border,
-			"ghost_element.disabled":   p.BorderSubtle,
+		// Text
+		Text:            p.Foreground,
+		TextMuted:       p.ForegroundDim,
+		TextPlaceholder: p.ForegroundDim,
+		TextDisabled:    p.ForegroundDim,
+		TextAccent:      p.BorderFocused,
 
-			// Editor specific
-			"editor.background":                          p.EditorBackground,
-			"editor.foreground":                          p.Foreground,
-			"editor.gutter.background":                   p.EditorBackground,
-			"editor.active_line.background":              p.ActiveLineBackground,
-			"editor.highlighted_line.background":         p.Highlight,
-			"editor.line_number":                         p.LineNumber,
-			"editor.active_line_number":                  p.Success,
-			"editor.hover_line_number":                   p.Success,
-			"editor.invisible":                           p.LineNumber,
-			"editor.wrap_guide":                          p.WrapGuide,
-			"editor.active_wrap_guide":                   p.ActiveWrapGuide,
-			"editor.selection.background":                p.Selection,
-			"editor.document_highlight.read_background":  p.DocumentHighlightRead,
-			"editor.document_highlight.write_background": p.DocumentHighlightWrite,
-			"editor.subheader.background":                p.EditorSubheaderBackground,
+		// Icons
+		Icon:            p.Foreground,
+		IconMuted:       p.ForegroundDim,
+		IconDisabled:    p.ForegroundDim,
+		IconPlaceholder: p.ForegroundDim,
+		IconAccent:      p.BorderFocused,
 
-			// Search
-			"search.match_background": p.SearchHighlight,
+		// Bars
+		StatusBarBackground:        p.StatusBarBackground,
+		TitleBarBackground:         p.StatusBarBackground,
+		TitleBarInactiveBackground: p.TitleBarInactiveBackground,
+		ToolbarBackground:          p.Background,
+		TabBarBackground:           p.TabBarBackground,
+		TabInactiveBackground:      p.TabBarBackground,
+		TabActiveBackground:        p.Background,
 
-			// Panels and tabs
-			"panel.background":              p.TabBarBackground,
-			"panel.focused_border":          p.Success,
-			"panel.overlay_background": p.PanelOverlayBackground,
-			"panel.overlay_hover": p.PanelOverlayHover,
-			"pane.focused_border":           p.BorderFocused,
-			"status_bar.background":         p.StatusBarBackground,
-			"title_bar.background":          p.StatusBarBackground,
-			"title_bar.inactive_background": p.TitleBarInactiveBackground,
-			"toolbar.background":            p.Background,
-			"tab_bar.background":            p.TabBarBackground,
-			"tab.inactive_background":       p.TabBarBackground,
-			"tab.active_background":         p.Background,
+		// Search
+		SearchMatchBackground: p.SearchHighlight,
 
-			// Scrollbar
-			"scrollbar.thumb.background":       p.ScrollbarThumb,
-			"scrollbar.thumb.hover_background": p.ScrollbarThumbHover,
-			"scrollbar.thumb.border":           p.Border,
-			"scrollbar.track.background":       p.Transparent,
-			"scrollbar.track.border":           p.ScrollbarTrackBorder,
+		// Panels
+		PanelBackground:    p.TabBarBackground,
+		PanelFocusedBorder: p.Success,
+		PaneFocusedBorder:  p.BorderFocused,
 
-			// Terminal
-			"terminal.background":          p.Background,
-			"terminal.foreground":          p.Foreground,
-			"terminal.bright_foreground":   p.ForegroundBright,
-			"terminal.dim_foreground":      p.ForegroundDim,
-			"terminal.ansi.black":          p.TerminalBlack,
-			"terminal.ansi.red":            p.TerminalRed,
-			"terminal.ansi.green":          p.TerminalGreen,
-			"terminal.ansi.yellow":         p.TerminalYellow,
-			"terminal.ansi.blue":           p.TerminalBlue,
-			"terminal.ansi.magenta":        p.TerminalPurple,
-			"terminal.ansi.cyan":           p.TerminalCyan,
-			"terminal.ansi.white":          p.TerminalWhite,
-			"terminal.ansi.bright_black":   p.ForegroundDim,
-			"terminal.ansi.bright_red":     p.String, // Reuse string color
-			"terminal.ansi.bright_green":   p.Success,
-			"terminal.ansi.bright_yellow":  p.Function, // Reuse function/orange
-			"terminal.ansi.bright_blue":    p.Info,
-			"terminal.ansi.bright_magenta": p.TerminalPurple,
-			"terminal.ansi.bright_cyan":    p.Info,
-			"terminal.ansi.bright_white":   p.TerminalBrightWhite,
-			"terminal.ansi.dim_black":      p.Shadow,
-			"terminal.ansi.dim_red":        p.ErrorBg,
-			"terminal.ansi.dim_green":      p.TerminalDimGreen,
-			"terminal.ansi.dim_yellow":     p.TerminalDimYellow,
-			"terminal.ansi.dim_blue":       p.Border,
-			"terminal.ansi.dim_magenta":    p.TerminalPurple,
-			"terminal.ansi.dim_cyan":       p.Property, // Cyan dim
-			"terminal.ansi.dim_white":      p.Keyword,
+		// Scrollbar
+		ScrollbarThumbBackground:      p.ScrollbarThumb,
+		ScrollbarThumbHoverBackground: p.ScrollbarThumbHover,
+		ScrollbarThumbBorder:          p.Border,
+		ScrollbarTrackBackground:      p.Transparent,
+		ScrollbarTrackBorder:          p.ScrollbarTrackBorder,
 
-			// Links
-			"link_text.hover": p.ForegroundDim,
+		// Editor
+		EditorForeground:                       p.Foreground,
+		EditorBackground:                       p.EditorBackground,
+		EditorGutterBackground:                 p.EditorBackground,
+		EditorSubheaderBackground:              p.EditorSubheaderBackground,
+		EditorActiveLineBackground:             p.ActiveLineBackground,
+		EditorHighlightedLineBackground:        p.Highlight,
+		EditorLineNumber:                       p.LineNumber,
+		EditorActiveLineNumber:                 p.Success,
+		EditorHoverLineNumber:                  p.Success,
+		EditorInvisible:                        p.LineNumber,
+		EditorWrapGuide:                        p.WrapGuide,
+		EditorActiveWrapGuide:                  p.ActiveWrapGuide,
+		EditorDocumentHighlightReadBackground:  p.DocumentHighlightRead,
+		EditorDocumentHighlightWriteBackground: p.DocumentHighlightWrite,
 
-			// Version control
-			"version_control.added":                  p.Success,
-			"version_control.modified":               p.VersionControlModified,
-			"version_control.deleted":                p.Error,
-			"version_control.conflict_marker.ours":   p.Success,
-			"version_control.conflict_marker.theirs": p.Error,
+		// Terminal
+		TerminalBackground:        p.Background,
+		TerminalForeground:        p.Foreground,
+		TerminalBrightForeground:  p.ForegroundBright,
+		TerminalDimForeground:     p.ForegroundDim,
+		TerminalAnsiBlack:         p.TerminalBlack,
+		TerminalAnsiBrightBlack:   p.ForegroundDim,
+		TerminalAnsiDimBlack:      p.Shadow,
+		TerminalAnsiRed:           p.TerminalRed,
+		TerminalAnsiBrightRed:     p.String,
+		TerminalAnsiDimRed:        p.ErrorBg,
+		TerminalAnsiGreen:         p.TerminalGreen,
+		TerminalAnsiBrightGreen:   p.Success,
+		TerminalAnsiDimGreen:      p.TerminalDimGreen,
+		TerminalAnsiYellow:        p.TerminalYellow,
+		TerminalAnsiBrightYellow:  p.Function,
+		TerminalAnsiDimYellow:     p.TerminalDimYellow,
+		TerminalAnsiBlue:          p.TerminalBlue,
+		TerminalAnsiBrightBlue:    p.Info,
+		TerminalAnsiDimBlue:       p.Border,
+		TerminalAnsiMagenta:       p.TerminalPurple,
+		TerminalAnsiBrightMagenta: p.TerminalPurple,
+		TerminalAnsiDimMagenta:    p.TerminalPurple,
+		TerminalAnsiCyan:          p.TerminalCyan,
+		TerminalAnsiBrightCyan:    p.Info,
+		TerminalAnsiDimCyan:       p.Property,
+		TerminalAnsiWhite:         p.TerminalWhite,
+		TerminalAnsiBrightWhite:   p.TerminalBrightWhite,
+		TerminalAnsiDimWhite:      p.Keyword,
 
-			// Diagnostics
-			"error":              p.Error,
-			"error.background":   p.ErrorBg,
-			"error.border":       p.Error,
-			"warning":            p.Warning,
-			"warning.background": p.Background,
-			"warning.border":     p.Warning,
-			"info":               p.Info,
-			"info.background":    p.Background,
-			"info.border":        p.Info,
-			"hint":               p.Hint,
-			"hint.background":    p.Background,
-			"hint.border":        p.Hint,
-			"success":            p.Success,
-			"success.background": p.SuccessBg,
-			"success.border":     p.Success,
+		// Links
+		LinkTextHover: p.ForegroundDim,
 
-			// Git status
-			"created":              p.Success,
-			"created.background":   p.SuccessBg,
-			"created.border":       p.Success,
-			"deleted":              p.Error,
-			"deleted.background":   p.ErrorBg,
-			"deleted.border":       p.Error,
-			"modified":             p.Warning,
-			"modified.background":  p.Background,
-			"modified.border":      p.Warning,
-			"renamed":              p.Type,
-			"renamed.background":   p.Background,
-			"renamed.border":       p.Type,
-			"conflict":             p.Function,
-			"conflict.background":  p.ConflictBackground,
-			"conflict.border":      p.Function,
+		// Version control
+		VersionControlAdded:    p.Success,
+		VersionControlModified: p.VersionControlModified,
+		VersionControlDeleted:  p.Error,
 
-			// Other states
-			"ignored":                p.Comment,
-			"ignored.background":     p.Background,
-			"ignored.border":         p.Comment,
-			"hidden":                 p.Comment,
-			"hidden.background":      p.Background,
-			"hidden.border":          p.Comment,
-			"unreachable":            p.Comment,
-			"unreachable.background": p.Background,
-			"unreachable.border":     p.Comment,
-			"predictive":             p.Comment,
-			"predictive.background":  p.Background,
-			"predictive.border":      p.TerminalPurple,
+		// Status colors
+		Conflict:           p.Function,
+		ConflictBackground: p.ConflictBackground,
+		ConflictBorder:     p.Function,
 
-			// Players
-			"players": generatePlayers(p),
+		Created:           p.Success,
+		CreatedBackground: p.SuccessBg,
+		CreatedBorder:     p.Success,
 
-			// Syntax highlighting
-			"syntax": generateSyntax(p),
-		},
+		Deleted:           p.Error,
+		DeletedBackground: p.ErrorBg,
+		DeletedBorder:     p.Error,
+
+		Error:           p.Error,
+		ErrorBackground: p.ErrorBg,
+		ErrorBorder:     p.Error,
+
+		Hidden:           p.Comment,
+		HiddenBackground: p.Background,
+		HiddenBorder:     p.Comment,
+
+		Hint:           p.Hint,
+		HintBackground: p.Background,
+		HintBorder:     p.Hint,
+
+		Ignored:           p.Comment,
+		IgnoredBackground: p.Background,
+		IgnoredBorder:     p.Comment,
+
+		Info:           p.Info,
+		InfoBackground: p.Background,
+		InfoBorder:     p.Info,
+
+		Modified:           p.Warning,
+		ModifiedBackground: p.Background,
+		ModifiedBorder:     p.Warning,
+
+		Predictive:           p.Comment,
+		PredictiveBackground: p.Background,
+		PredictiveBorder:     p.TerminalPurple,
+
+		Renamed:           p.Type,
+		RenamedBackground: p.Background,
+		RenamedBorder:     p.Type,
+
+		Success:           p.Success,
+		SuccessBackground: p.SuccessBg,
+		SuccessBorder:     p.Success,
+
+		Unreachable:           p.Comment,
+		UnreachableBackground: p.Background,
+		UnreachableBorder:     p.Comment,
+
+		Warning:           p.Warning,
+		WarningBackground: p.Background,
+		WarningBorder:     p.Warning,
+
+		// Players and Syntax
+		Players: generatePlayers(p),
+		Syntax:  generateSyntax(p),
 	}
 
-	// Add background appearance if specified
+	// Add optional fields
 	if p.BackgroundAppearance != "" && p.BackgroundAppearance != "opaque" {
-		style["style"].(map[string]any)["background.appearance"] = p.BackgroundAppearance
+		style.BackgroundAppearance = p.BackgroundAppearance
 	}
 
-	return style
+	if p.PanelOverlayBackground != "" {
+		style.PanelOverlayBackground = p.PanelOverlayBackground
+		style.PanelOverlayHover = p.PanelOverlayHover
+	}
+
+	if p.Selection != "" {
+		style.EditorSelectionBackground = p.Selection
+	}
+
+	if p.Foreground != "" {
+		style.Foreground = p.Foreground
+	}
+
+	style.VersionControlConflictMarkerOurs = p.Success
+	style.VersionControlConflictMarkerTheirs = p.Error
+
+	return Style{
+		Name:       name,
+		Appearance: appearance,
+		Style:      style,
+	}
 }
 
 // generatePlayers generates the multiplayer cursor colors
