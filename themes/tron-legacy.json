@@ -61,7 +61,7 @@
         "pane.focused_border": "#6ee2ffff",
         "scrollbar.thumb.background": "#647c9b33",
         "scrollbar.thumb.hover_background": "#6ee2ff80",
-        "scrollbar.thumb.border": "#00000000",
+        "scrollbar.thumb.border": "#2d3139ff",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#2e333cff",
         "editor.foreground": "#aec2e0ff",
@@ -415,7 +415,6 @@
             "font_weight": null
           }
         },
-        "element.selection_background": "#2a3039ff",
         "panel.indent_guide": "#2d3139ff",
         "panel.indent_guide_hover": "#6ee2ffff",
         "panel.indent_guide_active": "#C7F026ff",
@@ -495,7 +494,7 @@
         "pane.focused_border": "#6ee2ffff",
         "scrollbar.thumb.background": "#647c9b33",
         "scrollbar.thumb.hover_background": "#6ee2ff80",
-        "scrollbar.thumb.border": "#00000000",
+        "scrollbar.thumb.border": "#323842aa",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#2e333cff",
         "editor.foreground": "#aec2e0ee",
@@ -849,7 +848,6 @@
             "font_weight": null
           }
         },
-        "element.selection_background": "#2a303966",
         "panel.indent_guide": "#323842aa",
         "panel.indent_guide_hover": "#6ee2ffff",
         "panel.indent_guide_active": "#C7F026ff",
@@ -928,7 +926,7 @@
         "pane.focused_border": "#0099ccff",
         "scrollbar.thumb.background": "#6b7e9633",
         "scrollbar.thumb.hover_background": "#0099cc80",
-        "scrollbar.thumb.border": "#00000000",
+        "scrollbar.thumb.border": "#b8c5d6ff",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#d1dae6ff",
         "editor.foreground": "#2d3e4fff",
@@ -1282,7 +1280,6 @@
             "font_weight": null
           }
         },
-        "element.selection_background": "#d1dae6ff",
         "panel.indent_guide": "#b8c5d6ff",
         "panel.indent_guide_hover": "#0099ccff",
         "panel.indent_guide_active": "#7aad3aff",
@@ -1362,7 +1359,7 @@
         "pane.focused_border": "#0099ccff",
         "scrollbar.thumb.background": "#6b7e9666",
         "scrollbar.thumb.hover_background": "#0099cc80",
-        "scrollbar.thumb.border": "#00000000",
+        "scrollbar.thumb.border": "#b8c5d699",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#d1dae6ff",
         "editor.foreground": "#2d3e4fee",
@@ -1716,7 +1713,6 @@
             "font_weight": null
           }
         },
-        "element.selection_background": "#d1dae666",
         "panel.indent_guide": "#b8c5d699",
         "panel.indent_guide_hover": "#0099ccff",
         "panel.indent_guide_active": "#7aad3aff",

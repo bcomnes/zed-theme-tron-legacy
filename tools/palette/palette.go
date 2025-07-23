@@ -20,14 +20,15 @@ type TronThemePalette struct {
 	PanelOverlayHover          string
 
 	// UI elements
-	Border               string
-	BorderSubtle         string
-	BorderFocused        string
-	Selection            string
-	Highlight            string
-	ElementHover         string
-	Transparent          string
-	DropTargetBackground string
+	Border                    string
+	BorderSubtle              string
+	BorderFocused             string
+	Selection                 string
+	ElementSelectionBackground string
+	Highlight                 string
+	ElementHover              string
+	Transparent               string
+	DropTargetBackground      string
 
 	// Semantic status colors
 	Error     string

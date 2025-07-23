@@ -233,9 +233,9 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	// Map values for newly added fields (2024)
 	// These fields are optional in Zed themes and use fallback values when not specified
 
-	// Selection background - semi-transparent blue by default
-	if p.Selection != "" {
-		style.ElementSelectionBackground = p.Selection
+	// Selection background - semi-transparent selection color
+	if p.ElementSelectionBackground != "" {
+		style.ElementSelectionBackground = p.ElementSelectionBackground
 	}
 
 	// Indent guides - use subtle borders/muted colors

@@ -38,11 +38,12 @@ func GetPalette() palette.TronThemePalette {
 		PanelOverlayHover:          colors.MustGet("gray200"),
 
 		// UI elements
-		Border:               colors.MustGet("gray300"),
-		BorderSubtle:         colors.MustGet("gray200"),
-		BorderFocused:        colors.MustGet("blue200"),
-		Selection:            colors.MustGet("gray200"),
-		Highlight:            colors.MustGet("gray100"),
+		Border:                    colors.MustGet("gray300"),
+		BorderSubtle:              colors.MustGet("gray200"),
+		BorderFocused:             colors.MustGet("blue200"),
+		Selection:                 colors.MustGet("gray200"),
+		// ElementSelectionBackground: colors.MustGet("gray200Alpha40"),
+		Highlight:                 colors.MustGet("gray100"),
 		ElementHover:         colors.MustGet("gray200"),
 		Transparent:          colors.MustGet("transparent"),
 		DropTargetBackground: colors.MustGet("blue200Alpha18"),
@@ -154,6 +155,7 @@ func GetFrostedPalette() palette.TronThemePalette {
 	p.Border = colors.MustGet("gray300Alpha60")
 	p.BorderSubtle = colors.MustGet("transparent")
 	p.Selection = colors.MustGet("gray200Alpha40")
+	// p.ElementSelectionBackground = colors.MustGet("gray300AlphaDark")
 
 	// Adjust text for better contrast on blurred background
 	p.Foreground = colors.MustGet("gray700Frosted") // Slightly higher opacity
