@@ -2,89 +2,134 @@
 /* This file defines all colors as CSS variables for inline preview in Zed */
 
 :root {
-  /* Monochrome */
+  /* ==========================================================================
+     Base Colors
+     ========================================================================== */
+
+  /* Pure colors */
   --black: #000000ff;
-  --pureWhite: #ffffffff;
-  --shadow: #00000020;
+  --white: #ffffffff;
   --transparent: #00000000;
+  --shadow: #00000020;
 
-  /* Gray scale - opaque (light to dark) */
-  --gray50: #f5f7faff; /* Original gray background */
-  --gray100: #e8ecf2ff; /* LineHighlight */
-  --gray125: #dce3edff; /* Slightly darker than gray100 */
-  --gray150: #dfe5edff; /* Status bar */
-  --gray200: #d1dae6ff; /* BorderSubtle */
-  --gray300: #b8c5d6ff; /* Border, Selection */
-  --gray400: #8a9db5ff; /* Line numbers, etc */
-  --gray500: #6b7e96ff; /* Comment */
-  --gray600: #526073ff; /* ForegroundDim (sidebar text) */
-  --gray650: #2e333cff; /* Scrollbar track border color (from dark theme) */
-  --gray700: #2d3e4fff; /* Foreground */
-  --gray900: #14191fff; /* ForegroundBright */
+  /* ==========================================================================
+     Visual Hierarchy - Background Layer (furthest back)
+     ========================================================================== */
 
-  /* Gray scale - alpha variants */
-  --gray50Alpha95: #f5f7faf2; /* Editor background (frosted) - 95% opacity */
-  --gray50Frosted: #f5f7fad9; /* Frosted background - 85% opacity */
-  --gray100Alpha33: #e8ecf255; /* Active line (frosted) - more transparent */
-  --gray100Alpha75: #e8ecf2bf; /* Active line background with 75% opacity */
-  --gray100Alpha80: #e8ecf2cc; /* Gray100 with 80% opacity */
-  --gray100Alpha87: #e8ecf2dd; /* Status bar (frosted) - 87% opacity */
-  --gray150Alpha80: #dfe5edcc; /* Gray150 with 80% opacity */
+  /* Gray scale - Background tones (light to dark) */
+  --gray50: #f5f7faff; /* Background - Original gray background */
+  --gray100: #e8ecf2ff; /* BackgroundElevated, Surface, EditorSubheader - LineHighlight */
+  --gray125: #dce3edff; /* BackgroundOverlay - Slightly darker than gray100 */
+  --gray150: #dfe5edff; /* Statusbar - Status bar */
+
+  /* Background alpha variants for frosted glass */
+  --gray50Alpha95: #f5f7faf2; /* EditorBackground (frosted) - 95% opacity */
+  --gray50Frosted: #f5f7fad9; /* Background (frosted) - 85% opacity */
+  --gray100Alpha33: #e8ecf255; /* ActiveLine (frosted) - more transparent */
+  --gray100Alpha75: #e8ecf2bf; /* ActiveLine - Active line background with 75% opacity */
+  --gray100Alpha80: #e8ecf2cc; /* StatusbarInactive (frosted) - Gray100 with 80% opacity */
+  --gray100Alpha87: #e8ecf2dd; /* Statusbar (frosted) - 87% opacity */
+  --gray150Alpha80: #dfe5edcc; /* BackgroundOverlayHover (frosted) - Gray150 with 80% opacity */
+
+  /* ==========================================================================
+     Visual Hierarchy - Midground Layer (UI chrome)
+     ========================================================================== */
+
+  /* Borders and UI elements */
+  --gray200: #d1dae6ff; /* BorderSubtle, BackgroundOverlayHover, Selection, Interactive, ScrollbarTrackBorder */
+  --gray300: #b8c5d6ff; /* Border */
+  --gray400: #8a9db5ff; /* LineNumber, PunctuationMuted */
+
+  /* Border/UI alpha variants */
   --gray200Alpha40: #d1dae666; /* Selection (frosted) - semi-transparent */
-  --gray300Alpha: #6b7e9633; /* Gray500 with 20% opacity for more transparency on scrollbar */
+  --gray300Alpha: #6b7e9633; /* ScrollbarThumb - Gray500 with 20% opacity for more transparency on scrollbar */
   --gray300Alpha60: #b8c5d699; /* Border (frosted) - 60% opacity for better contrast */
-  --gray300AlphaDark: #6b7e9666; /* Gray500 with 40% opacity for better balance on frosted */
-  --gray500Alpha30: #6b7e9640; /* Wrap guide with 25% opacity using darker gray */
-  --gray600Alpha50: #52607359; /* Active wrap guide with 35% opacity using even darker gray */
-  --gray600Frosted: #526073dd; /* Higher opacity dim text */
-  --gray700Frosted: #2d3e4fee; /* Higher opacity text for frosted */
+  --gray300AlphaDark: #6b7e9666; /* ScrollbarThumb (frosted) - Gray500 with 40% opacity for better balance on frosted */
 
-  /* Blues - opaque */
-  --blue600: #1a5f8aff; /* Primary blue (darker for light bg) */
-  --blue500: #267fb5ff; /* Standard blue */
-  --blue400: #3988c0ff; /* Medium blue */
-  --blue300: #4a95b3ff; /* Light blue */
-  --blue200: #0099ccff; /* Primary cyan (darker for light bg) */
+  /* ==========================================================================
+     Visual Hierarchy - Foreground Layer (content)
+     ========================================================================== */
 
-  /* Blues - alpha variants */
-  --blue300Alpha: #4a95b340; /* Selection with alpha */
-  --blue300Alpha24: #4a95b33d; /* Player 1 selection - blue with 24% opacity */
-  --blue400Alpha: #0099cc80; /* Primary cyan with 50% opacity for scrollbar hover */
-  --blue400Alpha80: #0099cc99; /* Primary cyan with 60% opacity for scrollbar/minimap active */
-  --blue200Alpha: #0099cc30; /* Primary cyan with alpha for search */
-  --blue200Alpha10: #0099cc1a; /* Document highlight read with 10% opacity */
-  --blue200Alpha13: #0099cc22; /* Document highlight read (frosted) with 13% opacity */
-  --blue200Alpha18: #0099cc18; /* Drop target with very low opacity */
-  --blue200Alpha20: #0099cc33; /* Drop target (frosted) with 20% opacity */
-  --blue200Alpha27: #0099cc44; /* Document highlight write (frosted) with 27% opacity */
-  --blue200Alpha40: #0099cc66; /* Document highlight write with 40% opacity */
+  /* Text and content colors */
+  --gray500: #6b7e96ff; /* Comment */
+  --gray600: #526073ff; /* ForegroundMuted - ForegroundDim (sidebar text) */
+  --gray700: #2d3e4fff; /* Foreground, Punctuation */
+  --gray800: #1a2530ff; /* TerminalWhite - Terminal white (darker than foreground) */
+  --gray900: #14191fff; /* ForegroundStrong */
 
-  /* Greens - opaque */
-  --green100: #e6f7e3ff; /* Success bg */
-  --green600: #3a5f00ff; /* Dark green */
-  --green500: #5a8b2cff; /* Alt green */
-  --green400: #7aad3aff; /* Primary green (darker for light bg) */
+  /* Foreground alpha variants */
+  --gray500Alpha30: #6b7e9640; /* GuideNormal - Wrap guide with 25% opacity using darker gray */
+  --gray600Alpha50: #52607359; /* GuideActive - Active wrap guide with 35% opacity using even darker gray */
+  --gray600Frosted: #526073dd; /* ForegroundMuted (frosted) - Higher opacity dim text */
+  --gray700Frosted: #2d3e4fee; /* Foreground (frosted) - Higher opacity text for frosted */
 
-  /* Greens - alpha variants */
-  --green600Alpha24: #3a5f003d; /* Player 3 selection - green with 24% opacity */
+  /* ==========================================================================
+     Semantic Colors - Primary
+     ========================================================================== */
 
-  /* Yellows/Oranges - opaque */
-  --yellow600: #c9a000ff; /* Primary yellow (darker for light bg) */
-  --yellow500: #dbb200ff; /* Medium yellow */
-  --orange700: #b35900ff; /* Even darker orange for better contrast on modified */
-  --orange600: #cc7700ff; /* Primary orange (darker for light bg) */
-  --orange500: #e68a00ff; /* Light orange */
+  /* Blues - Primary accent colors */
+  --blue600: #1a5f8aff; /* Keyword, Type, Tag, TerminalBlue - Primary blue (darker for light bg) */
+  --blue500: #267fb5ff; /* Variable - Standard blue */
+  --blue400: #3988c0ff; /* Namespace - Medium blue */
+  /* --blue300: #4a95b3ff; */ /* Unused - was TerminalBrightBlue */
+  --blue200: #0099ccff; /* BorderFocused, Info, Regex, TerminalCyan - Primary cyan (darker for light bg) */
+  /* --blue100: #00b3e6ff; */ /* Unused - was TerminalBrightCyan */
 
-  /* Yellows/Oranges - alpha variants */
-  --orange500Alpha24: #e68a003d; /* Player 4 selection - orange with 24% opacity */
+  /* Blue alpha variants for interactive states */
+  --blue300Alpha24: #4a95b33d; /* Player1 - blue with 24% opacity */
+  --blue400Alpha: #0099cc80; /* ScrollbarThumbHover - Primary cyan with 50% opacity for scrollbar hover */
+  --blue400Alpha80: #0099cc99; /* ScrollbarThumbActive - Primary cyan with 60% opacity for scrollbar/minimap active */
+  --blue200Alpha: #0099cc30; /* MatchHighlight - Primary cyan with alpha for search */
+  --blue200Alpha10: #0099cc1a; /* DocumentHighlight - Document highlight read with 10% opacity */
+  --blue200Alpha13: #0099cc22; /* DocumentHighlight (frosted) - Document highlight read with 13% opacity */
+  --blue200Alpha18: #0099cc18; /* DropTarget - Drop target with very low opacity */
+  --blue200Alpha20: #0099cc33; /* DropTarget (frosted) - Drop target with 20% opacity */
+  --blue200Alpha27: #0099cc44; /* DocumentHighlightWrite (frosted) - Document highlight write with 27% opacity */
+  --blue200Alpha40: #0099cc66; /* DocumentHighlightWrite - Document highlight write with 40% opacity */
 
-  /* Reds - opaque */
-  --red100: #ffe6e6ff; /* Error bg */
-  --red600: #cc0033ff; /* Error red (darker for light bg) */
-  --red500: #d91e18ff; /* Primary red (string color) */
-  --red400: #e74c3cff; /* Light red */
+  /* ==========================================================================
+     Semantic Colors - Status
+     ========================================================================== */
 
-  /* Purples - opaque */
-  --purple600: #6a56ccff; /* Primary purple (darker for light bg) */
-  --pink600: #d1459aff; /* Primary pink (darker for light bg) */
+  /* Greens - Success states */
+  --green100: #e6f7e3ff; /* SuccessSurface - Success bg */
+  --green600: #3a5f00ff; /* TerminalDimGreen - Dark green */
+  --green500: #5a8b2cff; /* Property, TerminalGreen - Alt green */
+  --green400: #7aad3aff; /* Success, Number - Primary green (darker for light bg) */
+  /* --green300: #8dc548ff; */ /* Unused - was TerminalBrightGreen */
+
+  /* Green alpha variants */
+  --green600Alpha24: #3a5f003d; /* Player3 - green with 24% opacity */
+
+  /* Yellows/Oranges - Warning/Accent states */
+  --yellow600: #c9a000ff; /* Warning, TerminalYellow - Primary yellow (darker for light bg) */
+  --yellow500: #dbb200ff; /* Embedded, TerminalDimYellow - Medium yellow */
+  /* --yellow400: #f0c800ff; */ /* Unused - was TerminalBrightYellow */
+  --orange700: #b35900ff; /* VCSModified - Even darker orange for better contrast on modified */
+  --orange600: #cc7700ff; /* Accent, Function - Primary orange (darker for light bg) */
+  --orange500: #e68a00ff; /* Constructor, Enum, Attribute, VCSConflict - Light orange */
+
+  /* Orange alpha variants */
+  --orange500Alpha24: #e68a003d; /* Player4 - orange with 24% opacity */
+
+  /* ==========================================================================
+     Semantic Colors - Error
+     ========================================================================== */
+
+  /* Reds - Error states */
+  --red100: #ffe6e6ff; /* ErrorSurface - Error bg */
+  --red600: #cc0033ff; /* Error, TerminalRed - Error red (darker for light bg) */
+  --red500: #d91e18ff; /* String - Primary red (string color) */
+  --red400: #e74c3cff; /* StringEscape - Light red */
+  /* --red300: #ff6b6bff; */ /* Unused - was TerminalBrightRed */
+
+  /* ==========================================================================
+     Semantic Colors - Special
+     ========================================================================== */
+
+  /* Purples - Special syntax */
+  --purple600: #6a56ccff; /* Special variables (self/this/super) */
+  /* --purple500: #8572e6ff; */ /* Unused - was TerminalBrightPurple */
+  --pink600: #d1459aff; /* Decorator - Primary pink (darker for light bg) */
+  --pink500: #e589c4ff; /* Bright pink derived from pink600 */
 }

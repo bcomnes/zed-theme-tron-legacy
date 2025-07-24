@@ -2,90 +2,138 @@
 /* This file defines all colors as CSS variables for inline preview in Zed */
 
 :root {
-  /* Monochrome */
+  /* ==========================================================================
+     Base Colors
+     ========================================================================== */
+
+  /* Pure colors */
   --black: #000000ff;
   --pureWhite: #ffffffff;
-  --shadow: #00000040;
   --transparent: #00000000;
+  --shadow: #00000040;
 
-  /* Gray scale - opaque (dark to light) */
+  /* ==========================================================================
+     Visual Hierarchy - Background Layer (furthest back)
+     ========================================================================== */
+
+  /* Gray scale - Background tones (dark to light) */
   --gray900: #14191fff; /* Background */
-  --gray850: #242a33ff; /* Slightly lighter than panel background */
-  --gray800: #1c2128ff; /* LineHighlight (more neutral) */
-  --gray750: #23282fff; /* Status bar (neutral dark gray) */
-  --gray700: #2a3039ff; /* BorderSubtle (neutral) */
-  --gray650: #2e333cff; /* Scrollbar track border color */
-  --gray600: #323842ff; /* Border, Selection (neutral) */
-  --gray500: #647c9bff; /* ForegroundDim */
-  --gray400: #586676ff; /* Comment */
-  --gray200: #aec2e0ff; /* Foreground */
-  --gray50: #dae3f1ff; /* ForegroundBright */
+  --gray850: #242a33ff; /* BackgroundOverlay - Slightly lighter than panel background */
+  --gray800: #1c2128ff; /* Surface, EditorSubheader - LineHighlight (more neutral) */
+  --gray750: #23282fff; /* Statusbar - Status bar (neutral dark gray) */
 
-  /* Gray scale - alpha variants */
+  /* Neutral backgrounds for non-blue UI elements */
+  --neutral800: #1a1d23ff; /* BackgroundElevated - Neutral highlight */
+
+  /* Background alpha variants for frosted glass */
   --gray900Alpha93: #14191fee; /* Editor background (frosted) - 93% opacity */
   --gray900Frosted: #14191fcc; /* Frosted background - 80% opacity */
   --gray800Alpha33: #1c212855; /* Active line (frosted) - more transparent */
-  --gray800Alpha75: #1c2128bf; /* Active line background with 75% opacity */
-  --gray800Alpha80: #1c2128cc; /* Gray800 with 80% opacity */
+  --gray800Alpha75: #1c2128bf; /* ActiveLine - Active line background with 75% opacity */
+  --gray800Alpha80: #1c2128cc; /* StatusbarInactive (frosted) - Gray800 with 80% opacity */
   --gray750Alpha80: #23282fcc; /* Gray750 with 80% opacity */
+
+  /* ==========================================================================
+     Visual Hierarchy - Midground Layer (UI chrome)
+     ========================================================================== */
+
+  /* Borders and UI elements */
+  --gray700: #2a3039ff; /* BorderSubtle, Selection - BorderSubtle (neutral) */
+  --gray650: #2e333cff; /* ScrollbarTrackBorder - Scrollbar track border color */
+  --neutral600: #2d3139ff; /* Border - Neutral border */
+
+  /* Border alpha variants */
   --gray700Alpha40: #2a303966; /* Selection (frosted) - semi-transparent */
   --gray600Alpha40: #32384266; /* Border subtle (frosted) - 40% opacity */
   --gray600Alpha67: #323842aa; /* Border (frosted) - semi-transparent using gray600 */
-  --gray500Alpha30: #647c9b40; /* Wrap guide with 25% opacity using lighter gray */
-  --gray500Frosted: #647c9bf2; /* Higher opacity dim text (95% for better sidebar contrast) */
-  --gray400Alpha50: #58667659; /* Active wrap guide with 35% opacity using comment color */
-  --gray200Frosted: #aec2e0ee; /* Higher opacity text for frosted */
+  --neutral600Alpha: #647c9b33; /* ScrollbarThumb - Gray500 with 20% opacity for more transparency on scrollbar */
 
-  /* Neutral UI grays (for non-blue UI elements) */
-  --neutral800: #1a1d23ff; /* Neutral highlight */
-  --neutral600: #2d3139ff; /* Neutral border */
-  --neutral600Alpha: #647c9b33; /* Gray500 with 20% opacity for more transparency on scrollbar */
+  /* ==========================================================================
+     Visual Hierarchy - Foreground Layer (content)
+     ========================================================================== */
 
-  /* Blues - opaque */
-  --blue500: #267fb5ff; /* Primary blue */
-  --blue400: #2b6db9ff; /* Bright blue */
-  --blue300: #4a95b3ff; /* Cyan dim */
-  --blue200: #6ee2ffff; /* Primary cyan */
-  --blue200Bright: #c8d9e8ff; /* Bright blue-fg (90% lightness) */
+  /* Text and content colors */
+  --gray500: #647c9bff; /* ForegroundMuted, LineNumber */
+  --gray450: #7891b0ff; /* TerminalBrightBlack - Bright black for terminal */
+  --gray400: #586676ff; /* Comment */
+  --gray200: #aec2e0ff; /* Foreground, Punctuation */
+  --gray50: #dae3f1ff; /* ForegroundStrong */
 
-  /* Blues - alpha variants */
-  --blue500Alpha: #267fb580; /* Selection with alpha */
-  --blue500Alpha24: #267fb53d; /* Player 1 selection - blue with 24% opacity */
-  --blue200Alpha: #6ee2ff40; /* Primary cyan with 25% opacity for search */
-  --blue200Alpha10: #6ee2ff1a; /* Document highlight read with 10% opacity */
-  --blue200Alpha13: #6ee2ff22; /* Document highlight read (frosted) with 13% opacity */
-  --blue200Alpha18: #6ee2ff18; /* Drop target with very low opacity */
-  --blue200Alpha20: #6ee2ff33; /* Drop target (frosted) with 20% opacity */
-  --blue200Alpha27: #6ee2ff44; /* Document highlight write (frosted) with 27% opacity */
-  --blue200Alpha40: #6ee2ff66; /* Document highlight write with 40% opacity */
-  --blue200Alpha50: #6ee2ff80; /* Primary cyan with 50% opacity for scrollbar hover */
-  --blue200Alpha80: #6ee2ff99; /* Primary cyan with 60% opacity for scrollbar/minimap active */
+  /* Foreground alpha variants */
+  --gray500Alpha30: #647c9b40; /* GuideNormal - Wrap guide with 25% opacity using lighter gray */
+  --gray500Frosted: #647c9bf2; /* ForegroundMuted (frosted) - Higher opacity dim text (95% for better sidebar contrast) */
+  --gray400Alpha50: #58667659; /* GuideActive - Active wrap guide with 35% opacity using comment color */
+  --gray200Frosted: #aec2e0ee; /* Foreground (frosted) - Higher opacity text for frosted */
 
-  /* Greens - opaque */
-  --green700: #144212ff; /* Success bg */
-  --green600: #4d5f07ff; /* Green dim */
-  --green500: #95CC5Eff; /* Alt green */
-  --green300: #C7F026ff; /* Primary green */
+  /* ==========================================================================
+     Semantic Colors - Primary
+     ========================================================================== */
 
-  /* Greens - alpha variants */
-  --green600Alpha24: #4d5f073d; /* Player 3 selection - green with 24% opacity */
+  /* Blues - Primary accent colors */
+  --blue500: #267fb5ff; /* Keyword, Type, TerminalBlue */
+  /* --blue400: #2b6db9ff; */ /* Unused - was TerminalBrightBlue */
+  --blue300: #4a95b3ff; /* Namespace - Cyan dim */
+  --blue200: #6ee2ffff; /* BorderFocused, Info, Regex, TerminalCyan - Primary cyan */
+  --blue200Bright: #c8d9e8ff; /* Variable - Bright blue-fg (90% lightness) */
+  /* --blue100: #A3E7FFff; */ /* Unused - was TerminalBrightCyan */
 
-  /* Yellows/Oranges - opaque */
-  --yellow500: #FFE792ff; /* Primary yellow */
-  --yellow400: #ffd12cff; /* Dim yellow */
-  --orange500: #FFB20Dff; /* Primary orange */
-  --orange400: #F79D1Eff; /* Light orange */
+  /* Blue alpha variants for interactive states */
+  --blue500Alpha24: #267fb53d; /* Player1 - blue with 24% opacity */
+  --blue200Alpha: #6ee2ff40; /* MatchHighlight - Primary cyan with 25% opacity for search */
+  --blue200Alpha10: #6ee2ff1a; /* DocumentHighlight - Document highlight read with 10% opacity */
+  --blue200Alpha13: #6ee2ff22; /* DocumentHighlight (frosted) - Document highlight read with 13% opacity */
+  --blue200Alpha18: #6ee2ff18; /* DropTarget - Drop target with very low opacity */
+  --blue200Alpha20: #6ee2ff33; /* DropTarget (frosted) - Drop target with 20% opacity */
+  --blue200Alpha27: #6ee2ff44; /* DocumentHighlightWrite (frosted) - Document highlight write with 27% opacity */
+  --blue200Alpha40: #6ee2ff66; /* DocumentHighlightWrite - Document highlight write with 40% opacity */
+  --blue200Alpha50: #6ee2ff80; /* ScrollbarThumbHover - Primary cyan with 50% opacity for scrollbar hover */
+  --blue200Alpha80: #6ee2ff99; /* ScrollbarThumbActive - Primary cyan with 60% opacity for scrollbar/minimap active */
 
-  /* Yellows/Oranges - alpha variants */
-  --orange400Alpha24: #F79D1E3d; /* Player 4 selection - orange with 24% opacity */
+  /* ==========================================================================
+     Semantic Colors - Status
+     ========================================================================== */
 
-  /* Reds - opaque */
-  --red700: #660000ff; /* Error bg */
-  --red500: #F92672ff; /* Error red */
-  --red400: #FF410Dff; /* Primary red (string color) */
-  --red300: #FF5F52ff; /* Light red */
+  /* Greens - Success states */
+  --green700: #144212ff; /* SuccessSurface - Success bg */
+  --green600: #4d5f07ff; /* TerminalDimGreen - Green dim */
+  --green500: #95CC5Eff; /* Property, TerminalGreen - Alt green */
+  --green300: #C7F026ff; /* Success, Number - Primary green */
+  /* --green200: #E7FF8Cff; */ /* Unused - was TerminalBrightGreen */
 
-  /* Purples - opaque */
-  --purple500: #967EFBff; /* Primary purple */
-  --pink500: #ff79c6ff; /* Primary pink */
+  /* Green alpha variants */
+  --green600Alpha24: #4d5f073d; /* Player3 - green with 24% opacity */
+
+  /* Yellows/Oranges - Warning/Accent states */
+  --yellow500: #FFE792ff; /* Warning, TerminalYellow - Primary yellow */
+  --yellow400: #ffd12cff; /* VCSModified, TerminalDimYellow - Dim yellow */
+  /* --yellow300: #FFF5C4ff; */ /* Unused - was TerminalBrightYellow */
+  --orange500: #FFB20Dff; /* Accent, Function - Primary orange */
+  --orange400: #F79D1Eff; /* Constructor, Enum, Attribute, VCSConflict - Light orange */
+
+  /* Orange alpha variants */
+  --orange400Alpha24: #F79D1E3d; /* Player4 - orange with 24% opacity */
+
+  /* Reds - Error states */
+  --red700: #660000ff; /* ErrorSurface - Error bg */
+  --red500: #F92672ff; /* Error, TerminalRed - Error red */
+  --red400: #FF410Dff; /* String - Primary red (string color) */
+  --red300: #FF5F52ff; /* StringEscape - Light red */
+  /* --red200: #FF8A80ff; */ /* Unused - was TerminalBrightRed */
+
+  /* ==========================================================================
+     Semantic Colors - Special
+     ========================================================================== */
+
+  /* Purples - Special syntax */
+  --purple500: #967EFBff; /* Special variables (self/this/super) */
+  /* --purple400: #B39DFFff; */ /* Unused - was TerminalBrightPurple */
+  --pink500: #ff79c6ff; /* Decorator - Primary pink */
+  --pink400: #ffb3e1ff; /* Bright pink derived from pink500 */
+
+  /* Special embedded colors */
+  --yellow400: #ffd12cff; /* Embedded - Dim yellow */
+
+  /* Additional bright variants for terminal */
+  --orange400: #F79D1Eff; /* Constructor, Enum, Attribute, VCSConflict - Light orange */
+  --red300: #FF5F52ff; /* StringEscape - Light red */
 }
