@@ -79,7 +79,7 @@
 
   /* Blue alpha variants for interactive states */
   --blue500Alpha24: #267fb53d; /* Player1 - blue with 24% opacity */
-  --blue200Alpha: #6ee2ff40; /* MatchHighlight - Primary cyan with 25% opacity for search */
+  /*--blue200Alpha: #6ee2ff40; /* MatchHighlight - Primary cyan with 25% opacity for search */
   --blue200Alpha10: #6ee2ff1a; /* DocumentHighlight - Document highlight read with 10% opacity */
   --blue200Alpha13: #6ee2ff22; /* DocumentHighlight (frosted) - Document highlight read with 13% opacity */
   --blue200Alpha18: #6ee2ff18; /* DropTarget - Drop target with very low opacity */
@@ -109,6 +109,12 @@
   /* --yellow300: #FFF5C4ff; */ /* Unused - was TerminalBrightYellow */
   --orange500: #FFB20Dff; /* Accent, Function - Primary orange */
   --orange400: #F79D1Eff; /* Constructor, Enum, Attribute, VCSConflict - Light orange */
+
+  /* Neon fluorescent orange for search highlights */
+  /* --neonOrange: #FF6600ff; /* Neon fluorescent orange - pure bright orange */
+  /* --neonOrangeAlpha15: #FF660026; */ /* Neon orange with 15% opacity for subtle search highlights */
+  --neonOrangeAlpha25: #FF660040; /* Neon orange with 25% opacity for medium search highlights */
+  /* --neonOrangeAlpha35: #FF660059; */ /* Neon orange with 35% opacity for prominent search highlights */
 
   /* Orange alpha variants */
   --orange400Alpha24: #F79D1E3d; /* Player4 - orange with 24% opacity */

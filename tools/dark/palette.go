@@ -48,7 +48,7 @@ func GetPalette() palette.TronThemePalette {
 		Selection:              colors.MustGet("gray700"),
 		// SelectionAlpha:         colors.MustGet("gray700Alpha40"), // element.selection_background is broken in Zed
 		ActiveLine:             colors.MustGet("gray800Alpha75"),
-		MatchHighlight:         colors.MustGet("blue200Alpha"),
+		MatchHighlight:         colors.MustGet("neonOrangeAlpha25"),
 		DocumentHighlight:      colors.MustGet("blue200Alpha10"),
 		DocumentHighlightWrite: colors.MustGet("blue200Alpha40"),
 

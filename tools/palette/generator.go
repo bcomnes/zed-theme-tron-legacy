@@ -141,10 +141,10 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		// Links
 		LinkTextHover: p.ForegroundMuted,
 
-		// Version control
-		VersionControlAdded:    p.Success,
-		VersionControlModified: p.VCSModified,
-		VersionControlDeleted:  p.Error,
+		// Version control - use FOREGROUND colors for visibility over syntax highlighting
+		VersionControlAdded:    p.Success,     // Bright green foreground
+		VersionControlModified: p.VCSModified, // Bright yellow foreground
+		VersionControlDeleted:  p.Error,       // Bright red foreground
 
 		// Status colors
 		Conflict:           p.Accent,
@@ -226,8 +226,9 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		style.Foreground = p.Foreground
 	}
 
-	style.VersionControlConflictMarkerOurs = p.UIAccent
-	style.VersionControlConflictMarkerTheirs = p.Error
+	// Conflict markers use BACKGROUND colors for conflict section backgrounds
+	style.VersionControlConflictMarkerOurs = p.SuccessSurface
+	style.VersionControlConflictMarkerTheirs = p.ErrorSurface
 
 	// ========== NEWLY ADDED FIELDS (2024) ==========
 	// Map values for newly added fields (2024)
@@ -338,44 +339,44 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 	return SyntaxStyles{
 		// Official theme field order
 		Attribute:             SyntaxStyle{Color: p.Attribute, FontStyle: nil, FontWeight: nil},
-		Boolean:               SyntaxStyle{Color: p.Accent, FontStyle: str("italic"), FontWeight: nil},
+		Boolean:               SyntaxStyle{Color: p.Success, FontStyle: str("italic"), FontWeight: nil},
 		Comment:               SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
 		CommentDoc:            SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
-		Constant:              SyntaxStyle{Color: p.Accent, FontStyle: str("italic"), FontWeight: nil},
+		Constant:              SyntaxStyle{Color: p.Error, FontStyle: str("italic"), FontWeight: nil},
 		Constructor:           SyntaxStyle{Color: p.Constructor, FontStyle: str("italic"), FontWeight: num(700)},
 		Embedded:              SyntaxStyle{Color: p.Embedded, FontStyle: nil, FontWeight: nil},
-		Emphasis:              SyntaxStyle{Color: p.Info, FontStyle: str("italic"), FontWeight: nil},
-		EmphasisStrong:        SyntaxStyle{Color: p.Accent, FontStyle: nil, FontWeight: num(700)},
+		Emphasis:              SyntaxStyle{Color: p.Decorator, FontStyle: str("italic"), FontWeight: nil},
+		EmphasisStrong:        SyntaxStyle{Color: p.StringEscape, FontStyle: nil, FontWeight: num(700)},
 		Enum:                  SyntaxStyle{Color: p.Enum, FontStyle: nil, FontWeight: nil},
-		Function:              SyntaxStyle{Color: p.Function, FontStyle: nil, FontWeight: nil},
+		Function:              SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
 		FunctionBuiltin:       SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: nil}, // From Gruvbox theme
 		Hint:                  SyntaxStyle{Color: p.Hint, FontStyle: str("italic"), FontWeight: nil},
 		Keyword:               SyntaxStyle{Color: p.Keyword, FontStyle: str("italic"), FontWeight: nil},
-		Label:                 SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
-		LinkText:              SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
-		LinkURI:               SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
+		Label:                 SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},
+		LinkText:              SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
+		LinkURI:               SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
 		Namespace:             SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
 		Number:                SyntaxStyle{Color: p.Number, FontStyle: nil, FontWeight: nil},
 		Operator:              SyntaxStyle{Color: p.Keyword, FontStyle: nil, FontWeight: nil},
-		Predictive:            SyntaxStyle{Color: p.TerminalPurple, FontStyle: str("italic"), FontWeight: nil},
-		Preproc:               SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
+		Predictive:            SyntaxStyle{Color: p.Success, FontStyle: str("italic"), FontWeight: nil},
+		Preproc:               SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
 		Primary:               SyntaxStyle{Color: p.Foreground, FontStyle: nil, FontWeight: num(700)},
 		Property:              SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
 		Punctuation:           SyntaxStyle{Color: p.Punctuation, FontStyle: nil, FontWeight: nil},
 		PunctuationBracket:    SyntaxStyle{Color: p.Punctuation, FontStyle: nil, FontWeight: nil},
 		PunctuationDelimiter:  SyntaxStyle{Color: p.PunctuationMuted, FontStyle: nil, FontWeight: nil},
 		PunctuationListMarker: SyntaxStyle{Color: p.UIAccent, FontStyle: nil, FontWeight: nil},
-		PunctuationSpecial:    SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
+		PunctuationSpecial:    SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},
 		Selector:              SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
 		SelectorPseudo:        SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
 		String:                SyntaxStyle{Color: p.String, FontStyle: nil, FontWeight: nil},
 		StringEscape:          SyntaxStyle{Color: p.StringEscape, FontStyle: nil, FontWeight: nil},
 		StringRegex:           SyntaxStyle{Color: p.Regex, FontStyle: nil, FontWeight: nil},
-		StringSpecial:         SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
+		StringSpecial:         SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
 		StringSpecialSymbol:   SyntaxStyle{Color: p.Accent, FontStyle: nil, FontWeight: nil},
 		Tag:                   SyntaxStyle{Color: p.Tag, FontStyle: nil, FontWeight: nil},
 		TextLiteral:           SyntaxStyle{Color: p.Embedded, FontStyle: nil, FontWeight: nil},
-		Title:                 SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: num(700)},
+		Title:                 SyntaxStyle{Color: p.Accent, FontStyle: nil, FontWeight: num(700)},
 		Type:                  SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: num(700)},
 		Variable:              SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: nil},
 		VariableSpecial:       SyntaxStyle{Color: p.SpecialVariable, FontStyle: str("italic"), FontWeight: nil},

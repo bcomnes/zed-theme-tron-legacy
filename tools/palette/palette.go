@@ -52,15 +52,16 @@ type TronThemePalette struct {
 	// ==========================================================================
 
 	// Status Colors
-	Error          string // Errors, deletions
-	ErrorSurface   string // Error backgrounds (was ErrorBg)
-	Warning        string // Warnings, modifications
-	Success        string // Success, additions
-	SuccessSurface string // Success backgrounds (was SuccessBg)
-	Info           string // Information
-	Hint           string // Hint color (subtle info)
-	Accent         string // Primary accent (was Function)
-	UIAccent       string // UI accent color for active elements (line numbers, indent guides)
+	// Pattern: Base colors = FOREGROUND colors for text/borders, Surface colors = BACKGROUND colors for surfaces
+	Error          string // Errors, deletions - FOREGROUND color for text/borders
+	ErrorSurface   string // Error backgrounds - BACKGROUND color for surfaces/panels
+	Warning        string // Warnings, modifications - FOREGROUND color for text/borders
+	Success        string // Success, additions - FOREGROUND color for text/borders
+	SuccessSurface string // Success backgrounds - BACKGROUND color for surfaces/panels
+	Info           string // Information - FOREGROUND color for text/borders
+	Hint           string // Hint color (subtle info) - FOREGROUND color
+	Accent         string // Primary accent - FOREGROUND color for text/borders
+	UIAccent       string // UI accent for active elements, conflict markers - FOREGROUND color
 
 	// Editor Guidelines
 	GuideNormal string // Wrap guide, indent guide (was WrapGuide)
@@ -136,9 +137,10 @@ type TronThemePalette struct {
 	// ==========================================================================
 	// Version Control
 	// ==========================================================================
+	// Note: Git diffs use FOREGROUND colors because they overlay on syntax-highlighted text
 
-	VCSModified string // Was VersionControlModified
-	VCSConflict string // Was ConflictBackground
+	VCSModified string // Git diff modified lines - used as FOREGROUND color
+	VCSConflict string // Git conflict backgrounds - used as BACKGROUND color
 
 	// ==========================================================================
 	// UI Components
