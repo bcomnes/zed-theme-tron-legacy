@@ -5,7 +5,7 @@ go 1.24.4
 tool github.com/bcomnes/goversion/v2
 
 require (
-	github.com/tdewolff/parse/v2 v2.8.3
+	github.com/tdewolff/parse/v2 v2.8.4
 	github.com/xeipuuv/gojsonschema v1.2.0
 )
 
