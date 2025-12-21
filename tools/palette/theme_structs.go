@@ -312,8 +312,6 @@ type SyntaxStyles struct {
 	Variant               SyntaxStyle `json:"variant"`
 
 	// Diff/Patch syntax highlighting
-	DiffPlus       SyntaxStyle `json:"diff.plus,omitempty"`
-	DiffMinus      SyntaxStyle `json:"diff.minus,omitempty"`
-	DiffDelta      SyntaxStyle `json:"diff.delta,omitempty"`
-	DiffDeltaMoved SyntaxStyle `json:"diff.delta.moved,omitempty"`
+	DiffPlus       SyntaxStyle `json:"diff.plus"`
+	DiffMinus      SyntaxStyle `json:"diff.minus"`
 }

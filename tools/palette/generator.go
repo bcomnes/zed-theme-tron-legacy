@@ -384,11 +384,5 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 		// Diff/Patch syntax highlighting
 		DiffPlus:       SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil},     // Green for added lines (+)
 		DiffMinus:      SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},       // Red for removed lines (-)
-		DiffDelta:      SyntaxStyle{Color: p.VCSModified, FontStyle: nil, FontWeight: nil}, // Yellow for changed lines
-		DiffDeltaMoved: SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},   // Cyan for moved lines
-
-		// Markup diff tokens (alternative tokens used by some parsers)
-		MarkupInserted: SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil}, // Green for inserted content
-		MarkupDeleted:  SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},   // Red for deleted content
 	}
 }
