@@ -413,6 +413,26 @@
             "color": "#F79D1Eff",
             "font_style": null,
             "font_weight": null
+          },
+          "diff.plus": {
+            "color": "#C7F026ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.minus": {
+            "color": "#F92672ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta": {
+            "color": "#ffd12cff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta.moved": {
+            "color": "#4a95b3ff",
+            "font_style": null,
+            "font_weight": null
           }
         },
         "panel.indent_guide": "#2d3139ff",
@@ -844,6 +864,26 @@
           },
           "variant": {
             "color": "#F79D1Eff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.plus": {
+            "color": "#C7F026ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.minus": {
+            "color": "#F92672ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta": {
+            "color": "#ffd12cff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta.moved": {
+            "color": "#4a95b3ff",
             "font_style": null,
             "font_weight": null
           }
@@ -1278,6 +1318,26 @@
             "color": "#e68a00ff",
             "font_style": null,
             "font_weight": null
+          },
+          "diff.plus": {
+            "color": "#7aad3aff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.minus": {
+            "color": "#cc0033ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta": {
+            "color": "#b35900ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta.moved": {
+            "color": "#3988c0ff",
+            "font_style": null,
+            "font_weight": null
           }
         },
         "panel.indent_guide": "#b8c5d6ff",
@@ -1709,6 +1769,26 @@
           },
           "variant": {
             "color": "#e68a00ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.plus": {
+            "color": "#7aad3aff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.minus": {
+            "color": "#cc0033ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta": {
+            "color": "#b35900ff",
+            "font_style": null,
+            "font_weight": null
+          },
+          "diff.delta.moved": {
+            "color": "#3988c0ff",
             "font_style": null,
             "font_weight": null
           }
