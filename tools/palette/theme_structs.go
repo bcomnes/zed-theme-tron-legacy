@@ -33,12 +33,12 @@ type ThemeStyle struct {
 	BackgroundAppearance      string `json:"background.appearance,omitempty"`
 
 	// Elements
-	ElementBackground     string `json:"element.background"`
-	ElementHover          string `json:"element.hover"`
-	ElementActive         string `json:"element.active"`
-	ElementSelected       string `json:"element.selected"`
-	ElementDisabled       string `json:"element.disabled"`
-	DropTargetBackground  string `json:"drop_target.background"`
+	ElementBackground    string `json:"element.background"`
+	ElementHover         string `json:"element.hover"`
+	ElementActive        string `json:"element.active"`
+	ElementSelected      string `json:"element.selected"`
+	ElementDisabled      string `json:"element.disabled"`
+	DropTargetBackground string `json:"drop_target.background"`
 
 	// Ghost elements
 	GhostElementBackground string `json:"ghost_element.background"`
@@ -62,23 +62,23 @@ type ThemeStyle struct {
 	IconAccent      string `json:"icon.accent"`
 
 	// Bars
-	StatusBarBackground         string `json:"status_bar.background"`
-	TitleBarBackground          string `json:"title_bar.background"`
-	TitleBarInactiveBackground  string `json:"title_bar.inactive_background"`
-	ToolbarBackground           string `json:"toolbar.background"`
-	TabBarBackground            string `json:"tab_bar.background"`
-	TabInactiveBackground       string `json:"tab.inactive_background"`
-	TabActiveBackground         string `json:"tab.active_background"`
+	StatusBarBackground        string `json:"status_bar.background"`
+	TitleBarBackground         string `json:"title_bar.background"`
+	TitleBarInactiveBackground string `json:"title_bar.inactive_background"`
+	ToolbarBackground          string `json:"toolbar.background"`
+	TabBarBackground           string `json:"tab_bar.background"`
+	TabInactiveBackground      string `json:"tab.inactive_background"`
+	TabActiveBackground        string `json:"tab.active_background"`
 
 	// Search
 	SearchMatchBackground string `json:"search.match_background"`
 
 	// Panels
-	PanelBackground      string `json:"panel.background"`
-	PanelFocusedBorder   string `json:"panel.focused_border"`
+	PanelBackground        string `json:"panel.background"`
+	PanelFocusedBorder     string `json:"panel.focused_border"`
 	PanelOverlayBackground string `json:"panel.overlay_background,omitempty"`
 	PanelOverlayHover      string `json:"panel.overlay_hover,omitempty"`
-	PaneFocusedBorder    string `json:"pane.focused_border"`
+	PaneFocusedBorder      string `json:"pane.focused_border"`
 
 	// Scrollbar
 	ScrollbarThumbBackground      string `json:"scrollbar.thumb.background"`
@@ -88,21 +88,21 @@ type ThemeStyle struct {
 	ScrollbarTrackBorder          string `json:"scrollbar.track.border"`
 
 	// Editor
-	EditorForeground                        string `json:"editor.foreground"`
-	EditorBackground                        string `json:"editor.background"`
-	EditorGutterBackground                  string `json:"editor.gutter.background"`
-	EditorSubheaderBackground               string `json:"editor.subheader.background"`
-	EditorActiveLineBackground              string `json:"editor.active_line.background"`
-	EditorHighlightedLineBackground         string `json:"editor.highlighted_line.background"`
-	EditorLineNumber                        string `json:"editor.line_number"`
-	EditorActiveLineNumber                  string `json:"editor.active_line_number"`
-	EditorHoverLineNumber                   string `json:"editor.hover_line_number"`
-	EditorSelectionBackground               string `json:"editor.selection.background,omitempty"`
-	EditorInvisible                         string `json:"editor.invisible"`
-	EditorWrapGuide                         string `json:"editor.wrap_guide"`
-	EditorActiveWrapGuide                   string `json:"editor.active_wrap_guide"`
-	EditorDocumentHighlightReadBackground   string `json:"editor.document_highlight.read_background"`
-	EditorDocumentHighlightWriteBackground  string `json:"editor.document_highlight.write_background"`
+	EditorForeground                       string `json:"editor.foreground"`
+	EditorBackground                       string `json:"editor.background"`
+	EditorGutterBackground                 string `json:"editor.gutter.background"`
+	EditorSubheaderBackground              string `json:"editor.subheader.background"`
+	EditorActiveLineBackground             string `json:"editor.active_line.background"`
+	EditorHighlightedLineBackground        string `json:"editor.highlighted_line.background"`
+	EditorLineNumber                       string `json:"editor.line_number"`
+	EditorActiveLineNumber                 string `json:"editor.active_line_number"`
+	EditorHoverLineNumber                  string `json:"editor.hover_line_number"`
+	EditorSelectionBackground              string `json:"editor.selection.background,omitempty"`
+	EditorInvisible                        string `json:"editor.invisible"`
+	EditorWrapGuide                        string `json:"editor.wrap_guide"`
+	EditorActiveWrapGuide                  string `json:"editor.active_wrap_guide"`
+	EditorDocumentHighlightReadBackground  string `json:"editor.document_highlight.read_background"`
+	EditorDocumentHighlightWriteBackground string `json:"editor.document_highlight.write_background"`
 
 	// Terminal
 	TerminalBackground        string `json:"terminal.background"`
@@ -138,10 +138,10 @@ type ThemeStyle struct {
 	LinkTextHover string `json:"link_text.hover"`
 
 	// Version control
-	VersionControlAdded              string `json:"version_control.added"`
-	VersionControlModified           string `json:"version_control.modified"`
-	VersionControlDeleted            string `json:"version_control.deleted"`
-	VersionControlConflictMarkerOurs string `json:"version_control.conflict_marker.ours,omitempty"`
+	VersionControlAdded                string `json:"version_control.added"`
+	VersionControlModified             string `json:"version_control.modified"`
+	VersionControlDeleted              string `json:"version_control.deleted"`
+	VersionControlConflictMarkerOurs   string `json:"version_control.conflict_marker.ours,omitempty"`
 	VersionControlConflictMarkerTheirs string `json:"version_control.conflict_marker.theirs,omitempty"`
 
 	// Status colors (in exact order)
@@ -216,14 +216,14 @@ type ThemeStyle struct {
 	ElementSelectionBackground string `json:"element.selection_background,omitempty"`
 
 	// Indent Guides
-	PanelIndentGuide       string `json:"panel.indent_guide,omitempty"`
-	PanelIndentGuideHover  string `json:"panel.indent_guide_hover,omitempty"`
-	PanelIndentGuideActive string `json:"panel.indent_guide_active,omitempty"`
-	EditorIndentGuide      string `json:"editor.indent_guide,omitempty"`
+	PanelIndentGuide        string `json:"panel.indent_guide,omitempty"`
+	PanelIndentGuideHover   string `json:"panel.indent_guide_hover,omitempty"`
+	PanelIndentGuideActive  string `json:"panel.indent_guide_active,omitempty"`
+	EditorIndentGuide       string `json:"editor.indent_guide,omitempty"`
 	EditorIndentGuideActive string `json:"editor.indent_guide_active,omitempty"`
 
 	// Editor Debugger
-	EditorDebuggerActiveLineBackground string `json:"editor.debugger_active_line.background,omitempty"`
+	EditorDebuggerActiveLineBackground       string `json:"editor.debugger_active_line.background,omitempty"`
 	EditorDocumentHighlightBracketBackground string `json:"editor.document_highlight.bracket_background,omitempty"`
 
 	// Scrollbar Active State
@@ -239,9 +239,9 @@ type ThemeStyle struct {
 	TerminalAnsiBackground string `json:"terminal.ansi.background,omitempty"`
 
 	// Additional Version Control
-	VersionControlRenamed string `json:"version_control.renamed,omitempty"`
+	VersionControlRenamed  string `json:"version_control.renamed,omitempty"`
 	VersionControlConflict string `json:"version_control.conflict,omitempty"`
-	VersionControlIgnored string `json:"version_control.ignored,omitempty"`
+	VersionControlIgnored  string `json:"version_control.ignored,omitempty"`
 
 	// Pane Group
 	PaneGroupBorder string `json:"pane_group.border,omitempty"`
@@ -267,47 +267,51 @@ type SyntaxStyle struct {
 
 // SyntaxStyles represents all syntax highlighting styles
 type SyntaxStyles struct {
-	Attribute           SyntaxStyle `json:"attribute"`
-	Boolean             SyntaxStyle `json:"boolean"`
-	Comment             SyntaxStyle `json:"comment"`
-	CommentDoc          SyntaxStyle `json:"comment.doc"`
-	Constant            SyntaxStyle `json:"constant"`
-	Constructor         SyntaxStyle `json:"constructor"`
-	Embedded            SyntaxStyle `json:"embedded"`
-	Emphasis            SyntaxStyle `json:"emphasis"`
-	EmphasisStrong      SyntaxStyle `json:"emphasis.strong"`
+	Attribute             SyntaxStyle `json:"attribute"`
+	Boolean               SyntaxStyle `json:"boolean"`
+	Comment               SyntaxStyle `json:"comment"`
+	CommentDoc            SyntaxStyle `json:"comment.doc"`
+	Constant              SyntaxStyle `json:"constant"`
+	Constructor           SyntaxStyle `json:"constructor"`
+	Embedded              SyntaxStyle `json:"embedded"`
+	Emphasis              SyntaxStyle `json:"emphasis"`
+	EmphasisStrong        SyntaxStyle `json:"emphasis.strong"`
 	Enum                  SyntaxStyle `json:"enum"`
 	Function              SyntaxStyle `json:"function"`
 	FunctionBuiltin       SyntaxStyle `json:"function.builtin"` // From Gruvbox theme
 	Hint                  SyntaxStyle `json:"hint"`
-	Keyword             SyntaxStyle `json:"keyword"`
-	Label               SyntaxStyle `json:"label"`
-	LinkText            SyntaxStyle `json:"link_text"`
-	LinkURI             SyntaxStyle `json:"link_uri"`
-	Namespace           SyntaxStyle `json:"namespace"`
-	Number              SyntaxStyle `json:"number"`
-	Operator            SyntaxStyle `json:"operator"`
-	Predictive          SyntaxStyle `json:"predictive"`
-	Preproc             SyntaxStyle `json:"preproc"`
-	Primary             SyntaxStyle `json:"primary"`
-	Property            SyntaxStyle `json:"property"`
-	Punctuation         SyntaxStyle `json:"punctuation"`
-	PunctuationBracket  SyntaxStyle `json:"punctuation.bracket"`
-	PunctuationDelimiter SyntaxStyle `json:"punctuation.delimiter"`
+	Keyword               SyntaxStyle `json:"keyword"`
+	Label                 SyntaxStyle `json:"label"`
+	LinkText              SyntaxStyle `json:"link_text"`
+	LinkURI               SyntaxStyle `json:"link_uri"`
+	Namespace             SyntaxStyle `json:"namespace"`
+	Number                SyntaxStyle `json:"number"`
+	Operator              SyntaxStyle `json:"operator"`
+	Predictive            SyntaxStyle `json:"predictive"`
+	Preproc               SyntaxStyle `json:"preproc"`
+	Primary               SyntaxStyle `json:"primary"`
+	Property              SyntaxStyle `json:"property"`
+	Punctuation           SyntaxStyle `json:"punctuation"`
+	PunctuationBracket    SyntaxStyle `json:"punctuation.bracket"`
+	PunctuationDelimiter  SyntaxStyle `json:"punctuation.delimiter"`
 	PunctuationListMarker SyntaxStyle `json:"punctuation.list_marker"`
-	PunctuationSpecial  SyntaxStyle `json:"punctuation.special"`
-	Selector            SyntaxStyle `json:"selector"`
-	SelectorPseudo      SyntaxStyle `json:"selector.pseudo"`
-	String              SyntaxStyle `json:"string"`
-	StringEscape        SyntaxStyle `json:"string.escape"`
-	StringRegex         SyntaxStyle `json:"string.regex"`
-	StringSpecial       SyntaxStyle `json:"string.special"`
-	StringSpecialSymbol SyntaxStyle `json:"string.special.symbol"`
-	Tag                 SyntaxStyle `json:"tag"`
-	TextLiteral         SyntaxStyle `json:"text.literal"`
-	Title               SyntaxStyle `json:"title"`
-	Type                SyntaxStyle `json:"type"`
-	Variable            SyntaxStyle `json:"variable"`
-	VariableSpecial     SyntaxStyle `json:"variable.special"`
-	Variant             SyntaxStyle `json:"variant"`
+	PunctuationSpecial    SyntaxStyle `json:"punctuation.special"`
+	Selector              SyntaxStyle `json:"selector"`
+	SelectorPseudo        SyntaxStyle `json:"selector.pseudo"`
+	String                SyntaxStyle `json:"string"`
+	StringEscape          SyntaxStyle `json:"string.escape"`
+	StringRegex           SyntaxStyle `json:"string.regex"`
+	StringSpecial         SyntaxStyle `json:"string.special"`
+	StringSpecialSymbol   SyntaxStyle `json:"string.special.symbol"`
+	Tag                   SyntaxStyle `json:"tag"`
+	TextLiteral           SyntaxStyle `json:"text.literal"`
+	Title                 SyntaxStyle `json:"title"`
+	Type                  SyntaxStyle `json:"type"`
+	Variable              SyntaxStyle `json:"variable"`
+	VariableSpecial       SyntaxStyle `json:"variable.special"`
+	Variant               SyntaxStyle `json:"variant"`
+
+	// Diff/Patch syntax highlighting
+	DiffPlus       SyntaxStyle `json:"diff.plus"`
+	DiffMinus      SyntaxStyle `json:"diff.minus"`
 }

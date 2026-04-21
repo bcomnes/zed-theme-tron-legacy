@@ -241,23 +241,23 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	// }
 
 	// Indent guides - use subtle borders/muted colors
-	style.PanelIndentGuide = p.Border  // Better contrast than BorderSubtle
+	style.PanelIndentGuide = p.Border // Better contrast than BorderSubtle
 	style.PanelIndentGuideHover = p.BorderFocused
 	style.PanelIndentGuideActive = p.UIAccent  // Use accent color
-	style.EditorIndentGuide = p.Border  // Better contrast than WrapGuide
-	style.EditorIndentGuideActive = p.UIAccent  // Use accent color
+	style.EditorIndentGuide = p.Border         // Better contrast than WrapGuide
+	style.EditorIndentGuideActive = p.UIAccent // Use accent color
 
 	// Editor debugger - use error/warning colors
 	style.EditorDebuggerActiveLineBackground = p.ErrorSurface
 	style.EditorDocumentHighlightBracketBackground = p.DocumentHighlight
 
 	// Scrollbar active state - use accent color with transparency
-	style.ScrollbarThumbActiveBackground = p.ScrollbarThumbActive  // Darker than hover with transparency
+	style.ScrollbarThumbActiveBackground = p.ScrollbarThumbActive // Darker than hover with transparency
 
 	// Minimap - similar to scrollbar but more transparent
-	style.MinimapThumbBackground = p.ScrollbarThumb  // Already has good transparency
-	style.MinimapThumbHoverBackground = p.ScrollbarThumbHover  // Use consistent hover state
-	style.MinimapThumbActiveBackground = p.ScrollbarThumbActive  // Use darker active color
+	style.MinimapThumbBackground = p.ScrollbarThumb             // Already has good transparency
+	style.MinimapThumbHoverBackground = p.ScrollbarThumbHover   // Use consistent hover state
+	style.MinimapThumbActiveBackground = p.ScrollbarThumbActive // Use darker active color
 	style.MinimapThumbBorder = p.Transparent
 
 	// Terminal ANSI background - same as terminal background
@@ -274,7 +274,6 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	// Debugger accent - use error color for breakpoints
 	style.DebuggerAccent = p.Error
 	// ========== END NEWLY ADDED FIELDS ==========
-
 
 	return Style{
 		Name:       name,
@@ -381,5 +380,9 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 		Variable:              SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: nil},
 		VariableSpecial:       SyntaxStyle{Color: p.SpecialVariable, FontStyle: str("italic"), FontWeight: nil},
 		Variant:               SyntaxStyle{Color: p.Enum, FontStyle: nil, FontWeight: nil},
+
+		// Diff/Patch syntax highlighting
+		DiffPlus:       SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil},     // Green for added lines (+)
+		DiffMinus:      SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},       // Red for removed lines (-)
 	}
 }
