@@ -139,8 +139,10 @@ type TronThemePalette struct {
 	// ==========================================================================
 	// Note: Git diffs use FOREGROUND colors because they overlay on syntax-highlighted text
 
-	VCSModified string // Git diff modified lines - used as FOREGROUND color
-	VCSConflict string // Git conflict backgrounds - used as BACKGROUND color
+	VCSModified    string // Git diff modified lines - used as FOREGROUND color
+	VCSConflict    string // Git conflict backgrounds - used as BACKGROUND color
+	VCSWordAdded   string // Added word backgrounds - Success at 35% opacity
+	VCSWordDeleted string // Deleted word backgrounds - Error at 80% opacity
 
 	// ==========================================================================
 	// UI Components

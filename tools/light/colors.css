@@ -99,6 +99,7 @@
   /* --green300: #8dc548ff; */ /* Unused - was TerminalBrightGreen */
 
   /* Green alpha variants */
+  --green400Alpha35: #7aad3a59;
   --green600Alpha24: #3a5f003d; /* Player3 - green with 24% opacity */
 
   /* Yellows/Oranges - Warning/Accent states */
@@ -119,6 +120,7 @@
   /* Reds - Error states */
   --red100: #ffe6e6ff; /* ErrorSurface - Error bg */
   --red600: #cc0033ff; /* Error, TerminalRed - Error red (darker for light bg) */
+  --red600Alpha80: #cc0033cc;
   --red500: #d91e18ff; /* String - Primary red (string color) */
   --red400: #e74c3cff; /* StringEscape - Light red */
   /* --red300: #ff6b6bff; */ /* Unused - was TerminalBrightRed */

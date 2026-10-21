@@ -46,6 +46,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		ElementSelected:      p.Border,
 		ElementDisabled:      p.BorderSubtle,
 		DropTargetBackground: p.DropTarget,
+		DropTargetBorder:     p.BorderFocused,
 
 		// Ghost elements
 		GhostElementBackground: p.Transparent,
@@ -78,7 +79,8 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		TabActiveBackground:        p.Background,
 
 		// Search
-		SearchMatchBackground: p.MatchHighlight,
+		SearchMatchBackground:       p.MatchHighlight,
+		SearchActiveMatchBackground: p.MatchHighlight,
 
 		// Panels
 		PanelBackground:    p.Surface,
@@ -142,9 +144,11 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		LinkTextHover: p.ForegroundMuted,
 
 		// Version control - use FOREGROUND colors for visibility over syntax highlighting
-		VersionControlAdded:    p.Success,     // Bright green foreground
-		VersionControlModified: p.VCSModified, // Bright yellow foreground
-		VersionControlDeleted:  p.Error,       // Bright red foreground
+		VersionControlAdded:       p.Success,     // Bright green foreground
+		VersionControlModified:    p.VCSModified, // Bright yellow foreground
+		VersionControlDeleted:     p.Error,       // Bright red foreground
+		VersionControlWordAdded:   p.VCSWordAdded,
+		VersionControlWordDeleted: p.VCSWordDeleted,
 
 		// Status colors
 		Conflict:           p.Accent,
@@ -204,6 +208,7 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 		WarningBorder:     p.Warning,
 
 		// Players and Syntax
+		Accents: p.Accents,
 		Players: generatePlayers(p),
 		Syntax:  generateSyntax(p),
 	}
@@ -216,14 +221,6 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	if p.BackgroundOverlay != "" {
 		style.PanelOverlayBackground = p.BackgroundOverlay
 		style.PanelOverlayHover = p.BackgroundOverlayHover
-	}
-
-	if p.Selection != "" {
-		style.EditorSelectionBackground = p.Selection
-	}
-
-	if p.Foreground != "" {
-		style.Foreground = p.Foreground
 	}
 
 	// Conflict markers use BACKGROUND colors for conflict section backgrounds
@@ -278,8 +275,8 @@ func GenerateThemeStyle(name string, appearance string, p TronThemePalette) Styl
 	return Style{
 		Name:       name,
 		Appearance: appearance,
-		Accents:    p.Accents, // From Gruvbox theme - optional accent colors for UI highlights
-		Style:      style,
+
+		Style: style,
 	}
 }
 
@@ -336,12 +333,14 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 	num := func(n int) *int { return &n }
 
 	return SyntaxStyles{
-		// Official theme field order
+		// Semantic-token rules use exact names, unlike Tree-sitter's dotted-prefix fallback.
 		Attribute:             SyntaxStyle{Color: p.Attribute, FontStyle: nil, FontWeight: nil},
 		Boolean:               SyntaxStyle{Color: p.Accent, FontStyle: str("italic"), FontWeight: nil},
 		Comment:               SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
 		CommentDoc:            SyntaxStyle{Color: p.Comment, FontStyle: nil, FontWeight: nil},
 		Constant:              SyntaxStyle{Color: p.Accent, FontStyle: str("italic"), FontWeight: nil},
+		ConstantBuiltin:       SyntaxStyle{Color: p.Accent, FontStyle: str("italic")},
+		Concept:               SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: num(700)},
 		Constructor:           SyntaxStyle{Color: p.Constructor, FontStyle: str("italic"), FontWeight: num(700)},
 		Embedded:              SyntaxStyle{Color: p.Embedded, FontStyle: nil, FontWeight: nil},
 		Emphasis:              SyntaxStyle{Color: p.Info, FontStyle: str("italic"), FontWeight: nil},
@@ -351,9 +350,14 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 		FunctionBuiltin:       SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: nil}, // From Gruvbox theme
 		Hint:                  SyntaxStyle{Color: p.Hint, FontStyle: str("italic"), FontWeight: nil},
 		Keyword:               SyntaxStyle{Color: p.Keyword, FontStyle: str("italic"), FontWeight: nil},
+		KeywordModifier:       SyntaxStyle{Color: p.Keyword, FontStyle: str("italic")},
+		Lifetime:              SyntaxStyle{Color: p.Decorator},
 		Label:                 SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
 		LinkText:              SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
 		LinkURI:               SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
+		MarkupHeading:         SyntaxStyle{Color: p.Variable, FontWeight: num(700)},
+		MarkupLinkURL:         SyntaxStyle{Color: p.Namespace},
+		Module:                SyntaxStyle{Color: p.Namespace},
 		Namespace:             SyntaxStyle{Color: p.Namespace, FontStyle: nil, FontWeight: nil},
 		Number:                SyntaxStyle{Color: p.Number, FontStyle: nil, FontWeight: nil},
 		Operator:              SyntaxStyle{Color: p.Keyword, FontStyle: nil, FontWeight: nil},
@@ -365,24 +369,29 @@ func generateSyntax(p TronThemePalette) SyntaxStyles {
 		PunctuationBracket:    SyntaxStyle{Color: p.Punctuation, FontStyle: nil, FontWeight: nil},
 		PunctuationDelimiter:  SyntaxStyle{Color: p.PunctuationMuted, FontStyle: nil, FontWeight: nil},
 		PunctuationListMarker: SyntaxStyle{Color: p.UIAccent, FontStyle: nil, FontWeight: nil},
+		PunctuationMarkup:     SyntaxStyle{Color: p.Punctuation},
 		PunctuationSpecial:    SyntaxStyle{Color: p.Info, FontStyle: nil, FontWeight: nil},
 		Selector:              SyntaxStyle{Color: p.Property, FontStyle: nil, FontWeight: nil},
 		SelectorPseudo:        SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
 		String:                SyntaxStyle{Color: p.String, FontStyle: nil, FontWeight: nil},
 		StringEscape:          SyntaxStyle{Color: p.StringEscape, FontStyle: nil, FontWeight: nil},
 		StringRegex:           SyntaxStyle{Color: p.Regex, FontStyle: nil, FontWeight: nil},
+		StringRegexp:          SyntaxStyle{Color: p.Regex},
 		StringSpecial:         SyntaxStyle{Color: p.Decorator, FontStyle: nil, FontWeight: nil},
 		StringSpecialSymbol:   SyntaxStyle{Color: p.Accent, FontStyle: nil, FontWeight: nil},
 		Tag:                   SyntaxStyle{Color: p.Tag, FontStyle: nil, FontWeight: nil},
+		Text:                  SyntaxStyle{Color: p.Foreground},
 		TextLiteral:           SyntaxStyle{Color: p.Embedded, FontStyle: nil, FontWeight: nil},
 		Title:                 SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: num(700)},
 		Type:                  SyntaxStyle{Color: p.Type, FontStyle: str("italic"), FontWeight: num(700)},
 		Variable:              SyntaxStyle{Color: p.Variable, FontStyle: nil, FontWeight: nil},
+		VariableParameter:     SyntaxStyle{Color: p.Variable},
 		VariableSpecial:       SyntaxStyle{Color: p.SpecialVariable, FontStyle: str("italic"), FontWeight: nil},
 		Variant:               SyntaxStyle{Color: p.Enum, FontStyle: nil, FontWeight: nil},
 
 		// Diff/Patch syntax highlighting
-		DiffPlus:       SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil},     // Green for added lines (+)
-		DiffMinus:      SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},       // Red for removed lines (-)
+		DiffDelta: SyntaxStyle{Color: p.VCSModified},
+		DiffPlus:  SyntaxStyle{Color: p.Success, FontStyle: nil, FontWeight: nil}, // Green for added lines (+)
+		DiffMinus: SyntaxStyle{Color: p.Error, FontStyle: nil, FontWeight: nil},   // Red for removed lines (-)
 	}
 }
