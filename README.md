@@ -32,6 +32,32 @@ The colors are defined in colors.css files as css variables so that zed can disp
 The colors are loaded into [`palette.go`](./tools/dark/palette.go) and assigned to a semantic [`TronThemePalette`](./tools/palette/palette.go) mapping.
 These semantic mappings are then fed into [`generator.go`](./tools/palette/generator.go) and the final output ends up in [`themes/tron-legacy.json`](./themes/tron-legacy.json).
 
+## Releasing
+
+The project and its pinned release tool require Go 1.26 or newer. Start from a clean
+working tree on the release branch with all intended changes committed. Install and
+authenticate the GitHub CLI (`gh auth login`) to create the GitHub Release.
+
+```console
+make version bump=patch
+make test
+make publish
+```
+
+`make version` updates `version.go` and `extension.toml`, commits the bump, and creates
+the local version tag. `make publish` runs `goversion publish -no-proxy`: it pushes the
+branch and tag to `origin` and creates or reuses a GitHub Release, without publishing
+the module to the Go proxy. Publishing requires a clean working tree with the release
+tag at HEAD. To preview publishing without changing remote state:
+
+```console
+go tool github.com/bcomnes/goversion/v2 publish -no-proxy -dry
+```
+
+To deliver the release to Zed users, separately submit a PR to
+[zed-industries/extensions](https://github.com/zed-industries/extensions), updating
+Tron's submodule commit and registry version to match the release.
+
 ## Upstream reconciliation
 
 Last audited on **2026-10-21**, against Zed commit

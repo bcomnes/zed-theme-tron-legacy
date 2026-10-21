@@ -1,4 +1,4 @@
-.PHONY: all build deps generate help test version
+.PHONY: all build deps generate help publish test version
 
 CHECK_FILES ?= $$(go list ./... | grep -v /vendor/)
 
@@ -18,6 +18,9 @@ generate: ## Generate theme files
 
 test: ## Run tests
 	go test -v $(CHECK_FILES)
+
+publish: ## Push the version commit/tag and create a GitHub Release (no Go proxy).
+	go tool github.com/bcomnes/goversion/v2 publish -no-proxy
 
 version: ## Run the goversion tool. Usage: make version bump="patch"
 	@# Check that the 'bump' variable is provided.
