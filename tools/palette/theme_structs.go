@@ -10,10 +10,10 @@ type Theme struct {
 
 // Style represents a single theme style variant
 type Style struct {
-	Name       string      `json:"name"`
-	Appearance string      `json:"appearance"`
-	Accents    []string    `json:"accents,omitempty"`
-	Style      *ThemeStyle `json:"style"`
+	Name       string `json:"name"`
+	Appearance string `json:"appearance"`
+
+	Style *ThemeStyle `json:"style"`
 }
 
 // ThemeStyle represents the style properties in the exact order of official themes
@@ -39,6 +39,7 @@ type ThemeStyle struct {
 	ElementSelected      string `json:"element.selected"`
 	ElementDisabled      string `json:"element.disabled"`
 	DropTargetBackground string `json:"drop_target.background"`
+	DropTargetBorder     string `json:"drop_target.border"`
 
 	// Ghost elements
 	GhostElementBackground string `json:"ghost_element.background"`
@@ -71,7 +72,8 @@ type ThemeStyle struct {
 	TabActiveBackground        string `json:"tab.active_background"`
 
 	// Search
-	SearchMatchBackground string `json:"search.match_background"`
+	SearchMatchBackground       string `json:"search.match_background"`
+	SearchActiveMatchBackground string `json:"search.active_match_background"`
 
 	// Panels
 	PanelBackground        string `json:"panel.background"`
@@ -88,16 +90,16 @@ type ThemeStyle struct {
 	ScrollbarTrackBorder          string `json:"scrollbar.track.border"`
 
 	// Editor
-	EditorForeground                       string `json:"editor.foreground"`
-	EditorBackground                       string `json:"editor.background"`
-	EditorGutterBackground                 string `json:"editor.gutter.background"`
-	EditorSubheaderBackground              string `json:"editor.subheader.background"`
-	EditorActiveLineBackground             string `json:"editor.active_line.background"`
-	EditorHighlightedLineBackground        string `json:"editor.highlighted_line.background"`
-	EditorLineNumber                       string `json:"editor.line_number"`
-	EditorActiveLineNumber                 string `json:"editor.active_line_number"`
-	EditorHoverLineNumber                  string `json:"editor.hover_line_number"`
-	EditorSelectionBackground              string `json:"editor.selection.background,omitempty"`
+	EditorForeground                string `json:"editor.foreground"`
+	EditorBackground                string `json:"editor.background"`
+	EditorGutterBackground          string `json:"editor.gutter.background"`
+	EditorSubheaderBackground       string `json:"editor.subheader.background"`
+	EditorActiveLineBackground      string `json:"editor.active_line.background"`
+	EditorHighlightedLineBackground string `json:"editor.highlighted_line.background"`
+	EditorLineNumber                string `json:"editor.line_number"`
+	EditorActiveLineNumber          string `json:"editor.active_line_number"`
+	EditorHoverLineNumber           string `json:"editor.hover_line_number"`
+
 	EditorInvisible                        string `json:"editor.invisible"`
 	EditorWrapGuide                        string `json:"editor.wrap_guide"`
 	EditorActiveWrapGuide                  string `json:"editor.active_wrap_guide"`
@@ -141,6 +143,8 @@ type ThemeStyle struct {
 	VersionControlAdded                string `json:"version_control.added"`
 	VersionControlModified             string `json:"version_control.modified"`
 	VersionControlDeleted              string `json:"version_control.deleted"`
+	VersionControlWordAdded            string `json:"version_control.word_added"`
+	VersionControlWordDeleted          string `json:"version_control.word_deleted"`
 	VersionControlConflictMarkerOurs   string `json:"version_control.conflict_marker.ours,omitempty"`
 	VersionControlConflictMarkerTheirs string `json:"version_control.conflict_marker.theirs,omitempty"`
 
@@ -160,8 +164,6 @@ type ThemeStyle struct {
 	Error           string `json:"error"`
 	ErrorBackground string `json:"error.background"`
 	ErrorBorder     string `json:"error.border"`
-
-	Foreground string `json:"foreground,omitempty"`
 
 	Hidden           string `json:"hidden"`
 	HiddenBackground string `json:"hidden.background"`
@@ -204,6 +206,7 @@ type ThemeStyle struct {
 	WarningBorder     string `json:"warning.border"`
 
 	// Players and Syntax
+	Accents []string     `json:"accents,omitempty"`
 	Players []Player     `json:"players"`
 	Syntax  SyntaxStyles `json:"syntax"`
 
@@ -272,6 +275,8 @@ type SyntaxStyles struct {
 	Comment               SyntaxStyle `json:"comment"`
 	CommentDoc            SyntaxStyle `json:"comment.doc"`
 	Constant              SyntaxStyle `json:"constant"`
+	ConstantBuiltin       SyntaxStyle `json:"constant.builtin"`
+	Concept               SyntaxStyle `json:"concept"`
 	Constructor           SyntaxStyle `json:"constructor"`
 	Embedded              SyntaxStyle `json:"embedded"`
 	Emphasis              SyntaxStyle `json:"emphasis"`
@@ -281,9 +286,14 @@ type SyntaxStyles struct {
 	FunctionBuiltin       SyntaxStyle `json:"function.builtin"` // From Gruvbox theme
 	Hint                  SyntaxStyle `json:"hint"`
 	Keyword               SyntaxStyle `json:"keyword"`
+	KeywordModifier       SyntaxStyle `json:"keyword.modifier"`
+	Lifetime              SyntaxStyle `json:"lifetime"`
 	Label                 SyntaxStyle `json:"label"`
 	LinkText              SyntaxStyle `json:"link_text"`
 	LinkURI               SyntaxStyle `json:"link_uri"`
+	MarkupHeading         SyntaxStyle `json:"markup.heading"`
+	MarkupLinkURL         SyntaxStyle `json:"markup.link.url"`
+	Module                SyntaxStyle `json:"module"`
 	Namespace             SyntaxStyle `json:"namespace"`
 	Number                SyntaxStyle `json:"number"`
 	Operator              SyntaxStyle `json:"operator"`
@@ -295,23 +305,28 @@ type SyntaxStyles struct {
 	PunctuationBracket    SyntaxStyle `json:"punctuation.bracket"`
 	PunctuationDelimiter  SyntaxStyle `json:"punctuation.delimiter"`
 	PunctuationListMarker SyntaxStyle `json:"punctuation.list_marker"`
+	PunctuationMarkup     SyntaxStyle `json:"punctuation.markup"`
 	PunctuationSpecial    SyntaxStyle `json:"punctuation.special"`
 	Selector              SyntaxStyle `json:"selector"`
 	SelectorPseudo        SyntaxStyle `json:"selector.pseudo"`
 	String                SyntaxStyle `json:"string"`
 	StringEscape          SyntaxStyle `json:"string.escape"`
 	StringRegex           SyntaxStyle `json:"string.regex"`
+	StringRegexp          SyntaxStyle `json:"string.regexp"`
 	StringSpecial         SyntaxStyle `json:"string.special"`
 	StringSpecialSymbol   SyntaxStyle `json:"string.special.symbol"`
 	Tag                   SyntaxStyle `json:"tag"`
+	Text                  SyntaxStyle `json:"text"`
 	TextLiteral           SyntaxStyle `json:"text.literal"`
 	Title                 SyntaxStyle `json:"title"`
 	Type                  SyntaxStyle `json:"type"`
 	Variable              SyntaxStyle `json:"variable"`
+	VariableParameter     SyntaxStyle `json:"variable.parameter"`
 	VariableSpecial       SyntaxStyle `json:"variable.special"`
 	Variant               SyntaxStyle `json:"variant"`
 
 	// Diff/Patch syntax highlighting
-	DiffPlus       SyntaxStyle `json:"diff.plus"`
-	DiffMinus      SyntaxStyle `json:"diff.minus"`
+	DiffDelta SyntaxStyle `json:"diff.delta"`
+	DiffPlus  SyntaxStyle `json:"diff.plus"`
+	DiffMinus SyntaxStyle `json:"diff.minus"`
 }

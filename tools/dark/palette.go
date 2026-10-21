@@ -126,8 +126,10 @@ func GetPalette() palette.TronThemePalette {
 		TerminalDimMagenta:   colors.MustGet("pink500"),    // Same as regular magenta
 
 		// Version Control
-		VCSModified: colors.MustGet("yellow400"),
-		VCSConflict: colors.MustGet("orange400"),
+		VCSModified:    colors.MustGet("yellow400"),
+		VCSConflict:    colors.MustGet("orange400"),
+		VCSWordAdded:   colors.MustGet("green300Alpha35"),
+		VCSWordDeleted: colors.MustGet("red500Alpha80"),
 
 		// UI Components
 		ScrollbarThumb:       colors.MustGet("neutral600Alpha"),
